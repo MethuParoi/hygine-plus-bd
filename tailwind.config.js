@@ -8,7 +8,7 @@ export default {
         accentHover: "#fca5a5",
       },
       fontFamily: {
-        poppins: ["poppins", "serif"],
+        poppins: ["Barlow", "poppins", "serif"],
       },
     },
   },
