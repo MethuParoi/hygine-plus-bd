@@ -22,7 +22,7 @@ function MainLayout() {
   };
 
   return (
-    <div className="min-h-screen min-w-screen flex flex-col justify-between overflow-x-hidden barlow-font">
+    <div className="min-h-screen flex flex-col justify-between overflow-x-hidden barlow-font">
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <Outlet />
       <Footer />
