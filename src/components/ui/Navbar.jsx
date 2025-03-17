@@ -5,7 +5,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="navbar bg-blue-400 shadow-sm px-8">
+    <div className="navbar bg-indigo-300 shadow-sm px-8">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -74,7 +74,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button onClick={() => navigate("/login")} className='px-4 py-2 bg-red-300 rounded-xl text-lg text-gray-50 cursor-pointer hover:bg-red-400'>Login</button>
+        <button
+          onClick={() => navigate("/login")}
+          className="px-4 py-2 bg-red-300 rounded-xl text-lg text-gray-50 cursor-pointer hover:bg-red-400"
+        >
+          Login
+        </button>
       </div>
     </div>
   );
