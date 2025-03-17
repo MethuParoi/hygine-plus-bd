@@ -2,7 +2,7 @@ import { FaFacebook, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <div className="bg-blue-400 text-neutral p-10 flex flex-col items-center">
+    <div className="bg-indigo-300 text-neutral p-10 flex flex-col items-center">
       <footer className="footer flex lg:flex-row flex-col items-start justify-center gap-x-72">
         <aside className="flex sm:flex-row flex-col sm:gap-x-4 sm:items-center">
           {/* <img className="w-32 h-32" src={logo} alt="" /> */}
