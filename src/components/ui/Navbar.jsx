@@ -1,88 +1,92 @@
-import React from 'react'
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
+import { FaSearch } from "react-icons/fa";
+import flag from "../../assets/navbar/bd-flag.png";
+import logo from "../../assets/logo/logo-white.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="navbar bg-indigo-300 shadow-sm px-8">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+    <div className="bg-gray-900 text-gray-50 shadow-sm pt-4 px-8">
+      {/* upper navbar */}
+      <div className="flex justify-between items-center mb-2">
+        <div>
+          <img className="w-8" src={flag} alt="" />
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div>
+          <div className="flex gap-x-4">
+            <div className="relative">
+              <input
+                className="bg-gray-50 rounded-[2rem] w-64 h-10 text-gray-900 px-4"
+                type="text"
+                placeholder="Search Products"
+              />
+              <button
+                onClick={() => navigate("/")}
+                className="absolute top-0 right-0 text-lg cursor-pointer bg-gray-600 hover:bg-gray-700 h-10 w-12 flex items-center justify-center rounded-r-[2rem] focus:ring-0 focus:ring-transparent"
+              >
+                <FaSearch className="text-2xl" />
+              </button>
+            </div>
+            <button
+              onClick={() => navigate("/")}
+              className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+            >
+              SUPPORT
+            </button>
+
+            {/* vertical line */}
+            <div className="border-l border-gray-50"></div>
+
+            <button
+              onClick={() => navigate("/login")}
+              className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+            >
+              LOGIN
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
-      </div>
-      <div className="navbar-end">
-        <button
-          onClick={() => navigate("/login")}
-          className="px-4 py-2 bg-red-300 rounded-xl text-lg text-gray-50 cursor-pointer hover:bg-red-400"
-        >
-          Login
-        </button>
+
+      {/* lower navbar */}
+      <div className="border-t border-gray-50 mt-2 flex justify-between items-center">
+        <div className="flex items-center gap-x-4">
+          <button
+            onClick={() => navigate("/")}
+            className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+          >
+            Bathware
+          </button>
+          <button
+            onClick={() => navigate("/")}
+            className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+          >
+            Kitchenware
+          </button>
+        </div>
+
+        {/* logo */}
+        <div className="cursor-pointer" onClick={() => navigate("/")}>
+          <img className="w-[25rem]" src={logo} alt="" />
+        </div>
+
+        <div className="flex items-center gap-x-4">
+          <button
+            onClick={() => navigate("/")}
+            className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+          >
+            New Arrivals
+          </button>
+          <button
+            onClick={() => navigate("/")}
+            className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+          >
+            Careers
+          </button>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
