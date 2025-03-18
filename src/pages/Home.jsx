@@ -1,12 +1,18 @@
-import React from 'react'
-import Hero from '../components/home/Hero';
-import NewArrival from '../components/home/NewArrival';
+import Hero from "../components/home/Hero";
+import NewArrival from "../components/home/NewArrival";
+import { getProducts } from "../utils/apiProduct";
 
 const Home = () => {
-  return <div className='overflow-x-hidden'>
-    <Hero></Hero>
-    <NewArrival></NewArrival>
-  </div>;
-}
+  // Fetch products from the database once in a day
+  setInterval(() => {
+    getProducts();
+  }, 86400000);
+  return (
+    <div className="overflow-x-hidden">
+      <Hero></Hero>
+      <NewArrival></NewArrival>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
