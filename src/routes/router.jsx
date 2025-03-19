@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import Products from "../pages/Products";
+import Dashboard from "../pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,17 @@ const router = createBrowserRouter([
         path: "/products",
         element: <Products />,
       },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
     ],
+  },
+
+  // admin layout
+  {
+    path: "/admin/dashboard",
+    element: <Dashboard />,
   },
 
   {
