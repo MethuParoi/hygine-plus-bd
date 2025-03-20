@@ -72,19 +72,21 @@ const Dashboard = () => {
   }, [initialProducts]);
 
   //fetch admin data
-  useEffect(() => {
-    async function fetchAdmin() {
-      const admin = await getAdmin();
-      setAdminData(admin);
-    }
+  //   useEffect(() => {
+  //     async function fetchAdmin() {
+  //       const admin = await getAdmin();
+  //       setAdminData(admin);
+  //     }
 
-    fetchAdmin();
-  }, []);
+  //     fetchAdmin();
+  //   }, []);
 
   const modalHandler = () => {
+    console.log("modalHandler");
     if (modal) {
       setProductToEdit(null); // Reset productToEdit when closing the modal
     }
+    console.log("modalHandler");
     setModal(!modal);
   };
 
@@ -97,28 +99,10 @@ const Dashboard = () => {
     try {
       await deleteProduct(productId);
       setProductData(productData.filter((p) => p.product_id !== productId));
-      toast.success("Products deleted succesfuly!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      toast.success("Products deleted succesfuly!");
     } catch (error) {
       console.error("Failed to delete product:", error);
-      toast.error("Failed to delete product!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      toast.error("Failed to delete product!");
     }
   };
   return (
@@ -166,26 +150,23 @@ const Dashboard = () => {
           <div>
             <Button
               label="Add Product"
-              onClick={() => modalHandler()}
-              isActive={false}
-              setActiveButton={function (label) {
-                throw new Error("Function not implemented.");
+              type="primary"
+              handleClick={() => {
+                console.log("Button clicked");
+                modalHandler();
               }}
             />
           </div>
           <div className="self-end">
             <Button
               label="View All Product"
-              onClick={() => setInitialProducts("all")}
-              isActive={false}
-              setActiveButton={function (label) {
-                throw new Error("Function not implemented.");
-              }}
+              type="primary"
+              handleClick={() => setInitialProducts("all")}
             />
           </div>
         </div>
         {modal && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="fixed inset-0 flex items-center justify-center backdrop-blur bg-opacity-10 z-50">
             <ProductsForm
               modalHandler={modalHandler}
               productToEdit={productToEdit}
