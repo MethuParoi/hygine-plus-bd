@@ -20,7 +20,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       {data.length > 0 ? (
         data.map((product) => (
           <ProductCard key={product.id} product={product} />
