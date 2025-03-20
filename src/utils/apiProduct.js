@@ -9,3 +9,15 @@ export async function getProducts() {
   console.log(data);
   return data;
 }
+
+export async function getProductDetails(productId) {
+  const { data, error } = await supabase
+    .from("products_table")
+    .select("*")
+    .eq("product_id", productId);
+  if (error) {
+    console.error(error);
+    throw new Error("An error occurred while fetching product details");
+  }
+return data;
+}
