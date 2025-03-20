@@ -62,15 +62,12 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
     const filteredData = Object.keys(data)
       .filter(
         (key) =>
-          key === "description" ||
-          key === "productCategory" ||
-          key === "productTitle" ||
-          key === "rating" ||
-          key === "regularPrice" ||
+          key === "product_description" ||
+          key === "product_category" ||
+          key === "product_name" ||
+          key === "product_price" ||
           key === "discountedPrice" ||
-          key === "inStock" ||
-          key === "image" ||
-          key === "productColor"
+          key === "image"
       )
       .reduce((obj, key) => {
         obj[key] = data[key];
@@ -115,18 +112,22 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
 
   return (
     <div className=" inset-0 bg-opacity-30 flex flex-col justify-center items-center z-50">
-      {/* <div className="place-self-end">
+      <div className="place-self-end">
         <button
+          className="cursor-pointer"
           onClick={() => {
             modalHandler();
             handleClose();
           }}
         >
-          <IoCloseSharp className="text-gray-300" size={"5rem"} />
+          <IoCloseSharp className="text-gray-600" size={"3rem"} />
         </button>
-      </div> */}
-      <div className="bg-gray-200 w-[70rem] h-[40rem] py-[2rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200">
+      </div>
+      <div className="bg-gray-200 w-[70rem] h-[36rem] py-[2rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200">
         <form ref={formRef} onSubmit={handleSubmit(onSubmit, onError)}>
+          <h1 className="flex justify-center text-gray-700 text-3xl font-bold mb-[2rem] mr-[6rem]">
+            {isEditing ? "Edit Product" : "Add a new Product"}
+          </h1>
           {/* title  and category */}
           <div className="mb-[2rem] relative flex items-center gap-x-[4.7rem]">
             {/* title */}
@@ -135,15 +136,15 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="text"
-                id="productTitle"
+                id="product_name"
                 disabled={isWorking}
-                {...register("productTitle", {
+                {...register("product_name", {
                   required: "Product title is required",
                 })}
               />
-              {errors.productTitle && (
+              {errors.product_name && (
                 <p className="text-red-500 absolute">
-                  {errors.productTitle.message?.toString() || ""}
+                  {errors.product_name.message?.toString() || ""}
                 </p>
               )}
             </div>
@@ -153,9 +154,9 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="text"
-                id="productCategory"
+                id="product_category"
                 disabled={isWorking}
-                {...register("productCategory", {
+                {...register("product_category", {
                   required: "Product category is required",
                   onChange: (e) => {
                     const value = e.target.value.toLowerCase();
@@ -163,9 +164,9 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
                   },
                 })}
               />
-              {errors.productCategory && (
+              {errors.product_category && (
                 <p className="text-red-500 absolute">
-                  {errors.productCategory?.message?.toString()}
+                  {errors.product_category?.message?.toString()}
                 </p>
               )}
             </div>
@@ -173,26 +174,44 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
 
           <div className="mb-[2rem] relative flex items-center gap-x-[4.7rem]">
             <div className=" relative">
-              <p className="text-gray-600 font-medium">
-                Product price(without discount)*
-              </p>
+              <p className="text-gray-600 font-medium">Product price*</p>
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="number"
-                id="regularPrice"
+                id="product_price"
                 disabled={isWorking}
-                {...register("regularPrice", {
+                {...register("product_price", {
                   required: "Product price is required",
                 })}
               />
-              {errors.regularPrice && (
+              {errors.product_price && (
                 <p className="text-red-500 absolute">
-                  {errors.regularPrice?.message?.toString()}
+                  {errors.product_price?.message?.toString()}
                 </p>
               )}
             </div>
 
-            <div className=" relative">
+            <div className="relative">
+              <p className="text-gray-600 font-medium">
+                Description of product*
+              </p>
+              <textarea
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                id="product_description"
+                defaultValue=""
+                disabled={isWorking}
+                {...register("product_description", {
+                  required: "Product description is required",
+                })}
+              />
+              {errors.product_description && (
+                <p className="text-red-500 absolute">
+                  {errors.product_description?.message?.toString()}
+                </p>
+              )}
+            </div>
+
+            {/* <div className=" relative">
               <p className="text-gray-600 font-medium">
                 Product price (with discount)*
               </p>
@@ -210,26 +229,9 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
                   {errors.discountedPrice?.message?.toString()}
                 </p>
               )}
-            </div>
+            </div> */}
           </div>
 
-          <div className="relative">
-            <p className="text-gray-600 font-medium">
-              Description of product(optional)
-            </p>
-            <textarea
-              className="w-[55rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
-              id="description"
-              defaultValue=""
-              disabled={isWorking}
-              {...register("description")}
-            />
-            {errors.description && (
-              <p className="text-red-500 absolute">
-                {errors.description?.message?.toString()}
-              </p>
-            )}
-          </div>
           {/* photo */}
           <div className="mb-[3.5rem] relative">
             <p className="text-gray-600 font-medium">Product photos</p>
