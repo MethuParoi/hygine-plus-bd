@@ -29,7 +29,7 @@ export async function createProduct(newProduct, id) {
 
       const imagePath = hasImagePath
         ? image
-        : `${supabaseUrl}/storage/v1/object/public/product_images/${imageName}`;
+        : `${supabaseUrl}/storage/v1/object/public/product-images/${imageName}`;
 
       imageUrls.push(imagePath);
 

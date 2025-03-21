@@ -62,15 +62,12 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
     const filteredData = Object.keys(data)
       .filter(
         (key) =>
-          key === "description" ||
-          key === "productCategory" ||
-          key === "productTitle" ||
-          key === "rating" ||
-          key === "regularPrice" ||
+          key === "product_description" ||
+          key === "product_category" ||
+          key === "product_name" ||
+          key === "product_price" ||
           key === "discountedPrice" ||
-          key === "inStock" ||
-          key === "image" ||
-          key === "productColor"
+          key === "image"
       )
       .reduce((obj, key) => {
         obj[key] = data[key];
@@ -114,47 +111,52 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
   }
 
   return (
-    <div className=" inset-0 bg-opacity-30 flex flex-col justify-center items-center">
+    <div className=" inset-0 bg-opacity-30 flex flex-col justify-center items-center z-50">
       <div className="place-self-end">
         <button
+          className="cursor-pointer"
           onClick={() => {
             modalHandler();
             handleClose();
           }}
         >
-          <IoCloseSharp className="text-gray-300" size={"5rem"} />
+          <IoCloseSharp className="text-gray-600" size={"3rem"} />
         </button>
       </div>
-      <div className="bg-gray-100 w-[88rem] h-[82rem] py-[2rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200">
+      <div className="bg-gray-200 w-[70rem] h-[36rem] py-[2rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200">
         <form ref={formRef} onSubmit={handleSubmit(onSubmit, onError)}>
-          <div className="mb-[3.5rem] relative">
-            <p className="text-gray-600 font-medium">Product title*</p>
-            <input
-              className="w-[75rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
-              type="text"
-              id="productTitle"
-              disabled={isWorking}
-              {...register("productTitle", {
-                required: "Product title is required",
-              })}
-            />
-            {errors.productTitle && (
-              <p className="text-red-500 absolute">
-                {errors.productTitle.message?.toString() || ""}
-              </p>
-            )}
-          </div>
-          {/* category */}
-
-          <div className="mb-[3.5rem] relative flex items-center gap-x-[4.7rem]">
+          <h1 className="flex justify-center text-gray-700 text-3xl font-bold mb-[2rem] mr-[6rem]">
+            {isEditing ? "Edit Product" : "Add a new Product"}
+          </h1>
+          {/* title  and category */}
+          <div className="mb-[2rem] relative flex items-center gap-x-[4.7rem]">
+            {/* title */}
+            <div className="relative">
+              <p className="text-gray-600 font-medium">Product title*</p>
+              <input
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                type="text"
+                id="product_name"
+                disabled={isWorking}
+                {...register("product_name", {
+                  required: "Product title is required",
+                })}
+              />
+              {errors.product_name && (
+                <p className="text-red-500 absolute">
+                  {errors.product_name.message?.toString() || ""}
+                </p>
+              )}
+            </div>
+            {/* category */}
             <div className=" relative">
               <p className="text-gray-600 font-medium">Product Category*</p>
               <input
-                className="w-[35rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="text"
-                id="productCategory"
+                id="product_category"
                 disabled={isWorking}
-                {...register("productCategory", {
+                {...register("product_category", {
                   required: "Product category is required",
                   onChange: (e) => {
                     const value = e.target.value.toLowerCase();
@@ -162,65 +164,59 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
                   },
                 })}
               />
-              {errors.productCategory && (
+              {errors.product_category && (
                 <p className="text-red-500 absolute">
-                  {errors.productCategory?.message?.toString()}
-                </p>
-              )}
-            </div>
-
-            <div className=" relative">
-              <p className="text-gray-600 font-medium">
-                Product colors(ex: red, black)*
-              </p>
-              <input
-                className="w-[35rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
-                type="text"
-                id="productColor"
-                disabled={isWorking}
-                {...register("productColor", {
-                  required: "Product color is required",
-                  onChange: (e) => {
-                    const value = e.target.value.toLowerCase();
-                    e.target.value = value;
-                  },
-                })}
-              />
-              {errors.productColor && (
-                <p className="text-red-500 absolute">
-                  {errors.productColor?.message?.toString()}
+                  {errors.product_category?.message?.toString()}
                 </p>
               )}
             </div>
           </div>
 
-          <div className="mb-[3.5rem] relative flex items-center gap-x-[4.7rem]">
+          <div className="mb-[2rem] relative flex items-center gap-x-[4.7rem]">
             <div className=" relative">
-              <p className="text-gray-600 font-medium">
-                Product price(without discount)*
-              </p>
+              <p className="text-gray-600 font-medium">Product price*</p>
               <input
-                className="w-[35rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="number"
-                id="regularPrice"
+                id="product_price"
                 disabled={isWorking}
-                {...register("regularPrice", {
+                {...register("product_price", {
                   required: "Product price is required",
                 })}
               />
-              {errors.regularPrice && (
+              {errors.product_price && (
                 <p className="text-red-500 absolute">
-                  {errors.regularPrice?.message?.toString()}
+                  {errors.product_price?.message?.toString()}
                 </p>
               )}
             </div>
 
-            <div className=" relative">
+            <div className="relative">
+              <p className="text-gray-600 font-medium">
+                Description of product*
+              </p>
+              <textarea
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                id="product_description"
+                defaultValue=""
+                disabled={isWorking}
+                {...register("product_description", {
+                  required: "Product description is required",
+                })}
+              />
+              {errors.product_description && (
+                <p className="text-red-500 absolute">
+                  {errors.product_description?.message?.toString()}
+                </p>
+              )}
+            </div>
+
+            {/* <div className=" relative">
               <p className="text-gray-600 font-medium">
                 Product price (with discount)*
               </p>
               <input
-                className="w-[35rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="number"
                 id="discountedPrice"
                 disabled={isWorking}
@@ -233,95 +229,16 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
                   {errors.discountedPrice?.message?.toString()}
                 </p>
               )}
-            </div>
+            </div> */}
           </div>
 
-          <div className="relative flex items-center gap-x-[4.7rem]">
-            <div className="mb-[3.5rem] relative">
-              <p className="text-gray-600 font-medium">
-                Product rating (optional)
-              </p>
-              <input
-                className="w-[35rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
-                type="number"
-                id="rating"
-                disabled={isWorking}
-                defaultValue={0}
-                {...register("rating", {
-                  validate: (value) => {
-                    if (Number(value) > 5) {
-                      return "rating should be less than 5";
-                    }
-                    if (Number(value) < 0) {
-                      return "rating should be greater than 0";
-                    }
-                    return true;
-                  },
-                })}
-              />
-              {errors.rating && (
-                <p className="text-red-500 absolute">
-                  {errors.rating?.message?.toString()}
-                </p>
-              )}
-            </div>
-
-            <div className=" relative">
-              <p className="text-gray-600 font-medium">
-                Is product available in stock*
-              </p>
-              <div className="flex items-center mt-[1rem]">
-                <input
-                  className="w-[2rem] h-[2rem] rounded-[0.5rem] border-2 border-primary-dark shadow-md"
-                  type="checkbox"
-                  id="inStock"
-                  disabled={isWorking}
-                  {...register("inStock")}
-                />
-                <label htmlFor="inStock" className="ml-[1rem] text-[1.5rem]">
-                  In Stock
-                </label>
-              </div>
-              {/* <input
-                className="w-[35rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
-                type="checkbox"
-                id="discountedPrice"
-                disabled={isWorking}
-                {...register("inStock", {
-                  required: "Product price is required",
-                })}
-              /> */}
-              {errors.inStock && (
-                <p className="text-red-500 absolute">
-                  {errors.inStock?.message?.toString()}
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="relative">
-            <p className="text-gray-600 font-medium">
-              Description of product(optional)
-            </p>
-            <textarea
-              className="w-[75rem] h-[5rem] rounded-[1rem] border-2 border-primary-dark px-[1rem] mt-[1rem] shadow-md"
-              id="description"
-              defaultValue=""
-              disabled={isWorking}
-              {...register("description")}
-            />
-            {errors.description && (
-              <p className="text-red-500 absolute">
-                {errors.description?.message?.toString()}
-              </p>
-            )}
-          </div>
           {/* photo */}
           <div className="mb-[3.5rem] relative">
             <p className="text-gray-600 font-medium">Product photos</p>
             {[...Array(3)].map((_, index) => (
               <input
                 key={index}
-                className="text-[1.4rem] rounded-sm font-medium file:text-gray-100 file:mt-[.5rem] file:px-3 file:py-2 file:mr-3 file:rounded-lg file:border-none file:text-brand-50 file:bg-blue-400 file:cursor-pointer file:transition-colors file:duration-200 hover:file:bg-brand-700"
+                className="text-[1rem] rounded-sm font-medium file:text-gray-100 file:mt-[.5rem] file:px-3 file:py-2 file:mr-3 file:rounded-lg file:border-none file:text-brand-50 file:bg-blue-400 file:cursor-pointer file:transition-colors file:duration-200 hover:file:bg-brand-700 bg-gray-50 text-gray-600 w-[16.5rem] h-[3.5rem] rounded-[12rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md ml-[1.5rem]"
                 type="file"
                 id={`image${index + 1}`}
                 accept="image/*"
@@ -341,29 +258,18 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
           <div>
             <input type="submit" className="hidden" />
           </div>
-          <div className="flex items-center gap-x-6">
+          <div className="flex items-center justify-center gap-x-6 mr-[8rem]">
             <Button
-              onClick={() => {
+              handleClick={() => {
                 if (formRef.current) {
                   handleSubmit(onSubmit)();
                 }
               }}
+              type={"primary"}
               label={isEditing ? "Edit product" : "Add a new Product"}
               disabled={isWorking}
-              isActive={false}
-              setActiveButton={function (label) {
-                throw new Error("Function not implemented.");
-              }}
             />
-            <Button
-              label={"Cancel"}
-              onClick={onClose}
-              type="reset"
-              isActive={false}
-              setActiveButton={function (label) {
-                throw new Error("Function not implemented.");
-              }}
-            />
+            <Button label={"Cancel"} handleClick={onClose} type="reset" />
           </div>
         </form>
       </div>
