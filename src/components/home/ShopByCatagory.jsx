@@ -8,7 +8,7 @@ import { motion } from "framer-motion"; // ✅ Import Framer Motion
 
 const CategorySection = () => {
     return (
-      <div className="w-11/12 mx-auto mt-20">
+      <div className="w-11/12 lg:w-10/12 mx-auto mt-20">
         {/* Title with animation (from bottom) */}
         <motion.div
           initial={{ y: 100, opacity: 0 }}
