@@ -124,12 +124,12 @@ const Dashboard = () => {
           </div>
           <div>
             <h1 className="text-[1.6rem] font-bold text-gray-900">
-              Regular Price
+              Description
             </h1>
           </div>
           <div>
             <h1 className="text-[1.6rem] font-bold text-gray-900">
-              Discounted Price
+              Regular Price
             </h1>
           </div>
         </div>
