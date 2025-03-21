@@ -17,9 +17,7 @@ function ProductsTable({ productData, onEditProduct, onDeleteProduct }) {
         .slice()
         .reverse()
         .map((product) => {
-          const images = product.product_image
-            ? product.product_image.split(",")
-            : [];
+          const images = product.image ? product.image.split(",") : [];
           return (
             <div
               key={product.product_id}
