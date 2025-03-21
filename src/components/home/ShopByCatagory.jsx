@@ -1,5 +1,6 @@
 import React from 'react';
-import commodImg from '../../assets/products/Toilet-Carusel1.jpg'
+import commodImg from '../../assets/products/Toilet-Carusel2.jpg'
+import kitchenImg from '../../assets/products/Sink-Carusel3.jpg'
 import bassinImg from '../../assets/products/bassin.jpg'
 import faucet from '../../assets/products/faucet.jpg'
 
@@ -27,7 +28,7 @@ const CategorySection = () => {
         <div className="grid grid-cols-2 gap-4 justify-items-center my-10">
           {/* Commod Image (Comes from left) */}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -57,7 +58,7 @@ const CategorySection = () => {
 
           {/* Bassin & Faucet Grid (Comes from right) */}
           <motion.div
-            initial={{ x: 100, opacity: 0 }}
+            initial={{ x: 250, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -65,7 +66,7 @@ const CategorySection = () => {
           >
             {/* Bassin Image */}
             <motion.div
-              initial={{ x: 100, opacity: 0 }}
+              initial={{ x: 250, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
@@ -87,7 +88,7 @@ const CategorySection = () => {
 
             {/* Faucet Image */}
             <motion.div
-              initial={{ x: 100, opacity: 0 }}
+              initial={{ x: 250, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 2, ease: "easeOut", delay: 0.6 }}
@@ -111,7 +112,7 @@ const CategorySection = () => {
         <div className="grid grid-cols-2 gap-4 justify-items-center my-10">
           {/* Bassin & Faucet Grid (Comes from right) */}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -250, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -119,7 +120,7 @@ const CategorySection = () => {
           >
             {/* Bassin Image */}
             <motion.div
-              initial={{ x: -100, opacity: 0 }}
+              initial={{ x: -250, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
@@ -141,7 +142,7 @@ const CategorySection = () => {
 
             {/* Faucet Image */}
             <motion.div
-              initial={{ x: -100, opacity: 0 }}
+              initial={{ x: -250, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 2, ease: "easeOut", delay: 0.6 }}
@@ -163,7 +164,7 @@ const CategorySection = () => {
           </motion.div>
           {/* Commod Image (Comes from left) */}
           <motion.div
-            initial={{ x: 100, opacity: 0 }}
+            initial={{ x: 300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -171,7 +172,7 @@ const CategorySection = () => {
           >
             {/* Image */}
             <img
-              src={commodImg}
+              src={kitchenImg}
               alt="Premium Commod"
               className="rounded-lg shadow-xl"
             />
@@ -181,7 +182,7 @@ const CategorySection = () => {
               className="absolute top-40 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black 
     cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
             >
-              Bathware
+              Kitchenware
             </button>
 
             {/* Text Below Image (Left-Aligned) */}

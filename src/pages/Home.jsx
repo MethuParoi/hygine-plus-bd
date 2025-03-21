@@ -1,5 +1,6 @@
 import Hero from "../components/home/Hero";
 import NewArrival from "../components/home/NewArrival";
+import NewCollection from "../components/home/NewCollection";
 import ShopByCatagory from "../components/home/ShopByCatagory";
 import { getProducts } from "../utils/apiProduct";
 
@@ -13,6 +14,7 @@ const Home = () => {
       <Hero></Hero>
       <ShopByCatagory></ShopByCatagory>
       <NewArrival></NewArrival>
+      <NewCollection></NewCollection>
     </div>
   );
 };
