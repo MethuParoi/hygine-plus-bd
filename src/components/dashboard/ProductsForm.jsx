@@ -58,16 +58,22 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
       }
     }
 
+    // Handle details_image
+    const detailsImageFile = data.details_image?.[0] || null;
+
     //filter
     const filteredData = Object.keys(data)
       .filter(
         (key) =>
           key === "product_description" ||
           key === "product_category" ||
+          key === "product_specification" ||
           key === "product_name" ||
           key === "product_price" ||
           key === "discountedPrice" ||
-          key === "image"
+          key === "image" ||
+          key === "model_number" ||
+          key === "details_image"
       )
       .reduce((obj, key) => {
         obj[key] = data[key];
@@ -76,21 +82,12 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
 
     // Pass the images array to the handleProductForm function
     handleProductForm(
-      { ...filteredData, image: images },
+      { ...filteredData, image: images, details_image: detailsImageFile },
       isEditing ? editId : null,
       {
         onSuccess: (data) => {
           handleClose();
-          toast.success("Products added/edited successfully!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          toast.success("Products added/edited successfully!");
         },
       }
     );
@@ -98,16 +95,7 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
 
   function onError(errors) {
     console.error(errors);
-    toast.error("Error occured!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+    toast.error("Error occured!");
   }
 
   return (
@@ -123,13 +111,13 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
           <IoCloseSharp className="text-gray-600" size={"3rem"} />
         </button>
       </div>
-      <div className="bg-gray-200 w-[70rem] h-[36rem] py-[2rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200">
+      <div className="bg-gray-200 w-[70rem] h-[42rem] py-[1rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200 overflow-y-scroll">
         <form ref={formRef} onSubmit={handleSubmit(onSubmit, onError)}>
-          <h1 className="flex justify-center text-gray-700 text-3xl font-bold mb-[2rem] mr-[6rem]">
+          <h1 className="flex justify-center text-gray-700 text-3xl font-bold mb-[1rem] mr-[6rem]">
             {isEditing ? "Edit Product" : "Add a new Product"}
           </h1>
           {/* title  and category */}
-          <div className="mb-[2rem] relative flex items-center gap-x-[4.7rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4.7rem]">
             {/* title */}
             <div className="relative">
               <p className="text-gray-600 font-medium">Product title*</p>
@@ -172,7 +160,7 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
             </div>
           </div>
 
-          <div className="mb-[2rem] relative flex items-center gap-x-[4.7rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4.7rem]">
             <div className=" relative">
               <p className="text-gray-600 font-medium">Product price*</p>
               <input
@@ -230,6 +218,69 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
                 </p>
               )}
             </div> */}
+          </div>
+
+          {/* specification */}
+          <div className="relative mb-[1.5rem]">
+            <p className="text-gray-600 font-medium">
+              Product Specifications (comma seperated ",")*
+            </p>
+            <input
+              className="w-[55rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+              type="text"
+              id="product_specification"
+              disabled={isWorking}
+              {...register("product_specification", {
+                required: "Product specifications is required",
+              })}
+            />
+            {errors.product_specification && (
+              <p className="text-red-500 absolute">
+                {errors.product_specification.message?.toString() || ""}
+              </p>
+            )}
+          </div>
+
+          {/* title  and category */}
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4.7rem]">
+            {/* title */}
+            <div className="relative">
+              <p className="text-gray-600 font-medium">Product model number*</p>
+              <input
+                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                type="text"
+                id="model_number"
+                disabled={isWorking}
+                {...register("model_number", {
+                  required: "Product title is required",
+                })}
+              />
+              {errors.model_number && (
+                <p className="text-red-500 absolute">
+                  {errors.model_number.message?.toString() || ""}
+                </p>
+              )}
+            </div>
+            {/* details image */}
+            <div className="relative">
+              <p className="text-gray-600 font-medium">Product details photo</p>
+              <input
+                className="text-[1rem] rounded-sm font-medium file:text-gray-100 file:mt-[.5rem] file:px-3 file:py-2 file:mr-3 file:rounded-lg file:border-none file:text-brand-50 file:bg-blue-400 file:cursor-pointer file:transition-colors file:duration-200 hover:file:bg-brand-700 bg-gray-50 text-gray-600 w-[16.5rem] h-[3.5rem] rounded-[12rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md ml-[1.5rem]"
+                type="file"
+                id="details_image"
+                accept="image/*"
+                {...register("details_image", {
+                  required: isEditing
+                    ? false
+                    : "Product details photo is required", // Validation for required field
+                })}
+              />
+              {errors.details_image && (
+                <p className="text-red-500 absolute">
+                  {errors.details_image?.message?.toString()}
+                </p>
+              )}
+            </div>
           </div>
 
           {/* photo */}
