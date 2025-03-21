@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getProducts } from "../utils/apiProduct";
 import supabase from "../utils/supabase";
@@ -6,8 +6,11 @@ import ProductsTable from "../components/dashboard/ProductsTable";
 import Button from "../components/ui/Button";
 import ProductsForm from "../components/dashboard/ProductsForm";
 import { deleteProduct } from "../utils/manageProducts";
+import { AuthContext } from "../provider/AuthProvider";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
+  const { admin, setAdmin } = useContext(AuthContext);
   const [modal, setModal] = useState(false);
   const [productData, setProductData] = useState([]);
   const [productToEdit, setProductToEdit] = useState(null);
@@ -16,6 +19,7 @@ const Dashboard = () => {
 
   //banner modal handler
   const [bannerModal, setBannerModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchProducts(initialProducts) {
@@ -28,6 +32,24 @@ const Dashboard = () => {
   // console.log(productData);
 
   //---------------------------
+
+  // Function to handle adding a new product
+  const manageAddProduct = (newProduct) => {
+    setProductData((prevData) => [...prevData, newProduct]);
+  };
+
+  // Function to handle editing a product
+  const manageEditProduct = (updatedProduct) => {
+    setProductData((prevData) =>
+      prevData.map((product) =>
+        product.product_id === updatedProduct.product_id
+          ? updatedProduct
+          : product
+      )
+    );
+  };
+
+  //-----------------------------------
 
   useEffect(() => {
     async function fetchProducts(initialProducts) {
@@ -71,15 +93,12 @@ const Dashboard = () => {
     };
   }, [initialProducts]);
 
-  //fetch admin data
-  //   useEffect(() => {
-  //     async function fetchAdmin() {
-  //       const admin = await getAdmin();
-  //       setAdminData(admin);
-  //     }
-
-  //     fetchAdmin();
-  //   }, []);
+  //logout admin
+  const logoutAdmin = () => {
+    localStorage.removeItem("isAdmin");
+    toast.success("Logged out successfully!");
+    navigate("/");
+  };
 
   const modalHandler = () => {
     console.log("modalHandler");
@@ -107,6 +126,20 @@ const Dashboard = () => {
   };
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* navbar */}
+      <div className="bg-black h-16 w-full flex justify-center items-center">
+        <h1 className="text-white text-3xl font-bold">Admin Dashboard</h1>
+
+        <div className="absolute right-10">
+          <Button
+            label="Logout"
+            type="primary"
+            handleClick={() => {
+              logoutAdmin();
+            }}
+          />
+        </div>
+      </div>
       {/* product management   */}
       <div className="h-[87vh] w-[80dvw] overflow-x-scroll  xl:overflow-x-hidden flex flex-col items-center container mx-auto pt-[2rem] relative ">
         {/* table header */}
@@ -168,6 +201,8 @@ const Dashboard = () => {
         {modal && (
           <div className="fixed inset-0 flex items-center justify-center backdrop-blur bg-opacity-10 z-50">
             <ProductsForm
+              manageAddProduct={manageAddProduct}
+              manageEditProduct={manageEditProduct}
               modalHandler={modalHandler}
               productToEdit={productToEdit}
               onClose={modalHandler}

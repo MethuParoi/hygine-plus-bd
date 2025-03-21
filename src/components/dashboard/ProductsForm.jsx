@@ -1,5 +1,3 @@
-"use client";
-
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
 import Button from "../ui/Button";
@@ -25,7 +23,13 @@ function useCreateOrEditProduct() {
   return { isWorking, handleProductForm };
 }
 
-function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
+function ProductsForm({
+  productToEdit = {},
+  onClose,
+  modalHandler,
+  manageAddProduct,
+  manageEditProduct,
+}) {
   const { isWorking, handleProductForm } = useCreateOrEditProduct();
 
   const formRef = useRef(null);
@@ -86,6 +90,11 @@ function ProductsForm({ productToEdit = {}, onClose, modalHandler }) {
       isEditing ? editId : null,
       {
         onSuccess: (data) => {
+          if (isEditing) {
+            manageEditProduct(data);
+          } else {
+            manageAddProduct(data);
+          }
           handleClose();
           toast.success("Products added/edited successfully!");
         },
