@@ -1,3 +1,4 @@
+import FactoryImg from "../components/home/FactoryImg";
 import Hero from "../components/home/Hero";
 import NewArrival from "../components/home/NewArrival";
 import NewCollection from "../components/home/NewCollection";
@@ -15,6 +16,7 @@ const Home = () => {
       <ShopByCatagory></ShopByCatagory>
       <NewArrival></NewArrival>
       <NewCollection></NewCollection>
+      <FactoryImg></FactoryImg>
     </div>
   );
 };
