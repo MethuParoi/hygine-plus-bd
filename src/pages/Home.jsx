@@ -2,6 +2,7 @@ import FactoryImg from "../components/home/FactoryImg";
 import Hero from "../components/home/Hero";
 import NewArrival from "../components/home/NewArrival";
 import NewCollection from "../components/home/NewCollection";
+import PartnersSection from "../components/home/OurPartners";
 import ShopByCatagory from "../components/home/ShopByCatagory";
 import { getProducts } from "../utils/apiProduct";
 
@@ -17,6 +18,7 @@ const Home = () => {
       <NewArrival></NewArrival>
       <NewCollection></NewCollection>
       <FactoryImg></FactoryImg>
+      <PartnersSection></PartnersSection>
     </div>
   );
 };
