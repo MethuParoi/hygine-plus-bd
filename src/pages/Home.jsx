@@ -1,4 +1,5 @@
 import Hero from "../components/home/Hero";
+import LastMonthStart from "../components/home/LastMonthStart";
 import NewArrival from "../components/home/NewArrival";
 import ShopByCatagory from "../components/home/ShopByCatagory";
 import { getProducts } from "../utils/apiProduct";
@@ -10,9 +11,10 @@ const Home = () => {
   }, 10000);
   return (
     <div className="overflow-x-hidden">
-      <Hero></Hero>
-      <ShopByCatagory></ShopByCatagory>
-      <NewArrival></NewArrival>
+      <Hero />
+      <ShopByCatagory />
+      <LastMonthStart />
+      {/* <NewArrival /> */}
     </div>
   );
 };
