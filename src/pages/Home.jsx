@@ -12,9 +12,10 @@ const Home = () => {
   }, 10000);
   return (
     <div className="overflow-x-hidden">
-      <Hero></Hero>
-      <ShopByCatagory></ShopByCatagory>
-      <NewArrival></NewArrival>
+      <Hero />
+      <ShopByCatagory />
+      <LastMonthStart />
+      {/* <NewArrival /> */}
     </div>
   );
 };
