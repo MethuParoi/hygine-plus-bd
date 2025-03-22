@@ -7,6 +7,8 @@ import NotFound from "../pages/NotFound";
 import Products from "../pages/Products";
 import Dashboard from "../pages/Dashboard";
 import ProductDetails from "../pages/ProductDetails";
+import AdminLogin from "../pages/AdminLogin";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,17 +29,24 @@ const router = createBrowserRouter([
       },
       {
         path: "/product-details/:id",
-        element:<ProductDetails />
-      }
+        element: <ProductDetails />,
+      },
     ],
   },
 
   // admin layout
   {
     path: "/admin/dashboard",
-    element: <Dashboard />,
+    element: (
+      <AdminRoute>
+        <Dashboard />
+      </AdminRoute>
+    ),
   },
-
+  {
+    path: "/admin-login",
+    element: <AdminLogin />,
+  },
   {
     path: "/login",
     element: <Login />,
