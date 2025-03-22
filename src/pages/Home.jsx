@@ -1,5 +1,6 @@
 import FactoryImg from "../components/home/FactoryImg";
 import Hero from "../components/home/Hero";
+import LastMonthStart from "../components/home/LastMonthStart";
 import NewArrival from "../components/home/NewArrival";
 import NewCollection from "../components/home/NewCollection";
 import PartnersSection from "../components/home/OurPartners";
@@ -13,12 +14,14 @@ const Home = () => {
   }, 10000);
   return (
     <div className="overflow-x-hidden">
+
       <Hero></Hero>
       <ShopByCatagory></ShopByCatagory>
       <NewArrival></NewArrival>
       <NewCollection></NewCollection>
       <FactoryImg></FactoryImg>
       <PartnersSection></PartnersSection>
+
     </div>
   );
 };
