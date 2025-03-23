@@ -7,6 +7,7 @@ import PartnersSection from "../components/home/OurPartners";
 import ShopByCatagory from "../components/home/ShopByCatagory";
 import { getProducts } from "../utils/apiProduct";
 import Hero from "../components/home/Hero";
+import CustomerReview from "../components/home/CustomerReview";
 import SimpleChoices from "../components/home/SimpleChoices";
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       <SimpleChoices></SimpleChoices>
       <FactoryImg></FactoryImg>
       <PartnersSection></PartnersSection>
+      <CustomerReview></CustomerReview>
     </div>
   );
 };
