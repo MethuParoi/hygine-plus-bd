@@ -77,7 +77,8 @@ function ProductsForm({
           key === "discountedPrice" ||
           key === "image" ||
           key === "model_number" ||
-          key === "details_image"
+          key === "details_image" ||
+          key === "main_category"
       )
       .reduce((obj, key) => {
         obj[key] = data[key];
@@ -133,6 +134,7 @@ function ProductsForm({
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="text"
+                placeholder="Enter product title"
                 id="product_name"
                 disabled={isWorking}
                 {...register("product_name", {
@@ -150,6 +152,7 @@ function ProductsForm({
               <p className="text-gray-600 font-medium">Product Category*</p>
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Enter product category"
                 type="text"
                 id="product_category"
                 disabled={isWorking}
@@ -174,6 +177,7 @@ function ProductsForm({
               <p className="text-gray-600 font-medium">Product price*</p>
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Enter product price"
                 type="number"
                 id="product_price"
                 disabled={isWorking}
@@ -194,6 +198,7 @@ function ProductsForm({
               </p>
               <textarea
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Enter product description"
                 id="product_description"
                 defaultValue=""
                 disabled={isWorking}
@@ -236,6 +241,7 @@ function ProductsForm({
             </p>
             <input
               className="w-[55rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+              placeholder="Enter product specifications"
               type="text"
               id="product_specification"
               disabled={isWorking}
@@ -250,13 +256,14 @@ function ProductsForm({
             )}
           </div>
 
-          {/* title  and category */}
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[4.7rem]">
-            {/* title */}
+          {/* model, main category, details img */}
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[3rem]">
+            {/*model */}
             <div className="relative">
               <p className="text-gray-600 font-medium">Product model number*</p>
               <input
-                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Enter product model number"
                 type="text"
                 id="model_number"
                 disabled={isWorking}
@@ -267,6 +274,28 @@ function ProductsForm({
               {errors.model_number && (
                 <p className="text-red-500 absolute">
                   {errors.model_number.message?.toString() || ""}
+                </p>
+              )}
+            </div>
+            {/* main category */}
+            <div className="relative">
+              <p className="text-gray-600 font-medium">Product Category*</p>
+              <select
+                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Select a category"
+                id="main_category"
+                disabled={isWorking}
+                {...register("main_category", {
+                  required: "Product category is required",
+                })}
+              >
+                <option value="">Select a category</option>
+                <option value="bathware">Bathware</option>
+                <option value="kitchenware">Kitchenware</option>
+              </select>
+              {errors.main_category && (
+                <p className="text-red-500 absolute">
+                  {errors.main_category.message?.toString() || ""}
                 </p>
               )}
             </div>
