@@ -21,6 +21,7 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [productId, setProductId] = useState([]);
   const [packagePrice, setPackagePrice] = useState(0);
+  const [fetching, setFetching] = useState(false);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -129,6 +130,8 @@ function AuthProvider({ children }) {
     updateUserProfile,
     packagePrice,
     setPackagePrice,
+    fetching,
+    setFetching,
   };
 
   return (
