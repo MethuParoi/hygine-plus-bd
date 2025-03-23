@@ -25,7 +25,7 @@ const Hero = () => {
 
   return (
     <div
-      className="h-[85dvh] w-full max-w-full overflow-hidden grid grid-cols-6 "
+      className="h-[85dvh] w-full max-w-full overflow-hidden grid grid-cols-1 md:grid-cols-6 "
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -39,11 +39,11 @@ const Hero = () => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="col-span-2 flex items-center justify-center"
+        className="md:col-span-2 flex items-center justify-center"
       >
         <h1
-          className={`text-black text-6xl font-extrabold mb-36 transition-transform duration-1000 ease-in-out ${
-            isScrolled ? "translate-y-[-50px]" : "translate-y-0 fixed"
+          className={`text-black text-3xl md:text-4xl lg:text-6xl font-extrabold mb-[-10rem] md:mb-36  md:transition-transform md:duration-1000 md:ease-in-out ${
+            isScrolled ? "md:translate-y-[-50px]" : "md:translate-y-0 md:fixed"
           }`}
         >
           ENVISION
@@ -58,8 +58,8 @@ const Hero = () => {
         className="flex items-center justify-center"
       >
         <h1
-          className={`text-white text-6xl font-extrabold ml-20 mb-36 transition-transform duration-1000 ease-in-out ${
-            isScrolled ? "translate-y-[-50px]" : "translate-y-0 fixed"
+          className={`text-white text-3xl md:text-4xl lg:text-6xl font-extrabold md:ml-20 mb-[-4rem] md:mb-36  md:transition-transform md:duration-1000 md:ease-in-out ${
+            isScrolled ? "md:translate-y-[-50px]" : "md:translate-y-0 md:fixed"
           }`}
         >
           ELEVATE
@@ -71,11 +71,11 @@ const Hero = () => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="col-span-3 flex items-center justify-center"
+        className="md:col-span-3 flex items-center justify-center"
       >
         <h1
-          className={`text-red-600 text-6xl font-extrabold mb-36 ml-36 transition-transform duration-1000 ease-in-out ${
-            isScrolled ? "translate-y-[-50px]" : "translate-y-0 fixed"
+          className={`text-red-600 text-3xl md:text-4xl lg:text-6xl font-extrabold mt-[-2rem] mb-36 md:ml-36 md:transition-transform md:duration-1000 md:ease-in-out ${
+            isScrolled ? "md:translate-y-[-50px]" : "md:translate-y-0 md:fixed"
           }`}
         >
           EXPERIENCE
