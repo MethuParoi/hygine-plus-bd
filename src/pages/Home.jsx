@@ -7,6 +7,7 @@ import PartnersSection from "../components/home/OurPartners";
 import ShopByCatagory from "../components/home/ShopByCatagory";
 import { getProducts } from "../utils/apiProduct";
 import Hero from "../components/home/Hero";
+import CustomerReview from "../components/home/CustomerReview";
 
 const Home = () => {
   // Fetch products from the database once in a day 86400000
@@ -23,6 +24,7 @@ const Home = () => {
       <NewCollection></NewCollection>
       <FactoryImg></FactoryImg>
       <PartnersSection></PartnersSection>
+      <CustomerReview></CustomerReview>
     </div>
   );
 };
