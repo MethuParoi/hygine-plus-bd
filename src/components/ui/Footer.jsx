@@ -1,61 +1,132 @@
-import { FaFacebook, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaLocationDot,
+  FaSquareXTwitter,
+} from "react-icons/fa6";
+import { AiOutlineInstagram } from "react-icons/ai";
+import logo from "../../assets/logo/logo-white.png";
+import { IoIosCall, IoIosMail } from "react-icons/io";
 
 function Footer() {
   return (
-    <div className="bg-indigo-300 text-neutral p-10 flex flex-col items-center">
-      <footer className="footer flex lg:flex-row flex-col items-start justify-center gap-x-72">
-        <aside className="flex sm:flex-row flex-col sm:gap-x-4 sm:items-center">
-          {/* <img className="w-32 h-32" src={logo} alt="" /> */}
-          <div>
-            <h2 className="text-3xl font-semibold">TaskHandler</h2>
-            <p>A Task management platform</p>
-          </div>
-        </aside>
-        <nav>
-          <h6 className="footer-title">Contact Information</h6>
-          <a className="link link-hover">paroimethu@gmail.com</a>
-          <a className="link link-hover">+880 1742828044</a>
-          <a className="link link-hover">Dhaka, Bangladesh</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Get in touch</h6>
-          <a
-            href="https://www.linkedin.com/in/methu-p-6aa311204/"
-            target="_blank"
-            className="link link-hover"
-          >
-            <div className="flex gap-x-4 font-medium">
-              <FaLinkedin />
-              Linked In
-            </div>
-          </a>
-          <a
-            href="https://x.com/methu_paroi"
-            target="_blank"
-            className="link link-hover"
-          >
-            <div className="flex gap-x-4 font-medium">
-              <FaSquareXTwitter />
-              Twitter
-            </div>
-          </a>
-          <a
-            href="https://www.facebook.com/methu.paroi.1/"
-            target="_blank"
-            className="link link-hover"
-          >
-            <div className="flex gap-x-4 font-medium">
-              <FaFacebook />
-              Facebook
-            </div>
-          </a>
-        </nav>
-      </footer>
-      <div className="mt-4 ">
-        <hr className="w-[90vw] h-2" />
-        <p className="text-center text-neutral">
-          &copy; 2025 TaskHandler. All rights reserved.
+    <div className="bg-black text-white pt-10 px-10 flex flex-col items-center">
+      {/* logo */}
+      <div className="flex flex-col items-center pb-10">
+        <img className="w-[20rem] lg:w-[30rem]" src={logo} alt="" />
+        <p className="text-center text-2xl lg:text-3xl font-medium mt-[-20px] lg:mt-[-30px] ">
+          SANITARY WARE
         </p>
+        <div className="pt-4 flex items-center justify-center gap-x-4">
+          <input
+            className="w-56 lg:w-84 h-8 bg-white text-gray-700 px-4"
+            placeholder="your mail"
+            type="text"
+          />
+          <button className="cursor-pointer ">
+            <IoIosMail className="text-4xl lg:text-5xl hover:text-gray-300" />
+          </button>
+        </div>
+      </div>
+      <footer className="footer flex lg:flex-row flex-col items-start justify-center gap-x-42 mb-10">
+        {/* About Us */}
+        <div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 via-white to-pink-500 bg-clip-text text-transparent">
+            ABOUT US
+          </h1>
+          <nav className="flex flex-col gap-y-1 text-md lg:text-lg">
+            <a className="cursor-pointer">About</a>
+            <a className="cursor-pointer">Terms & Conditions</a>
+            <a className="cursor-pointer">Privacy Policy</a>
+            <a className="cursor-pointer">Contact Us</a>
+          </nav>
+        </div>
+        {/* Policies */}
+        <div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 via-white to-pink-500 bg-clip-text text-transparent">
+            OUR POLICIES
+          </h1>
+          <nav className="flex flex-col gap-y-1 text-md lg:text-lg">
+            <a className="cursor-pointer">Shipping Policy</a>
+            <a className="cursor-pointer">Warranty Policy</a>
+            <a className="cursor-pointer">Return & Refund Policy</a>
+            <a className="cursor-pointer">Legal</a>
+          </nav>
+        </div>
+
+        {/* Contact Information */}
+        <div>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 via-white to-pink-500 bg-clip-text text-transparent">
+            CONTACT
+          </h1>
+          <nav className="flex flex-col gap-y-1 text-md lg:text-lg">
+            <a>
+              <div className="flex items-center gap-x-2 font-medium">
+                <IoIosCall className="text-2xl" />
+                +880 1703-394802
+              </div>
+            </a>
+            <a>
+              <div className="flex items-center gap-x-2 font-medium">
+                <IoIosMail className="text-2xl" />
+                hygieneplusbd@gmail.com
+              </div>
+            </a>
+            <a>
+              <div className="flex items-start gap-x-2 font-medium w-64 sm:w-84">
+                <FaLocationDot className="text-2xl" />
+                Mazed Sardar Tower-1, 153 Haji Osman Gani Road Alu Bazar, Dhaka,
+                Bangladesh
+              </div>
+            </a>
+          </nav>
+        </div>
+      </footer>
+      {/* Social Media */}
+      <div className="flex items-center gap-x-4 ">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          className="link link-hover"
+        >
+          <div className="flex gap-x-4 font-medium">
+            <FaFacebook className="text-3xl" />
+          </div>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          className="link link-hover"
+        >
+          <div className="flex gap-x-4 font-medium">
+            <AiOutlineInstagram className="text-3xl" />
+          </div>
+        </a>
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          className="link link-hover"
+        >
+          <div className="flex gap-x-4 font-medium">
+            <FaLinkedin className="text-3xl" />
+          </div>
+        </a>
+        <a href="https://x.com/" target="_blank" className="link link-hover">
+          <div className="flex gap-x-4 font-medium">
+            <FaSquareXTwitter className="text-3xl" />
+          </div>
+        </a>
+      </div>
+      <div className="mt-4 ">
+        <hr className="w-[80vw] text-red-600 h-1" />
+        <div className="flex flex-col items-center justify-center gap-x-2 mt-4 mb-8">
+          <p className="text-white text-xl font-semibold text-center">
+            ACCESSIBILITY NEED HELP? (800) 511-9484
+          </p>
+          <p className="text-center text-white text-center">
+            Copyright © bdygieneplusbd.com llc
+          </p>
+        </div>
       </div>
     </div>
   );
