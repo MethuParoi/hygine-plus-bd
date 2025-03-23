@@ -286,7 +286,7 @@ const ProductDetails = () => {
                     </div>
 
                     {/* Price */}
-                    <p className="text-2xl mt-8 font-bold bg-gradient-to-r flex gap-x-2 items-center from-[#e63946] via-[#6a0572] bg-clip-text text-transparent">
+                    <p className="text-2xl mt-8 font-bold  flex gap-x-2 items-center bg-gradient-to-r from-[#e63946] via-[#6a0572] bg-clip-text text-transparent">
                         <FaBangladeshiTakaSign className="text-[#e63946]" />{productDetails?.product_price}.00
                     </p>
                 </motion.div>
