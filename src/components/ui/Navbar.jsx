@@ -3,22 +3,24 @@ import { FaSearch } from "react-icons/fa";
 import flag from "../../assets/navbar/bd-flag.png";
 import logo from "../../assets/logo/logo-white.png";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
-    <div className="bg-black text-gray-50 shadow-sm pt-4 px-12">
+    <div className="bg-black text-gray-50 shadow-sm pt-4 px-4 md:px-12">
       {/* upper navbar */}
       <div className="flex justify-between items-center mb-2">
         <div>
           <img className="w-8" src={flag} alt="" />
         </div>
         <div>
-          <div className="flex gap-x-4">
+          <div className="flex gap-x-1 sm:gap-x-4">
             <div className="relative">
               <input
-                className="bg-gray-50 rounded-[2rem] w-64 h-10 text-gray-900 px-4"
+                className="bg-gray-50 rounded-[2rem] w-40 sm:w-64 h-10 text-gray-900 px-4 focus:outline-none"
                 type="text"
                 placeholder="Search Products"
               />
@@ -29,9 +31,10 @@ const Navbar = () => {
                 <FaSearch className="text-2xl text-black" />
               </button>
             </div>
+            {/* login */}
             <button
               onClick={() => navigate("/")}
-              className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+              className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300"
             >
               SUPPORT
             </button>
@@ -41,7 +44,7 @@ const Navbar = () => {
 
             <button
               onClick={() => navigate("/login")}
-              className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+              className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300"
             >
               LOGIN
             </button>
@@ -51,7 +54,7 @@ const Navbar = () => {
 
       {/* lower navbar */}
       <div className="border-t border-gray-50 mt-2 flex justify-between items-center">
-        <div className="flex items-center gap-x-4 relative">
+        <div className="hidden md:flex items-center gap-x-4 relative">
           <button
             popoverTarget="bathware"
             style={{ anchorName: "--anchor-1" }}
@@ -100,13 +103,13 @@ const Navbar = () => {
 
         {/* logo */}
         <div className="cursor-pointer" onClick={() => navigate("/")}>
-          <img className="w-[25rem]" src={logo} alt="" />
+          <img className="w-[16rem] lg:w-[25rem]" src={logo} alt="" />
         </div>
 
-        <div className="flex items-center gap-x-4">
+        <div className="hidden md:flex items-center gap-x-4">
           <button
             onClick={() => navigate("/")}
-            className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+            className=" text-lg cursor-pointer font-semibold hover:text-gray-300"
           >
             New Arrivals
           </button>
@@ -116,6 +119,91 @@ const Navbar = () => {
           >
             About Us
           </button>
+        </div>
+        {/* small screen */}
+        {/* hambuger */}
+        <div className="md:hidden flex items-center gap-x-4">
+          <button
+            popoverTarget="hamburger"
+            style={{ anchorName: "--anchor-6" }}
+            className="text-2xl cursor-pointer"
+          >
+            &#9776;
+          </button>
+
+          <ul
+            className="dropdown menu ml-auto w-40 sm:w-52 rounded-box bg-gray-800 shadow-sm text-white"
+            popover="auto"
+            id="hamburger"
+            style={{ positionAnchor: "--anchor-6" }}
+          >
+            {/* bathware */}
+            <li className="hover:bg-gray-600">
+              <button
+                popoverTarget="bathware_2"
+                style={{ anchorName: "--anchor-3" }}
+                className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
+              >
+                Bathware
+                <IoIosArrowDropdown className="text-2xl" />
+              </button>
+              {/* bathware dropdown */}
+              <ul
+                className="dropdown menu ml-[-10rem] mt-[-2rem] w-40 rounded-box bg-gray-800 shadow-sm text-white"
+                popover="auto"
+                id="bathware_2"
+                style={{ positionAnchor: "--anchor-3" }}
+              >
+                <li className="hover:bg-gray-600">
+                  <Link>bathware</Link>
+                </li>
+                <li className="hover:bg-gray-600">
+                  <Link>Item 2</Link>
+                </li>
+              </ul>
+            </li>
+            {/* kitchenware */}
+            <li className="hover:bg-gray-600">
+              <button
+                popoverTarget="kitchenware_2"
+                style={{ anchorName: "--anchor-4" }}
+                className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
+              >
+                Kitchenware
+                <IoIosArrowDropdown className="text-2xl" />
+              </button>
+              {/* kitchenware dropdown */}
+              <ul
+                className="dropdown menu w-40 ml-[-10rem] mt-[-2rem] rounded-box bg-gray-800 shadow-sm text-white"
+                popover="auto"
+                id="kitchenware_2"
+                style={{ positionAnchor: "--anchor-4" }}
+              >
+                <li className="hover:bg-gray-600">
+                  <Link>Kitchenware</Link>
+                </li>
+                <li className="hover:bg-gray-600">
+                  <Link>Item 2</Link>
+                </li>
+              </ul>
+            </li>
+            <li className="hover:bg-gray-600">
+              <button
+                onClick={() => navigate("/")}
+                className=" text-lg cursor-pointer font-semibold hover:text-gray-300"
+              >
+                New Arrivals
+              </button>
+            </li>
+            <li className="hover:bg-gray-600">
+              <button
+                onClick={() => navigate("/")}
+                className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+              >
+                About Us
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
