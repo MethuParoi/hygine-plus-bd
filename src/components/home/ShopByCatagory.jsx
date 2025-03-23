@@ -4,7 +4,7 @@ import kitchenImg from '../../assets/products/Sink-Carusel3.jpg'
 import bassinImg from '../../assets/products/bassin.jpg'
 import faucet from '../../assets/products/faucet.jpg'
 
-import { motion } from "framer-motion"; // ✅ Import Framer Motion
+import { motion } from "framer-motion"; // Import Framer Motion
 
 const CategorySection = () => {
     return (
