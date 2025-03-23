@@ -11,9 +11,9 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-80 my-10 bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="w-80 h-[32rem] my-10 bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
       {/* Product Image */}
-      <div className="w-full overflow-hidden">
+      <div className="w-full h-[20rem] overflow-hidden">
         <img
           src={product?.image}
           alt={product?.product_category}
@@ -23,9 +23,14 @@ const ProductCard = ({ product }) => {
 
       {/* Product Info */}
       <div className="p-5">
-        <h2 className="text-2xl font-semibold">{product?.product_name}</h2>
+        <h2 className="text-2xl font-semibold line-clamp-1">
+          {product?.product_name}
+        </h2>
         <p className="text-gray-500 text-lg">{product?.product_category}</p>
-        <h2 className="font-bold text-lg mt-2 flex gap-1 items-center"><FaBangladeshiTakaSign />{product?.product_price}.00</h2>
+        <h2 className="font-bold text-lg mt-2 flex gap-1 items-center">
+          <FaBangladeshiTakaSign />
+          {product?.product_price}.00
+        </h2>
 
         {/* View Details Button */}
         <button
@@ -35,7 +40,8 @@ const ProductCard = ({ product }) => {
             setProductId(product?.product_id);
           }}
         >
-          View Details<FiArrowRight className="ml-2 text-xl text-[#6a0572]" />
+          View Details
+          <FiArrowRight className="ml-2 text-xl text-[#6a0572]" />
         </button>
       </div>
     </div>

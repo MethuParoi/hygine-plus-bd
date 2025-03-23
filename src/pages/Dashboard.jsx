@@ -161,9 +161,7 @@ const Dashboard = () => {
             </h1>
           </div>
           <div>
-            <h1 className="text-[1.6rem] font-bold text-gray-900">
-              Regular Price
-            </h1>
+            <h1 className="text-[1.6rem] font-bold text-gray-900">Price</h1>
           </div>
         </div>
         <div
