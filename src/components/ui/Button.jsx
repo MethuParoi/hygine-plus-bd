@@ -6,7 +6,7 @@ const Button = ({ handleClick, disabled, type, buttonClass, label }) => {
       <button
         onClick={handleClick}
         disabled={disabled}
-        className="text-black text-2xl font-md py-2 px-4 rounded-[2rem] cursor-pointer bg-white border border-gray-300 flex items-center justify-center gap-x-4 hover:bg-gray-200 shadow-[0_4px_20px_rgba(255,255,255,0.5)]"
+        className="text-black text-2xl font-md py-2 px-4 rounded-[2rem] cursor-pointer bg-white border border-gray-300 flex items-center justify-center gap-x-2 hover:bg-gray-200 shadow-[0_4px_30px_rgba(255,255,255,0.8)]"
       >
         {label}
         <FaArrowRightLong />
