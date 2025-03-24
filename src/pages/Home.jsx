@@ -14,7 +14,7 @@ const Home = () => {
   // Fetch products from the database once in a day 86400000
   setInterval(() => {
     getProducts();
-  }, 10000);
+  }, 86400000);
   return (
     <div className="overflow-x-hidden">
       <Hero></Hero>
