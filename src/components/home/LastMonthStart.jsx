@@ -12,7 +12,7 @@ const LastMonthStart = () => {
     <div className="md:mr-10">
       {/* title */}
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
+        // initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -40,11 +40,12 @@ const LastMonthStart = () => {
       <div className="grid grid-cols-1 md:grid-cols-10 ">
         {/* Bassine */}
 
-        <div className="relative h-[26rem] md:h-[40rem] md:col-span-5 lg:col-span-4 bg-black flex md:items-center justify-center">
+        <div className="relative h-[26rem] md:h-[40rem] md:col-span-5 lg:col-span-4 bg-black flex flex-col items-center justify-center gap-y-16 md:gap-y-52 pb-28 md:pb-0 mt-[-1px]">
           {/* text */}
           {/* Animated Container */}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -62,7 +63,7 @@ const LastMonthStart = () => {
           </motion.div>
           {/* small screen starts*/}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -74,14 +75,14 @@ const LastMonthStart = () => {
           </motion.div>
           {/* small screen*/}
           {/* Button */}
-          <div className="absolute bottom-10 md:left-48 ">
+          <div className="md:mr-10">
             <Button label="See More" type="see-more" handleClick={() => {}} />
           </div>
         </div>
         {/* second column */}
         <div className="hidden h-[30rem] md:col-span-5  lg:col-span-3 md:flex items-center justify-start">
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -99,7 +100,7 @@ const LastMonthStart = () => {
         {/* third column */}
         <div className="hidden h-[30rem] lg:col-span-3 lg:flex items-center justify-center">
           <motion.div
-            initial={{ x: 100, opacity: 0 }}
+            initial={{ x: 100 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
@@ -127,11 +128,12 @@ const LastMonthStart = () => {
           </p>
         </div>
         {/* small screen sink heading*/}
-        <div className="relative h-[26rem] md:h-[40rem] md:col-span-5 lg:col-span-4 bg-black flex md:items-center justify-center mt-[-1px]">
+        <div className="relative h-[26rem] md:h-[40rem] md:col-span-5 lg:col-span-4 bg-black flex flex-col items-center justify-center gap-y-5 md:gap-y-52 pb-24 md:pt-[230px] mt-[-1px]">
           {/* text */}
           {/* Animated Container */}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -149,7 +151,8 @@ const LastMonthStart = () => {
           </motion.div>
           {/* small screen starts*/}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -161,14 +164,15 @@ const LastMonthStart = () => {
           </motion.div>
           {/* small screen ends*/}
           {/* Button */}
-          <div className="absolute bottom-10 md:left-48 ">
+          <div className="md:mr-10">
             <Button label="See More" type="see-more" handleClick={() => {}} />
           </div>
         </div>
         {/* second column */}
         <div className="hidden h-[30rem] md:col-span-5  lg:col-span-3 md:flex items-center justify-start">
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -186,7 +190,8 @@ const LastMonthStart = () => {
         {/* third column */}
         <div className="hidden h-[30rem] lg:col-span-3 lg:flex items-center justify-center">
           <motion.div
-            initial={{ x: 100, opacity: 0 }}
+            // initial={{ x: 100, opacity: 0 }}
+            initial={{ x: 100 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
@@ -214,11 +219,12 @@ const LastMonthStart = () => {
         </div>
         {/* small screen comode heading*/}
 
-        <div className="relative h-[26rem] md:h-[40rem] md:col-span-5 lg:col-span-4 bg-black flex md:items-center justify-center mt-[-1px]">
+        <div className="relative h-[26rem] md:h-[40rem] md:col-span-5 lg:col-span-4 bg-black flex flex-col items-center justify-center gap-y-10 md:gap-y-52 pb-24 md:pb-0 mt-[-2px]">
           {/* text */}
           {/* Animated Container */}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -236,7 +242,8 @@ const LastMonthStart = () => {
           </motion.div>
           {/* small screen starts*/}
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -248,14 +255,15 @@ const LastMonthStart = () => {
           </motion.div>
           {/* small screen*/}
           {/* Button */}
-          <div className="absolute bottom-10 md:left-48 ">
+          <div className="md:mr-10">
             <Button label="See More" type="see-more" handleClick={() => {}} />
           </div>
         </div>
         {/* second column */}
         <div className="hidden h-[30rem] md:col-span-5  lg:col-span-3 md:flex items-center justify-start">
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            // initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -200 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -273,7 +281,8 @@ const LastMonthStart = () => {
         {/* third column */}
         <div className="hidden h-[30rem] lg:col-span-3 lg:flex items-center justify-center">
           <motion.div
-            initial={{ x: 100, opacity: 0 }}
+            // initial={{ x: 100, opacity: 0 }}
+            initial={{ x: 100 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}

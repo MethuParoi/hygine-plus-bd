@@ -30,7 +30,7 @@ const CategorySection = () => {
       </motion.div>
 
       {/* Bathware section */}
-      <div className="grid grid-cols-2 gap-4 justify-items-center my-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 justify-items-center my-10">
         {/* Commod Image (Comes from left) */}
         <motion.div
           initial={{ x: -300, opacity: 0 }}
@@ -50,7 +50,7 @@ const CategorySection = () => {
           <button
             onClick={() => {
               setCategory("bathware");
-              navigate("/products");
+              navigate("/products/bathware");
             }}
             className="absolute top-40 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black  cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
           >
@@ -73,7 +73,7 @@ const CategorySection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="grid grid-cols-2 gap-4 mt-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-4"
         >
           {/* Bassin Image */}
           <motion.div
@@ -92,7 +92,7 @@ const CategorySection = () => {
             <button
               onClick={() => {
                 setCategory("bathware");
-                navigate("/products");
+                navigate("/products/bathware");
               }}
               className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black  cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
             >
@@ -120,7 +120,7 @@ const CategorySection = () => {
             <button
               onClick={() => {
                 setCategory("bathware");
-                navigate("/products");
+                navigate("/products/bathware");
               }}
               className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black  cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
             >
@@ -134,16 +134,16 @@ const CategorySection = () => {
       </div>
 
       {/* Kitchenware section */}
-      <div className="grid grid-cols-2 gap-4 justify-items-center my-10">
+      <div className="grid lg:grid-cols-2 gap-x-4 justify-items-center my-10">
         {/* Bassin & Faucet Grid (Comes from right) */}
         <motion.div
           initial={{ x: -250, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="grid grid-cols-2 gap-4 mt-10"
+          className="grid grid-cols-2 gap-x-4 "
         >
-          {/* Bassin Image */}
+          {/* card-1 */}
           <motion.div
             initial={{ x: -250, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -160,7 +160,7 @@ const CategorySection = () => {
             <button
               onClick={() => {
                 setCategory("kitchenware");
-                navigate("/products");
+                navigate("/products/kitchenware");
               }}
               className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black font-semibold  cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
             >
@@ -170,8 +170,7 @@ const CategorySection = () => {
               <h1 className="text-3xl text-center ">Bassin</h1>
             </div>
           </motion.div>
-
-          {/* Faucet Image */}
+          {/* card-2 */}
           <motion.div
             initial={{ x: -250, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -188,7 +187,7 @@ const CategorySection = () => {
             <button
               onClick={() => {
                 setCategory("kitchenware");
-                navigate("/products");
+                navigate("/products/kitchenware");
               }}
               className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black font-semibold  cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
             >
@@ -199,6 +198,7 @@ const CategorySection = () => {
             </div>
           </motion.div>
         </motion.div>
+        {/* card-3 */}
         {/* Commod Image (Comes from left) */}
         <motion.div
           initial={{ x: 300, opacity: 0 }}
@@ -218,7 +218,7 @@ const CategorySection = () => {
           <button
             onClick={() => {
               setCategory("kitchenware");
-              navigate("/products");
+              navigate("/products/kitchenware");
             }}
             className="absolute top-40 left-1/2 transform -translate-x-1/2 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.4)] px-10 py-2 rounded-full text-black 
     cursor-pointer transition-transform duration-300 text-xl hover:scale-105"
