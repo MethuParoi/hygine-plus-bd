@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import flag from "../../assets/navbar/bd-flag.png";
 import logo from "../../assets/logo/logo-white.png";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -20,13 +20,13 @@ const Navbar = () => {
           <div className="flex gap-x-1 sm:gap-x-4">
             <div className="relative">
               <input
-                className="bg-gray-50 rounded-[2rem] w-40 sm:w-64 h-10 text-gray-900 px-4 focus:outline-none"
+                className="bg-gray-50 rounded-[2rem] w-40 sm:w-64 h-8 text-gray-900 px-4 focus:outline-none"
                 type="text"
                 placeholder="Search Products"
               />
               <button
                 onClick={() => navigate("/")}
-                className="absolute top-0 right-0 text-lg cursor-pointer bg-transparent h-10 w-12 flex items-center justify-center rounded-r-[2rem] focus:ring-0 focus:ring-transparent"
+                className="absolute top-[-5px] right-0 text-lg cursor-pointer bg-transparent h-10 w-12 flex items-center justify-center rounded-r-[2rem] focus:ring-0 focus:ring-transparent"
               >
                 <FaSearch className="text-2xl text-black" />
               </button>
@@ -53,7 +53,7 @@ const Navbar = () => {
       </div>
 
       {/* lower navbar */}
-      <div className="border-t border-gray-50 mt-2 flex justify-between items-center">
+      <div className="border-t border-t-[0.5px] border-gray-50 mt-2 flex justify-between items-center">
         <div className="hidden md:flex items-center gap-x-4 relative">
           <button
             popoverTarget="bathware"
@@ -61,7 +61,7 @@ const Navbar = () => {
             className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
           >
             Bathware
-            <IoIosArrowDropdown className="text-2xl" />
+            <IoIosArrowDown className="text-2xl" />
           </button>
           {/* bathware dropdown */}
           <ul
@@ -83,7 +83,7 @@ const Navbar = () => {
             className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
           >
             Kitchenware
-            <IoIosArrowDropdown className="text-2xl" />
+            <IoIosArrowDown className="text-2xl" />
           </button>
           {/* kitchenware dropdown */}
           <ul
@@ -145,7 +145,7 @@ const Navbar = () => {
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
               >
                 Bathware
-                <IoIosArrowDropdown className="text-2xl" />
+                <IoIosArrowDown className="text-2xl" />
               </button>
               {/* bathware dropdown */}
               <ul
@@ -170,7 +170,7 @@ const Navbar = () => {
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
               >
                 Kitchenware
-                <IoIosArrowDropdown className="text-2xl" />
+                <IoIosArrowDown className="text-2xl" />
               </button>
               {/* kitchenware dropdown */}
               <ul
