@@ -22,7 +22,7 @@ const ProductDetails = () => {
       try {
         setLoading(true);
         const data = await getProductDetails(productId);
-        console.log("Fetched Product Data:", data);
+        // console.log("Fetched Product Data:", data);
 
         setProductDetails(
           Array.isArray(data) && data.length > 0 ? data[0] : data

@@ -6,7 +6,7 @@ export async function getProducts() {
     console.error(error);
     throw new Error("An error occurred while fetching productss");
   }
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
