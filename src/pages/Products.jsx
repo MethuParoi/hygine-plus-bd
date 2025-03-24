@@ -3,11 +3,14 @@ import ProductCard from "../components/products/ProductCard";
 import { getProducts } from "../utils/apiProduct";
 import { AuthContext } from "../provider/AuthProvider";
 import Loader from "../components/ui/Loader/Loader";
+import { useParams } from "react-router";
 
 const Products = () => {
   const { fetching, setFetching } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const [sortOptions, setSortOptions] = useState([]);
+  const { main_category } = useParams();
+  console.log("category", main_category);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -36,15 +39,21 @@ const Products = () => {
 
   return (
     <div className="w-11/12 mx-auto min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {data.length > 0
-        ? data.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        : !fetching && (
-            <p className="text-2xl font-semibold text-center mt-32">
-              No products available
-            </p>
-          )}
+      {/* banner */}
+      <div className="md:col-span-3 lg:col-span-4">Banner</div>
+      {/* sorting option */}
+      <div className="lg:block">Sort</div>
+      <div className="md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {data.length > 0
+          ? data.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          : !fetching && (
+              <p className="text-2xl font-semibold text-center mt-32">
+                No products available
+              </p>
+            )}
+      </div>
     </div>
   );
 };
