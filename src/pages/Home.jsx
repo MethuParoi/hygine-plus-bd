@@ -20,7 +20,7 @@ const Home = () => {
       <Hero></Hero>
       <ShopByCatagory></ShopByCatagory>
       <VideoSection></VideoSection>
-      <NewArrival></NewArrival>
+      {/* <NewArrival></NewArrival> */}
       <LastMonthStart></LastMonthStart>
       <NewCollection></NewCollection>
       <SimpleChoices></SimpleChoices>
