@@ -117,6 +117,16 @@ const partners = [
     name: "EduCare Foundation",
     description: "Supporting students with scholarships and academic counseling services.",
   },
+  {
+    logo: partnerImg1,
+    name: "TechEd Solutions",
+    description: "Empowering students with cutting-edge educational tools and resources.",
+  },
+  {
+    logo: partnerImg3,
+    name: "CareerBoost Inc.",
+    description: "Connecting students with top internship and job opportunities worldwide.",
+  },
 ];
 
 const PartnersSection = () => {
