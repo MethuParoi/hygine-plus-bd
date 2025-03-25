@@ -1,4 +1,5 @@
 import { FaArrowRightLong } from "react-icons/fa6";
+import { IoMdAddCircle } from "react-icons/io";
 
 const Button = ({ handleClick, disabled, type, buttonClass, label }) => {
   if (type === "see-more") {
@@ -12,7 +13,21 @@ const Button = ({ handleClick, disabled, type, buttonClass, label }) => {
         <FaArrowRightLong />
       </button>
     );
-  } 
+  } else if (type === "add-product") {
+    return (
+      <button
+        onClick={handleClick}
+        // type={
+        //   type === "submit" ? "submit" : type === "reset" ? "reset" : "button"
+        // }
+        disabled={disabled}
+        className={`text-white font-bold text-lg py-2 px-4 rounded-md cursor-pointer bg-blue-500 hover:bg-blue-600 flex items-center justify-center gap-x-2`}
+      >
+        <IoMdAddCircle className="text-2xl" />
+        {label}
+      </button>
+    );
+  }
   return (
     <button
       onClick={handleClick}

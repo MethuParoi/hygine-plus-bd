@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { createProduct } from "../../utils/manageProducts";
+import Loader from "../../components/ui/Loader/Loader";
 
 function useCreateOrEditProduct() {
   const [isWorking, setIsWorking] = useState(false);
@@ -14,6 +15,7 @@ function useCreateOrEditProduct() {
       const data = await createProduct(productData, id);
       onSuccess(data);
     } catch (error) {
+      setIsWorking(false);
       console.error(error);
     } finally {
       setIsWorking(false);
@@ -108,6 +110,14 @@ function ProductsForm({
     toast.error("Error occured!");
   }
 
+  if (isWorking) {
+    return (
+      <div className="flex justify-center items-center z-50">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className=" inset-0 bg-opacity-30 flex flex-col justify-center items-center z-50">
       <div className="place-self-end">
@@ -121,18 +131,20 @@ function ProductsForm({
           <IoCloseSharp className="text-gray-600" size={"3rem"} />
         </button>
       </div>
-      <div className="bg-gray-200 w-[70rem] h-[42rem] py-[1rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-gray-200 overflow-y-scroll">
+      <div className="bg-indigo-50 w-[70rem] h-[42rem] py-[1rem] pl-[6rem] shadow-xl rounded-[2rem] border-2 border-indigo-200 overflow-y-scroll">
         <form ref={formRef} onSubmit={handleSubmit(onSubmit, onError)}>
           <h1 className="flex justify-center text-gray-700 text-3xl font-bold mb-[1rem] mr-[6rem]">
             {isEditing ? "Edit Product" : "Add a new Product"}
           </h1>
           {/* title  and category */}
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[4.7rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4rem] pl-[3rem]">
             {/* title */}
             <div className="relative">
-              <p className="text-gray-600 font-medium">Product title*</p>
+              <p className="text-gray-600 font-semibold text-lg">
+                Product title*
+              </p>
               <input
-                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 type="text"
                 placeholder="Enter product title"
                 id="product_name"
@@ -147,11 +159,37 @@ function ProductsForm({
                 </p>
               )}
             </div>
+            {/* main category */}
+            <div className="relative">
+              <p className="text-gray-600 font-semibold text-lg">
+                Product Category*
+              </p>
+              <select
+                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Select a category"
+                id="main_category"
+                disabled={isWorking}
+                {...register("main_category", {
+                  required: "Product category is required",
+                })}
+              >
+                <option value="">Select a category</option>
+                <option value="bathware">Bathware</option>
+                <option value="kitchenware">Kitchenware</option>
+              </select>
+              {errors.main_category && (
+                <p className="text-red-500 absolute">
+                  {errors.main_category.message?.toString() || ""}
+                </p>
+              )}
+            </div>
             {/* category */}
             <div className=" relative">
-              <p className="text-gray-600 font-medium">Product Category*</p>
+              <p className="text-gray-600 font-semibold text-lg">
+                Sub Category*
+              </p>
               <input
-                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 placeholder="Enter product category"
                 type="text"
                 id="product_category"
@@ -172,28 +210,10 @@ function ProductsForm({
             </div>
           </div>
 
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[4.7rem]">
-            <div className=" relative">
-              <p className="text-gray-600 font-medium">Product price*</p>
-              <input
-                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
-                placeholder="Enter product price"
-                type="number"
-                id="product_price"
-                disabled={isWorking}
-                {...register("product_price", {
-                  required: "Product price is required",
-                })}
-              />
-              {errors.product_price && (
-                <p className="text-red-500 absolute">
-                  {errors.product_price?.message?.toString()}
-                </p>
-              )}
-            </div>
-
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4rem] pl-[3rem]">
+            {/* product description */}
             <div className="relative">
-              <p className="text-gray-600 font-medium">
+              <p className="text-gray-600 font-semibold text-lg">
                 Description of product*
               </p>
               <textarea
@@ -213,54 +233,57 @@ function ProductsForm({
               )}
             </div>
 
-            {/* <div className=" relative">
-              <p className="text-gray-600 font-medium">
-                Product price (with discount)*
+            {/* specification */}
+            <div className="relative">
+              <p className="text-gray-600 font-semibold text-lg">
+                Product Specifications (comma seperated ",")*
               </p>
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
-                type="number"
-                id="discountedPrice"
+                placeholder="Enter product specifications"
+                type="text"
+                id="product_specification"
                 disabled={isWorking}
-                {...register("discountedPrice", {
-                  required: "Product price is required",
+                {...register("product_specification", {
+                  required: "Product specifications is required",
                 })}
               />
-              {errors.discountedPrice && (
+              {errors.product_specification && (
                 <p className="text-red-500 absolute">
-                  {errors.discountedPrice?.message?.toString()}
+                  {errors.product_specification.message?.toString() || ""}
                 </p>
               )}
-            </div> */}
-          </div>
-
-          {/* specification */}
-          <div className="relative mb-[1.5rem]">
-            <p className="text-gray-600 font-medium">
-              Product Specifications (comma seperated ",")*
-            </p>
-            <input
-              className="w-[55rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
-              placeholder="Enter product specifications"
-              type="text"
-              id="product_specification"
-              disabled={isWorking}
-              {...register("product_specification", {
-                required: "Product specifications is required",
-              })}
-            />
-            {errors.product_specification && (
-              <p className="text-red-500 absolute">
-                {errors.product_specification.message?.toString() || ""}
-              </p>
-            )}
+            </div>
           </div>
 
           {/* model, main category, details img */}
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[3rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[3rem] pl-[3rem]">
+            <div className=" relative">
+              <p className="text-gray-600 font-semibold text-lg">
+                Product price*
+              </p>
+              <input
+                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                placeholder="Enter product price"
+                type="number"
+                id="product_price"
+                disabled={isWorking}
+                {...register("product_price", {
+                  required: "Product price is required",
+                })}
+              />
+              {errors.product_price && (
+                <p className="text-red-500 absolute">
+                  {errors.product_price?.message?.toString()}
+                </p>
+              )}
+            </div>
+
             {/*model */}
             <div className="relative">
-              <p className="text-gray-600 font-medium">Product model number*</p>
+              <p className="text-gray-600 font-semibold text-lg">
+                Product model number*
+              </p>
               <input
                 className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 placeholder="Enter product model number"
@@ -277,31 +300,11 @@ function ProductsForm({
                 </p>
               )}
             </div>
-            {/* main category */}
-            <div className="relative">
-              <p className="text-gray-600 font-medium">Product Category*</p>
-              <select
-                className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
-                placeholder="Select a category"
-                id="main_category"
-                disabled={isWorking}
-                {...register("main_category", {
-                  required: "Product category is required",
-                })}
-              >
-                <option value="">Select a category</option>
-                <option value="bathware">Bathware</option>
-                <option value="kitchenware">Kitchenware</option>
-              </select>
-              {errors.main_category && (
-                <p className="text-red-500 absolute">
-                  {errors.main_category.message?.toString() || ""}
-                </p>
-              )}
-            </div>
             {/* details image */}
             <div className="relative">
-              <p className="text-gray-600 font-medium">Product details photo</p>
+              <p className="text-gray-600 font-semibold text-lg">
+                Product details photo
+              </p>
               <input
                 className="text-[1rem] rounded-sm font-medium file:text-gray-100 file:mt-[.5rem] file:px-3 file:py-2 file:mr-3 file:rounded-lg file:border-none file:text-brand-50 file:bg-blue-400 file:cursor-pointer file:transition-colors file:duration-200 hover:file:bg-brand-700 bg-gray-50 text-gray-600 w-[16.5rem] h-[3.5rem] rounded-[12rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md ml-[1.5rem]"
                 type="file"
@@ -322,8 +325,18 @@ function ProductsForm({
           </div>
 
           {/* photo */}
-          <div className="mb-[3.5rem] relative">
-            <p className="text-gray-600 font-medium">Product photos</p>
+          <div className="mb-[3.5rem] relative pl-[2.5rem]">
+            <div className="flex items-center justify-around pr-[6rem]">
+              <p className="text-gray-600 font-semibold text-lg">
+                Product photo 1
+              </p>
+              <p className="text-gray-600 font-semibold text-lg">
+                Product photo 2
+              </p>
+              <p className="text-gray-600 font-semibold text-lg">
+                Product photo 3
+              </p>
+            </div>
             {[...Array(3)].map((_, index) => (
               <input
                 key={index}
