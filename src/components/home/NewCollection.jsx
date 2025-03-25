@@ -15,7 +15,7 @@ const NewCollection = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="justify-center text-center"
             >
-                <h1 className="text-5xl font-bold mb-4">Our New Collection</h1>
+                <h1 className="text-3xl md:text-5xl font-bold mb-4">Our New Collection</h1>
                 <p className="text-gray-600">
                     Beyond inspiration, into excellence
                 </p>
