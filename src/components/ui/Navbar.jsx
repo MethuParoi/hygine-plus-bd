@@ -3,22 +3,40 @@ import { FaSearch } from "react-icons/fa";
 import flag from "../../assets/navbar/bd-flag.png";
 import logo from "../../assets/logo/logo-white.png";
 import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    if (user) {
+      try {
+        await logoutUser();
+        // toast.success("User logged out successfully");
+        navigate("/"); // Navigate after successful logout
+      } catch (error) {
+        console.error("Error logging out:", error.message);
+      }
+    }
+  };
 
   return (
     <div className="bg-black text-gray-50 shadow-sm pt-4 px-4 md:px-12">
       {/* upper navbar */}
       <div className="flex justify-between items-center mb-2">
-        <div>
+        <div className="flex items-center gap-x-2">
           <img className="w-8" src={flag} alt="" />
+          <h3 className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300">
+            BANGLADESH
+          </h3>
         </div>
         <div>
           <div className="flex gap-x-1 sm:gap-x-4">
-            <div className="relative">
+            {/* search */}
+            {/* <div className="relative">
               <input
                 className="bg-gray-50 rounded-[2rem] w-40 sm:w-64 h-8 text-gray-900 px-4 focus:outline-none"
                 type="text"
@@ -30,7 +48,7 @@ const Navbar = () => {
               >
                 <FaSearch className="text-2xl text-black" />
               </button>
-            </div>
+            </div> */}
             {/* login */}
             <button
               onClick={() => navigate("/")}
@@ -43,10 +61,10 @@ const Navbar = () => {
             <div className="border-l border-gray-50"></div>
 
             <button
-              onClick={() => navigate("/login")}
+              onClick={() => (user ? handleLogout() : navigate("/login"))}
               className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300"
             >
-              LOGIN
+              {user ? "LOGOUT" : "LOGIN"}
             </button>
           </div>
         </div>

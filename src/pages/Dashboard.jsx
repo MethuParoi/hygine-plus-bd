@@ -127,8 +127,8 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* navbar */}
-      <div className="bg-black h-16 w-full flex justify-center items-center">
-        <h1 className="text-white text-3xl font-bold">Admin Dashboard</h1>
+      <div className="bg-indigo-200 h-16 w-full flex justify-center items-center">
+        <h1 className="text-gray-600 text-3xl font-bold">Admin Dashboard</h1>
 
         <div className="absolute right-10">
           <Button
@@ -140,35 +140,49 @@ const Dashboard = () => {
           />
         </div>
       </div>
+
       {/* product management   */}
-      <div className="h-[87vh] w-[80dvw] overflow-x-scroll  xl:overflow-x-hidden flex flex-col items-center container mx-auto pt-[2rem] relative ">
+      <div className="h-[87vh] w-[80dvw] overflow-x-scroll  xl:overflow-x-hidden flex flex-col items-center container mx-auto  relative ">
+        {/* add product */}
+        <div className="mt-[2rem] mb-[1rem] flex items-center justify-end w-full">
+          <div className="self-end">
+            <Button
+              label="Add Product"
+              type="add-product"
+              handleClick={() => {
+                console.log("Button clicked");
+                modalHandler();
+              }}
+            />
+          </div>
+        </div>
         {/* table header */}
-        <div className="max-w-[110rem] grid grid-cols-5 w-full gap-x-4 gap-y-2 justify-items-center bg-gray-200 py-[1rem] rounded-2xl mb-[2rem]">
+        <div className="max-w-[110rem] grid grid-cols-5 w-full gap-x-4 gap-y-2 justify-items-center bg-indigo-200 py-[.7rem] rounded-2xl mb-[1rem] ">
           <div>
-            <h1 className="text-[1.6rem] font-bold text-gray-900">Image</h1>
+            <h1 className="text-[1.6rem] font-bold text-gray-500">Image</h1>
           </div>
           <div>
-            <h1 className="text-[1.6rem] font-bold text-gray-900">
+            <h1 className="text-[1.6rem] font-bold text-gray-500">
               Product Name
             </h1>
           </div>
           <div>
-            <h1 className="text-[1.6rem] font-bold text-gray-900">Category</h1>
+            <h1 className="text-[1.6rem] font-bold text-gray-500">Category</h1>
           </div>
           <div>
-            <h1 className="text-[1.6rem] font-bold text-gray-900">
+            <h1 className="text-[1.6rem] font-bold text-gray-500">
               Description
             </h1>
           </div>
           <div>
-            <h1 className="text-[1.6rem] font-bold text-gray-900">Price</h1>
+            <h1 className="text-[1.6rem] font-bold text-gray-500">Price</h1>
           </div>
         </div>
         <div
           className={`${
             modal
               ? "opacity-50"
-              : "bg-gray-100 px-[2rem] max-h-[80vh] overflow-y-auto"
+              : "bg-indigo-50 px-[2rem] max-h-[80vh] overflow-y-auto"
           } flex flex-col items-center rounded-2xl`}
         >
           <ProductsTable
@@ -177,8 +191,8 @@ const Dashboard = () => {
             onDeleteProduct={handleDeleteProduct}
           />
         </div>
-        <div className="self-start mt-[2rem] flex items-center justify-between w-full">
-          <div>
+        <div className="mt-[2rem] flex items-center justify-end w-full">
+          {/* <div>
             <Button
               label="Add Product"
               type="primary"
@@ -187,7 +201,7 @@ const Dashboard = () => {
                 modalHandler();
               }}
             />
-          </div>
+          </div> */}
           <div className="self-end">
             <Button
               label="View All Product"
