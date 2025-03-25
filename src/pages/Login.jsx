@@ -62,14 +62,16 @@ const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn().then((result) => {
-        const userInfo = {
-          email: result?.user?.email,
-          name: result?.user?.displayName,
-        };
-        axiosPublic.post("/user/add-google-user-data", userInfo).then((res) => {
-          navigate(from, { replace: true });
-          toast.success("User logged in successfully!");
-        });
+        navigate("/");
+        toast.success("User logged in successfully!");
+        // const userInfo = {
+        //   email: result?.user?.email,
+        //   name: result?.user?.displayName,
+        // };
+        // axiosPublic.post("/user/add-google-user-data", userInfo).then((res) => {
+        //   navigate(from, { replace: true });
+        //   toast.success("User logged in successfully!");
+        // });
       });
     } catch (error) {
       toast.error(error.message);
@@ -179,7 +181,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 text-lg font-medium text-white bg-primary rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 text-lg font-semibold text-gray-600 bg-gray-100 border-2 border-gray-400 hover:bg-gray-200 shadow-2xl rounded-xl focus:outline-none cursor-pointer"
           >
             Login
           </button>
@@ -187,7 +189,7 @@ const Login = () => {
         <div className="flex flex-col gap-y-3 items-center justify-center">
           <button
             onClick={() => handleGoogleSignIn()}
-            className="w-full flex justify-center items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-secondary rounded-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full flex justify-center items-center gap-2 px-4 py-2 text-lg font-semibold text-gray-600 bg-gray-100 border-2 border-gray-400 hover:bg-gray-200 shadow-2xl rounded-xl focus:outline-none cursor-pointer"
           >
             <FaGoogle />
             <p className="text-lg">Login with Google</p>

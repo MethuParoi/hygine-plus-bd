@@ -12,7 +12,7 @@ const Button = ({ handleClick, disabled, type, buttonClass, label }) => {
         <FaArrowRightLong />
       </button>
     );
-  }
+  } 
   return (
     <button
       onClick={handleClick}
