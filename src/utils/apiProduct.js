@@ -10,6 +10,21 @@ export async function getProducts() {
   return data;
 }
 
+export async function getSortedProducts(sort) {
+  if (sort === "all") {
+    return getProducts();
+  }
+  const { data, error } = await supabase
+    .from("products_table")
+    .select("*")
+    .eq("product_category", sort);
+  if (error) {
+    console.error(error);
+    throw new Error("An error occurred while fetching productss");
+  }
+  return data;
+}
+
 export async function getProductDetails(productId) {
   const { data, error } = await supabase
     .from("products_table")

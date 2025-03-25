@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-80 h-[32rem] my-10 bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="w-80 h-[32rem] bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
       {/* Product Image */}
       <div className="w-full h-[20rem] overflow-hidden">
         <img

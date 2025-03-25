@@ -1,15 +1,22 @@
+import { AuthContext } from "../../provider/AuthProvider";
 import { getProducts } from "../../utils/apiProduct";
 import SortButton from "./SortButton";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function SortProduct() {
-  const [categories, setCategories] = useState(new Set());
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [categories, setCategories] = useState(new Set(["all"]));
+  const { selectedCategory, setSelectedCategory } = useContext(AuthContext);
 
   //fetch categories
   async function fetchCategory() {
-    const category = await getProducts();
-    setCategories(new Set(category.map((item) => item.product_category)));
+    const products = await getProducts();
+    setCategories(
+      (prevCategories) =>
+        new Set([
+          ...prevCategories,
+          ...products.map((item) => item.product_category),
+        ])
+    );
   }
 
   useEffect(() => {
@@ -30,7 +37,7 @@ function SortProduct() {
   return (
     <div className="mt-10">
       <h1 className="text-3xl font-semibold text-gray-600">Sort Products</h1>
-      <div className="xl:border-t-2 border-gray-300 mr-[2rem] pt-[2rem] flex flex-col gap-y-6 justify-center items-center">
+      <div className="xl:border-t-2 border-gray-300 mr-[2rem] pt-[2rem] flex flex-row gap-x-2 flex-wrap lg:gap-x-0 lg:flex-col gap-y-2 lg:gap-y-6 justify-center items-center">
         {categoryOptions.map((category, index) => (
           <SortButton
             key={index}
