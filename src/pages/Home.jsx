@@ -9,6 +9,8 @@ import { getProducts } from "../utils/apiProduct";
 import Hero from "../components/home/Hero";
 import CustomerReview from "../components/home/CustomerReview";
 import SimpleChoices from "../components/home/SimpleChoices";
+import StatsSection from "../components/home/StatsSection";
+import LimitedTimeOffer from "../components/home/LimitedTimeOffer";
 
 const Home = () => {
   // Fetch products from the database once in a day 86400000
@@ -19,12 +21,14 @@ const Home = () => {
     <div className="overflow-x-hidden">
       <Hero></Hero>
       <ShopByCatagory></ShopByCatagory>
+      <LimitedTimeOffer></LimitedTimeOffer>
       <VideoSection></VideoSection>
       <LastMonthStart></LastMonthStart>
       <NewCollection></NewCollection>
       <SimpleChoices></SimpleChoices>
       <FactoryImg></FactoryImg>
       <PartnersSection></PartnersSection>
+      <StatsSection></StatsSection>
       <CustomerReview></CustomerReview>
     </div>
   );
