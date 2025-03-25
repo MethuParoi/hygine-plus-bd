@@ -18,6 +18,7 @@ const googleProvider = new GoogleAuthProvider();
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [category, setCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [productId, setProductId] = useState([]);
   const [packagePrice, setPackagePrice] = useState(0);
@@ -120,6 +121,8 @@ function AuthProvider({ children }) {
     user,
     category,
     setCategory,
+    selectedCategory,
+    setSelectedCategory,
     loading,
     productId,
     setProductId,

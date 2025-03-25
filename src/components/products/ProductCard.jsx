@@ -10,14 +10,18 @@ const ProductCard = ({ product }) => {
   const { setProductId } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // multiple image options
+  const image = product && product?.image ? product?.image.split(",") : [];
+  const image1 = image[0];
+
   return (
-    <div className="w-80 h-[32rem] my-10 bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="w-80 h-[30rem] bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
       {/* Product Image */}
-      <div className="w-full h-[20rem] overflow-hidden">
+      <div className="w-full h-[18rem] p-4 ">
         <img
-          src={product?.image}
+          src={image1}
           alt={product?.product_category}
-          className="w-full h-auto object-cover p-4 transition-transform duration-500 hover:scale-105"
+          className="w-full h-[16rem] object-cover transition-transform duration-500 hover:scale-105 rounded-t-lg"
         />
       </div>
 
