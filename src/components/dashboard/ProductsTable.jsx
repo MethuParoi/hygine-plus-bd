@@ -17,42 +17,46 @@ function ProductsTable({ productData, onEditProduct, onDeleteProduct }) {
         .slice()
         .reverse()
         .map((product) => {
-          const images = product.image ? product.image.split(",") : [];
+          // multiple image options
+          const image =
+            product && product?.image ? product?.image.split(",") : [];
+          const image1 = image[0];
+          // const images = product.image ? product.image.split(",") : [];
           return (
             <div
               key={product.product_id}
-              className="grid grid-cols-5 max-w-[110rem] lg:w-full gap-x-4 gap-y-2 justify-items-center cursor-pointer bg-gray-200 my-[2rem] py-[1rem] rounded-2xl relative"
+              className="grid grid-cols-5 max-w-[110rem] lg:w-full gap-x-4 gap-y-2 justify-items-center cursor-pointer bg-indigo-100 my-[2rem] py-[1rem] rounded-2xl relative"
             >
               <div className=" flex items-center justify-center">
-                {images.map((img, index) => (
-                  <img
-                    className="rounded-md w-[8rem] h-[5rem] mx-[.5rem] border-2 border-gray-400"
-                    key={index}
-                    src={img}
-                    alt={product.productTitle}
-                    width={100}
-                    height={100}
-                  />
-                ))}
+                {/* {images.map((img, index) => ( */}
+                <img
+                  className="rounded-md w-[8rem] h-[5rem] mx-[.5rem] border-2 border-gray-400"
+                  // key={index}
+                  src={image1}
+                  alt={product.productTitle}
+                  width={100}
+                  height={100}
+                />
+                {/* ))} */}
               </div>
               <div>
-                <h1 className="text-[1.6rem] font-medium text-gray-700">
+                <h1 className="text-[1.6rem] font-medium text-gray-500">
                   {product.product_name}
                 </h1>
               </div>
               <div>
-                <h1 className="text-[1.6rem] font-medium text-gray-700">
+                <h1 className="text-[1.6rem] font-medium text-gray-500">
                   {product.product_category || "N/A"}
                 </h1>
               </div>
 
               <div>
-                <h1 className="text-[1.6rem] font-medium text-gray-700 line-clamp-1">
+                <h1 className="text-[1.6rem] font-medium text-gray-500 line-clamp-1">
                   {product.product_description}
                 </h1>
               </div>
               <div>
-                <h1 className="text-[1.6rem] font-medium text-gray-700">
+                <h1 className="text-[1.6rem] font-medium text-gray-500">
                   ৳{product.product_price}
                 </h1>
               </div>
@@ -69,15 +73,15 @@ function ProductsTable({ productData, onEditProduct, onDeleteProduct }) {
                           onClick={() => onEditProduct(product)}
                           className="p-2 cursor-pointer hover:bg-gray-200 flex items-center gap-x-3"
                         >
-                          <MdModeEditOutline className="text-[2rem] text-gray-700" />
-                          <p className=" text-gray-700">Edit</p>
+                          <MdModeEditOutline className="text-[2rem] text-gray-500" />
+                          <p className=" text-gray-500">Edit</p>
                         </li>
                         <li
                           onClick={() => onDeleteProduct(product.product_id)}
                           className="p-2 cursor-pointer hover:bg-gray-200 flex items-center gap-x-3"
                         >
-                          <RiDeleteBin6Fill className="text-[2rem] text-gray-700" />
-                          <p className=" text-gray-700">Delete</p>
+                          <RiDeleteBin6Fill className="text-[2rem] text-gray-500" />
+                          <p className=" text-gray-500">Delete</p>
                         </li>
                       </ul>
                     </div>
@@ -86,8 +90,8 @@ function ProductsTable({ productData, onEditProduct, onDeleteProduct }) {
               </div>
 
               <div className="col-start-2 col-end-6 grid-cols-4 place-self-start border-t-2 border-t-gray-300 w-full">
-                <h1 className="text-[1.6rem] font-medium text-gray-700 mt-[.8rem] line-clamp-2">
-                  <span className="font-bold text-gray-900">
+                <h1 className="text-[1.6rem] font-medium text-gray-500 mt-[.8rem] line-clamp-2">
+                  <span className="font-bold text-gray-500">
                     specifications:
                   </span>{" "}
                   {product.product_specification || "N/A"}
