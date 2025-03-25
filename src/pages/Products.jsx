@@ -12,7 +12,7 @@ const Products = () => {
   const [data, setData] = useState([]);
   const [sortOptions, setSortOptions] = useState([]);
   const { main_category } = useParams();
-  console.log("category", main_category);
+  // console.log("category", main_category);
 
   const fetchProducts = async () => {
     try {
@@ -52,7 +52,6 @@ const Products = () => {
       </div>
       {/* sorting option */}
       <div className="lg:block">
-        {" "}
         <SortProduct />
       </div>
       <div className="md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
