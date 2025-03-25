@@ -104,7 +104,7 @@ const Register = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
       <Helmet>
-        <title>CloudHostel | Sign Up</title>
+        <title> Sign Up</title>
       </Helmet>
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-700">
@@ -134,14 +134,14 @@ const Register = () => {
               })}
               autoComplete="name"
               placeholder="Enter a username"
-              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 border-1 border-gray-600 text-gray-600"
             />
             {errors.username && (
               <span className="text-red-500">{errors.username.message}</span>
             )}
           </div>
 
-          <div>
+          {/* <div>
             <label
               htmlFor="photoUrl"
               className="block text-sm font-medium text-gray-600"
@@ -154,12 +154,12 @@ const Register = () => {
               {...register("photoUrl", { required: "Avatar URL is required" })}
               autoComplete="photo"
               placeholder="Enter a photo URL"
-              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 border-1 border-gray-600 text-gray-600"
             />
             {errors.photoUrl && (
               <span className="text-red-500">{errors.photoUrl.message}</span>
             )}
-          </div>
+          </div> */}
 
           <div>
             <label
@@ -174,7 +174,7 @@ const Register = () => {
               {...register("email", { required: "Email is required" })}
               autoComplete="email"
               placeholder="Enter a valid e-mail"
-              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 border-1 border-gray-600 text-gray-600"
             />
             {errors.email && (
               <span className="text-red-500">{errors.email.message}</span>
@@ -208,12 +208,12 @@ const Register = () => {
               })}
               autoComplete="new-password"
               placeholder="Enter a strong password"
-              className="w-full px-4 py-2 mt-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-sm border-1 border-gray-600 text-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-4 top-0 flex items-center text-gray-600 hover:text-gray-800"
+              className="absolute inset-y-0 right-4 top-5 flex items-center text-gray-600 hover:text-gray-800"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -224,7 +224,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full py-2 mt-4 font-semibold text-white bg-primary rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+            className="w-full py-2 mt-4 font-semibold font-semibold text-gray-600 bg-gray-100 border-2 border-gray-400 hover:bg-gray-200 shadow-2xl rounded-xl focus:outline-none cursor-pointer text-lg"
           >
             Sign Up
           </button>
@@ -232,7 +232,7 @@ const Register = () => {
 
         <button
           onClick={() => handleGoogleSignIn()}
-          className="w-full flex justify-center items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-secondary rounded-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full flex justify-center items-center gap-2 px-4 py-2  font-semibold text-gray-600 bg-gray-100 border-2 border-gray-400 hover:bg-gray-200 shadow-2xl rounded-xl focus:outline-none cursor-pointer"
         >
           <FaGoogle />
           <p className="text-lg">Login with Google</p>

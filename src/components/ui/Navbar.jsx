@@ -13,12 +13,16 @@ const Navbar = () => {
     <div className="bg-black text-gray-50 shadow-sm pt-4 px-4 md:px-12">
       {/* upper navbar */}
       <div className="flex justify-between items-center mb-2">
-        <div>
+        <div className="flex items-center gap-x-2">
           <img className="w-8" src={flag} alt="" />
+          <h3 className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300">
+            BANGLADESH
+          </h3>
         </div>
         <div>
           <div className="flex gap-x-1 sm:gap-x-4">
-            <div className="relative">
+            {/* search */}
+            {/* <div className="relative">
               <input
                 className="bg-gray-50 rounded-[2rem] w-40 sm:w-64 h-8 text-gray-900 px-4 focus:outline-none"
                 type="text"
@@ -30,7 +34,7 @@ const Navbar = () => {
               >
                 <FaSearch className="text-2xl text-black" />
               </button>
-            </div>
+            </div> */}
             {/* login */}
             <button
               onClick={() => navigate("/")}
