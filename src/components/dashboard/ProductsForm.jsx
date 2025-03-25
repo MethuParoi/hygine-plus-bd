@@ -137,7 +137,7 @@ function ProductsForm({
             {isEditing ? "Edit Product" : "Add a new Product"}
           </h1>
           {/* title  and category */}
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[4rem] pl-[3rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4rem] pl-[2rem]">
             {/* title */}
             <div className="relative">
               <p className="text-gray-600 font-semibold text-lg">
@@ -162,7 +162,7 @@ function ProductsForm({
             {/* main category */}
             <div className="relative">
               <p className="text-gray-600 font-semibold text-lg">
-                Product Category*
+                Product category*
               </p>
               <select
                 className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
@@ -173,7 +173,7 @@ function ProductsForm({
                   required: "Product category is required",
                 })}
               >
-                <option value="">Select a category</option>
+                <option value="">Select product category</option>
                 <option value="bathware">Bathware</option>
                 <option value="kitchenware">Kitchenware</option>
               </select>
@@ -186,11 +186,11 @@ function ProductsForm({
             {/* category */}
             <div className=" relative">
               <p className="text-gray-600 font-semibold text-lg">
-                Sub Category*
+                Sub category*
               </p>
               <input
                 className="w-[15rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
-                placeholder="Enter product category"
+                placeholder="Enter sub category"
                 type="text"
                 id="product_category"
                 disabled={isWorking}
@@ -210,7 +210,7 @@ function ProductsForm({
             </div>
           </div>
 
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[4rem] pl-[3rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[4rem] pl-[2rem]">
             {/* product description */}
             <div className="relative">
               <p className="text-gray-600 font-semibold text-lg">
@@ -236,7 +236,7 @@ function ProductsForm({
             {/* specification */}
             <div className="relative">
               <p className="text-gray-600 font-semibold text-lg">
-                Product Specifications (comma seperated ",")*
+                Product specifications (comma seperated ",")*
               </p>
               <input
                 className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
@@ -257,7 +257,7 @@ function ProductsForm({
           </div>
 
           {/* model, main category, details img */}
-          <div className="mb-[1.5rem] relative flex items-center gap-x-[3rem] pl-[3rem]">
+          <div className="mb-[1.5rem] relative flex items-center gap-x-[3rem] pl-[2rem]">
             <div className=" relative">
               <p className="text-gray-600 font-semibold text-lg">
                 Product price*
@@ -303,7 +303,7 @@ function ProductsForm({
             {/* details image */}
             <div className="relative">
               <p className="text-gray-600 font-semibold text-lg">
-                Product details photo
+                Product banner photo
               </p>
               <input
                 className="text-[1rem] rounded-sm font-medium file:text-gray-100 file:mt-[.5rem] file:px-3 file:py-2 file:mr-3 file:rounded-lg file:border-none file:text-brand-50 file:bg-blue-400 file:cursor-pointer file:transition-colors file:duration-200 hover:file:bg-brand-700 bg-gray-50 text-gray-600 w-[16.5rem] h-[3.5rem] rounded-[12rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md ml-[1.5rem]"
@@ -325,7 +325,7 @@ function ProductsForm({
           </div>
 
           {/* photo */}
-          <div className="mb-[3.5rem] relative pl-[2.5rem]">
+          <div className="mb-[3.5rem] relative pl-[1rem]">
             <div className="flex items-center justify-around pr-[6rem]">
               <p className="text-gray-600 font-semibold text-lg">
                 Product photo 1
