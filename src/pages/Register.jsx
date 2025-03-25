@@ -25,14 +25,15 @@ const Register = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn().then((result) => {
-        const userInfo = {
-          email: result?.user?.email,
-          name: result?.user?.displayName,
-        };
-        axiosPublic.post("/user/add-google-user-data", userInfo).then((res) => {
-          navigate(from, { replace: true });
-          toast.success("User logged in successfully!");
-        });
+        toast.success("User logged in successfully!");
+        // const userInfo = {
+        //   email: result?.user?.email,
+        //   name: result?.user?.displayName,
+        // };
+        // axiosPublic.post("/user/add-google-user-data", userInfo).then((res) => {
+        //   navigate(from, { replace: true });
+        //   toast.success("User logged in successfully!");
+        // });
       });
     } catch (error) {
       toast.error(error.message);
@@ -64,31 +65,36 @@ const Register = () => {
     // Create user using Auth Provider
     createUser(data.email, data.password)
       .then((userCredential) => {
+        // modified
+        toast.success("User registered successfully!");
+        navigate("/");
+        // modified
+
         const user = userCredential.user;
         // Save user data to MongoDB
         const userInfo = {
           name: data.username,
           email: data.email,
         };
-        axiosPublic.post("/user/add-user-data", userInfo).then((res) => {
-          if (res.data.insertedId) {
-            reset(); // Reset form data
-            toast.success("User registered successfully!");
-            navigate(from, { replace: true });
-          }
-        });
+        // axiosPublic.post("/user/add-user-data", userInfo).then((res) => {
+        //   if (res.data.insertedId) {
+        //     reset(); // Reset form data
+        //     toast.success("User registered successfully!");
+        //     navigate(from, { replace: true });
+        //   }
+        // });
 
         // update user profile
-        updateProfile(auth.currentUser, {
-          displayName: data.username,
-          photoURL: data.photoUrl,
-        }).catch((error) => {
-          console.error(
-            "Error updating user profile:",
-            error.code,
-            error.message
-          );
-        });
+        // updateProfile(auth.currentUser, {
+        //   displayName: data.username,
+        //   photoURL: data.photoUrl,
+        // }).catch((error) => {
+        //   console.error(
+        //     "Error updating user profile:",
+        //     error.code,
+        //     error.message
+        //   );
+        // });
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -41,16 +41,16 @@ function AuthProvider({ children }) {
         if (currentUser?.email) {
           const user = { email: currentUser.email };
 
-          axios
-            .post(`${import.meta.env.VITE_API_URL}/auth/jwt-auth`, user, {
-              withCredentials: true,
-            })
-            .then((response) => {})
-            .catch((error) => {
-              toast.success("user authenticated failed!");
+          // axios
+          //   .post(`${import.meta.env.VITE_API_URL}/auth/jwt-auth`, user, {
+          //     withCredentials: true,
+          //   })
+          //   .then((response) => {})
+          //   .catch((error) => {
+          //     toast.success("user authenticated failed!");
 
-              // console.log(error);
-            });
+          //     // console.log(error);
+          //   });
         }
       } else {
         setUser(null);
@@ -68,11 +68,11 @@ function AuthProvider({ children }) {
     setLoading(true);
     try {
       // Send a logout request to the server
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/logout`,
-        {},
-        { withCredentials: true }
-      );
+      // await axios.post(
+      //   `${import.meta.env.VITE_API_URL}/auth/logout`,
+      //   {},
+      //   { withCredentials: true }
+      // );
 
       // Clear all accessible cookies on the client side
       document.cookie.split(";").forEach((cookie) => {

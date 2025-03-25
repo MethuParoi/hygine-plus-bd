@@ -62,14 +62,16 @@ const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn().then((result) => {
-        const userInfo = {
-          email: result?.user?.email,
-          name: result?.user?.displayName,
-        };
-        axiosPublic.post("/user/add-google-user-data", userInfo).then((res) => {
-          navigate(from, { replace: true });
-          toast.success("User logged in successfully!");
-        });
+        navigate("/");
+        toast.success("User logged in successfully!");
+        // const userInfo = {
+        //   email: result?.user?.email,
+        //   name: result?.user?.displayName,
+        // };
+        // axiosPublic.post("/user/add-google-user-data", userInfo).then((res) => {
+        //   navigate(from, { replace: true });
+        //   toast.success("User logged in successfully!");
+        // });
       });
     } catch (error) {
       toast.error(error.message);
