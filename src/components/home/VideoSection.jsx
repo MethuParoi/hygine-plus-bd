@@ -9,12 +9,12 @@ const VideoSection = () => {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/public/videos/hood video.mp4" type="video/mp4" />
+        <source src="/videos/hood video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Content Section */}
-      <div className="relative z-10 w-11/12 mx-auto">
+      {/* <div className="relative z-10 w-11/12 mx-auto">
         <div className="w-1/2">
           <p className="text-5xl text-center font-light">Double Suction</p>
           <h1 className="text-7xl text-center font-bold">Modern Sensor</h1>
@@ -31,7 +31,7 @@ const VideoSection = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
