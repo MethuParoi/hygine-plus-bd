@@ -18,34 +18,25 @@ const ProductDetails = () => {
   useEffect(() => {
     if (!productId) return;
 
-    const fetchProduct = async () => {
+    const fetchProductDetails = async (productId) => {
+      window.scrollTo(0, 0);
       try {
         setLoading(true);
-        const data = await getProductDetails(productId);
-        // console.log("Fetched Product Data:", data);
-
+        const data = await getProductDetails(productId); // Fetch product details
+        // Normalize productDetails to always be an object
         setProductDetails(
           Array.isArray(data) && data.length > 0 ? data[0] : data
         );
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-        setProductDetails(null);
-      } finally {
+        // setDisplayImage(data?.image1);  Set the initial display image
         setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.error("Error fetching product details:", error);
       }
     };
 
-    fetchProduct();
-  }, [productId]);
-
-  if (loading)
-    return (
-      <div className="min-h-screen">
-        <Loader />
-      </div>
-    );
-  if (!productDetails)
-    return <p className="text-center mt-10 text-red-500">Product not found</p>;
+    fetchProductDetails(productId);
+  }, []);
 
   // ✅ Mouse movement effect for zoom
   const handleMouseMove = (e) => {
@@ -63,6 +54,50 @@ const ProductDetails = () => {
     setHoverStyle({ transform: "scale(1)" });
   };
 
+  // multiple image options
+  const image =
+    productDetails && productDetails?.image
+      ? productDetails?.image.split(",")
+      : [];
+
+  const image1 = image[0];
+  const image2 = image[1];
+  const image3 = image[2];
+  // const image4 = image[3];
+
+  // console.log("Image 1:", image1);
+
+  //multiple images
+  const [displayImage, setDisplayImage] = useState(image1);
+
+  useEffect(() => {
+    if (image1) {
+      setDisplayImage(image1);
+    }
+  }, [image1]);
+
+  function handleDisplayImage(imageKey) {
+    if (imageKey === "image1") {
+      setDisplayImage(image1);
+    }
+    if (imageKey === "image2") {
+      setDisplayImage(image2);
+    }
+    if (imageKey === "image3") {
+      setDisplayImage(image3);
+    }
+  }
+  // console.log("displayImage", displayImage);
+
+  if (loading)
+    return (
+      <div className="min-h-screen">
+        <Loader />
+      </div>
+    );
+  if (!productDetails)
+    return <p className="text-center mt-10 text-red-500">Product not found</p>;
+
   return (
     <div className="container mx-auto px-6 lg:px-20 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -71,16 +106,59 @@ const ProductDetails = () => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="w-full h-full flex justify-center overflow-hidden"
+          className="w-full h-full flex flex-col justify-center items-center gap-y-5 md:gap-y-10 overflow-hidden"
         >
           <img
-            src={productDetails?.image}
+            // src={productDetails?.image}
+            src={displayImage}
             alt={productDetails?.product_name}
-            className="w-full max-w-[500px] h-auto object-cover transition-transform duration-300 ease-out"
+            className="h-[250px] w-[320px] sm:w-[450px] md:w-[600px] md:h-[450px] object-cover rounded-xl transition-transform duration-300 ease-out"
             style={hoverStyle} // ✅ Apply dynamic zoom & movement
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           />
+
+          {/* img buttons */}
+          <div className="flex justify-center gap-x-4 ">
+            <button
+              onClick={() => handleDisplayImage("image1")}
+              className="border-2 border-gray-400 rounded-xl h-[3rem] md:h-[4rem] cursor-pointer "
+            >
+              <img
+                className="w-[3rem] h-[2.8rem] md:h-[3.8rem] md:w-[5rem] rounded-xl hover:scale-105"
+                src={image1}
+                alt={productDetails?.product_name}
+                width={50}
+                height={80}
+              />
+            </button>
+
+            <button
+              onClick={() => handleDisplayImage(image2 ? "image2" : "image1")}
+              className="border-2 border-gray-400 rounded-xl h-[3rem] md:h-[4rem] cursor-pointer"
+            >
+              <img
+                className="w-[3rem] h-[2.8rem] md:h-[3.8rem] md:w-[5rem] rounded-xl hover:scale-105"
+                src={image2 ? image2 : image1}
+                alt={productDetails?.product_name}
+                width={50}
+                height={80}
+              />
+            </button>
+
+            <button
+              onClick={() => handleDisplayImage(image3 ? "image3" : "image1")}
+              className="border-2 border-gray-400 rounded-xl h-[3rem] md:h-[4rem] cursor-pointer"
+            >
+              <img
+                className="w-[3rem] h-[2.8rem] md:h-[3.8rem] md:w-[5rem] rounded-xl hover:scale-105"
+                src={image3 ? image3 : image1}
+                alt={productDetails?.product_name}
+                width={50}
+                height={80}
+              />
+            </button>
+          </div>
         </motion.div>
 
         {/* Right: Product Details Animation (No Change) */}

@@ -62,7 +62,7 @@ const Products = () => {
   }
 
   return (
-    <div className=" min-h-screen mb-20">
+    <div className=" min-h-screen mb-20 md:mb-32">
       {/* banner */}
       <div className="">
         <img
