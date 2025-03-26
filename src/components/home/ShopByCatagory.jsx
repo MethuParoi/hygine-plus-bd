@@ -58,9 +58,9 @@ const CategorySection = () => {
           </button>
 
           {/* Text Below Image (Left-Aligned) */}
-          <div className="absolute bottom-8 left-12  text-white">
+          <div className="absolute bottom-8 left-5 sm:left-12  text-white">
             <h1 className="text-3xl font-bold">Hygiene Plus</h1>
-            <p className="text-lg">
+            <p className="text-md sm:text-lg text-left ">
               Bangladesh's Premier Luxury Sanitary <br /> Bathware & Kitchenware
               Brand
             </p>
@@ -73,7 +73,7 @@ const CategorySection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-4"
+          className="grid grid-cols-2 gap-x-4 mt-8 lg:mt-0"
         >
           {/* Bassin Image */}
           <motion.div
@@ -141,7 +141,7 @@ const CategorySection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="grid grid-cols-2 gap-x-4 "
+          className="grid grid-cols-2 gap-x-4 mb-8 lg:mb-0"
         >
           {/* card-1 */}
           <motion.div
@@ -227,9 +227,9 @@ const CategorySection = () => {
           </button>
 
           {/* Text Below Image (Left-Aligned) */}
-          <div className="absolute bottom-8 right-12  text-white">
+          <div className="absolute bottom-8 right-5 sm:right-12  text-white">
             <h1 className="text-3xl text-right font-bold">Hygiene Plus</h1>
-            <p className="text-lg text-right">
+            <p className="text-md sm:text-lg text-right">
               Bangladesh's Premier Luxury Sanitary <br /> Bathware & Kitchenware
               Brand
             </p>
