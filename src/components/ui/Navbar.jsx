@@ -1,15 +1,56 @@
 import { Link, useNavigate } from "react-router";
-import { FaSearch } from "react-icons/fa";
 import flag from "../../assets/navbar/bd-flag.png";
 import logo from "../../assets/logo/logo-white.png";
 import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { getProducts } from "../../utils/apiProduct";
 
 const Navbar = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser, selectedCategory, setSelectedCategory } =
+    useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const [bathwareCategories, setBathwareCategories] = useState(new Set());
+  const [kitchenwareCategories, setKitchenwareCategories] = useState(new Set());
+
+  //fetch categories
+  async function fetchCategory() {
+    const products = await getProducts();
+    // Filter and map for bathware categories
+    setBathwareCategories(
+      new Set(
+        products
+          .filter((item) => item.main_category === "bathware")
+          .map((item) => item.product_category)
+      )
+    );
+
+    // Filter and map for kitchenware categories
+    setKitchenwareCategories(
+      new Set(
+        products
+          .filter((item) => item.main_category === "kitchenware")
+          .map((item) => item.product_category)
+      )
+    );
+  }
+
+  // Log updated bathwareCategories and kitchenwareCategories
+  useEffect(() => {
+    console.log("Updated bathware categories:", Array.from(bathwareCategories));
+  }, [bathwareCategories]);
+
+  useEffect(() => {
+    console.log(
+      "Updated kitchenware categories:",
+      Array.from(kitchenwareCategories)
+    );
+  }, [kitchenwareCategories]);
+
+  useEffect(() => {
+    fetchCategory();
+  }, []);
 
   const handleLogout = async () => {
     if (user) {
@@ -88,12 +129,15 @@ const Navbar = () => {
             id="bathware"
             style={{ positionAnchor: "--anchor-1" }}
           >
-            <li className="hover:bg-gray-600">
-              <Link>bathware</Link>
-            </li>
-            <li className="hover:bg-gray-600">
-              <Link>Item 2</Link>
-            </li>
+            {Array.from(bathwareCategories).map((category, index) => (
+              <li
+                onClick={() => setSelectedCategory(category)}
+                key={index}
+                className="hover:bg-gray-600"
+              >
+                <Link to={"/products/bathware"}>{category}</Link>
+              </li>
+            ))}
           </ul>
           <button
             popoverTarget="kitchenware"
@@ -110,12 +154,15 @@ const Navbar = () => {
             id="kitchenware"
             style={{ positionAnchor: "--anchor-2" }}
           >
-            <li className="hover:bg-gray-600">
-              <Link>Kitchenware</Link>
-            </li>
-            <li className="hover:bg-gray-600">
-              <Link>Item 2</Link>
-            </li>
+            {Array.from(kitchenwareCategories).map((category, index) => (
+              <li
+                onClick={() => setSelectedCategory(category)}
+                key={index}
+                className="hover:bg-gray-600"
+              >
+                <Link to={"/products/kitchenware"}>{category}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -172,12 +219,15 @@ const Navbar = () => {
                 id="bathware_2"
                 style={{ positionAnchor: "--anchor-3" }}
               >
-                <li className="hover:bg-gray-600">
-                  <Link>bathware</Link>
-                </li>
-                <li className="hover:bg-gray-600">
-                  <Link>Item 2</Link>
-                </li>
+                {Array.from(bathwareCategories).map((category, index) => (
+                  <li
+                    onClick={() => setSelectedCategory(category)}
+                    key={index}
+                    className="hover:bg-gray-600"
+                  >
+                    <Link to={"/products/bathware"}>{category}</Link>
+                  </li>
+                ))}
               </ul>
             </li>
             {/* kitchenware */}
@@ -197,12 +247,15 @@ const Navbar = () => {
                 id="kitchenware_2"
                 style={{ positionAnchor: "--anchor-4" }}
               >
-                <li className="hover:bg-gray-600">
-                  <Link>Kitchenware</Link>
-                </li>
-                <li className="hover:bg-gray-600">
-                  <Link>Item 2</Link>
-                </li>
+                {Array.from(kitchenwareCategories).map((category, index) => (
+                  <li
+                    onClick={() => setSelectedCategory(category)}
+                    key={index}
+                    className="hover:bg-gray-600"
+                  >
+                    <Link to={"/products/kitchenware"}>{category}</Link>
+                  </li>
+                ))}
               </ul>
             </li>
             <li className="hover:bg-gray-600">
