@@ -32,7 +32,9 @@ const SimpleChoices = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <h1 className={`text-3xl md:text-5xl text-white text-center `}>
+          <h1
+            className={`text-3xl md:text-5xl text-white text-center [text-shadow:_0_4px_8px_rgba(0,0,0,0.9)]`}
+          >
             <span className="font-thin block">Simple choices</span>{" "}
             <span className="font-semibold block">Powerful impact</span>{" "}
             <span className="font-thin">Experience it with</span>

@@ -1,7 +1,8 @@
 import { FaFacebookF, FaLinkedinIn, FaLocationDot } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import { AiOutlineInstagram } from "react-icons/ai";
-import logo from "../../assets/logo/logo-white.png";
+// import logo from "../../assets/logo/logo-white.png";
+import logo from "../../assets/logo/footer_logo.png";
 import { IoIosCall, IoIosMail } from "react-icons/io";
 
 function Footer() {
@@ -9,10 +10,10 @@ function Footer() {
     <div className="bg-black text-white pt-10 px-10 flex flex-col items-center">
       {/* logo */}
       <div className="flex flex-col items-center justify-center pb-10 ">
-        <img className="w-[20rem] lg:w-[30rem]" src={logo} alt="" />
-        <p className="text-center text-2xl lg:text-3xl font-medium mt-[-20px] lg:mt-[-30px] ">
+        <img className="w-[20rem] lg:w-[25rem]" src={logo} alt="" />
+        {/* <p className="text-center text-2xl lg:text-3xl font-medium mt-[-20px] lg:mt-[-30px] ">
           SANITARY WARE
-        </p>
+        </p> */}
         {/* <div className="pt-4 flex items-center justify-center gap-x-4">
           <input
             className="w-56 lg:w-84 h-8 bg-white text-gray-700 px-4"
