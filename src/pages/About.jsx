@@ -20,7 +20,7 @@ const About = () => {
           <h2 className="text-5xl font-bold text-gray-900  mb-4">
             About <span className="text-red-600 ">HYGIENE PLUS</span>
           </h2>
-          <p className="text-lg text-gray-700  max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700  max-w-3xl mx-auto">
           Hygiene Plus is a premium bathware and kitchenware brand in Bangladesh, offering a wide range of high-quality products imported from China. From stylish faucets to modern kitchen essentials, we provide durable and innovative solutions for every home.
           </p>
         </motion.section>
@@ -33,8 +33,8 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="text-3xl font-semibold text-gray-900  mb-4 flex items-center">
-              <Target className="text-yellow-500 dark:text-yellow-400 mr-2" size={30} />
+            <h3 className="text-4xl font-bold text-gray-900  mb-4 flex items-center">
+              <Target className="text-yellow-500  dark:text-yellow-400 mr-2" size={30} />
               Our Mission
             </h3>
             <p className="text-lg text-gray-700 ">

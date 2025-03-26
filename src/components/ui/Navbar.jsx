@@ -167,7 +167,7 @@ const Navbar = () => {
             New Arrivals
           </button>
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/about")}
             className="text-lg cursor-pointer font-semibold hover:text-gray-300"
           >
             About Us
