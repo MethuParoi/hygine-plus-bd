@@ -11,6 +11,9 @@ import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import Loader from "../components/ui/Loader/Loader";
 import ProductCard from "../components/products/ProductCard";
 import RecommendedProductCard from "../components/products/RecommendedProductCard";
+import icon1 from "../assets/icons/graphic-design.png";
+import icon2 from "../assets/icons/quality.png";
+import icon3 from "../assets/icons/management-service.png";
 
 const ProductDetails = () => {
   const { productId: contextProductId } = useParams();
@@ -238,19 +241,19 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              icon: <FcIdea className="text-7xl" />,
+              icon: <img src={icon1} className="w-1/5 mx-auto" />,
               title: "Unique Design Idea",
               description:
                 "Innovative and trendsetting designs tailored for customer demands.",
             },
             {
-              icon: <FcApproval className="text-7xl" />,
+              icon: <img src={icon2} className="w-1/5 mx-auto" />,
               title: "Best Quality",
               description:
                 "Sustainable, durable products made with high-quality materials.",
             },
             {
-              icon: <FcServices className="text-7xl" />,
+              icon: <img src={icon3} className="w-1/5 mx-auto" />,
               title: "After Sales Service",
               description:
                 "Reliable support for customers before and after sales.",
