@@ -32,10 +32,10 @@ const CustomerReview = () => {
     <section className="relative bg-gray-50  py-16 px-6">
       {/* Section Heading */}
       <div className="max-w-5xl mx-auto text-center mb-16">
-        <h2 className="text-5xl font-bold mb-4 text-gray-900">
+        <h2 className="text-3xl md:text-5xl  font-bold mb-4 text-gray-900">
         Customers Are Saying
         </h2>
-        <p className="text-xl text-gray-600 ">
+        <p className=" md:text-xl text-gray-600 ">
         Reviews That Speak of Quality & Trust
         </p>
       </div>
@@ -43,7 +43,7 @@ const CustomerReview = () => {
       {/* Timeline Wrapper */}
       <div className="relative max-w-5xl mx-auto">
         {/* Vertical Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-yellow-400 md:block"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-black md:block"></div>
 
         {/* Cards */}
         <div className="relative flex flex-col space-y-16">
@@ -64,16 +64,16 @@ const CustomerReview = () => {
                     <img
                       src={student.img}
                       alt={student.name}
-                      className="w-28 h-28 object-cover rounded-full border-4 border-yellow-400 shadow-lg"
+                      className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-full border-4 border-black shadow-lg"
                     />
                   </div>
                   {/* Right Side - Card */}
                   <div className="bg-white p-6  rounded-lg shadow-lg w-1/2 ml-8">
-                    <h3 className="text-xl font-semibold text-gray-900 ">
+                    <h3 className="text md:text-xl font-semibold text-gray-900 ">
                       {student.name}
                     </h3>
                     {/* <p className="text-sm text-gray-500 ">{student.course}</p> */}
-                    <p className="mt-3 text-gray-700  italic">
+                    <p className="mt-3 text-gray-700 text-sm md:text italic">
                       {student.feedback}
                     </p>
                   </div>
@@ -82,11 +82,11 @@ const CustomerReview = () => {
                 <>
                   {/* Left Side - Card */}
                   <div className="bg-white  p-6 rounded-lg shadow-lg w-1/2 mr-8">
-                    <h3 className="text-xl font-semibold text-gray-900 ">
+                    <h3 className="text md:text-xl font-semibold text-gray-900 ">
                       {student.name}
                     </h3>
                     {/* <p className="text-sm text-gray-500 ">{student.course}</p> */}
-                    <p className="mt-3 text-gray-700  italic">
+                    <p className="mt-3 text-sm md:text  text-gray-700  italic">
                       {student.feedback}
                     </p>
                   </div>
@@ -95,7 +95,7 @@ const CustomerReview = () => {
                     <img
                       src={student.img}
                       alt={student.name}
-                      className="w-28 h-28 object-cover rounded-full border-4 border-yellow-400 shadow-lg"
+                      className="w-24 h-24 md:w-28 md:h-28 object-cover rounded-full border-4 border-black shadow-lg"
                     />
                   </div>
                 </>

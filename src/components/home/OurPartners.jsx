@@ -47,11 +47,11 @@ const PartnersSection = () => {
   return (
     <section className="py-16 bg-gray-50  overflow-hidden">
       <div className="max-w-7xl mx-auto text-center mb-8 px-6">
-        <h2 className="text-5xl font-bold text-gray-800 ">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-800 ">
           Our Partners & Collaborators
         </h2>
         <p className="text-gray-600  mt-2">
-          We’re proud to collaborate with industry leaders <br /> and
+          We’re proud to collaborate with industry leaders <br className="hidden md:block" /> and
           organizations to bring the best opportunities.
         </p>
       </div>

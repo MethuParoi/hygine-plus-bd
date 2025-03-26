@@ -19,7 +19,7 @@ const LastMonthStart = () => {
         className="justify-center text-center"
       >
         <div className="flex flex-col items-center my-20">
-          <h1 className="text-5xl font-bold mb-4">Last Month&apos;s Stars</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">Last Month&apos;s Stars</h1>
           <p className="text-gray-600">
             Your favorites that made it to the top!
           </p>
