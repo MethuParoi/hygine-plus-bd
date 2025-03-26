@@ -1,19 +1,35 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductDetails } from "../utils/apiProduct";
+import {
+  getProductDetails,
+  getRecommendedProducts,
+  getSortedProducts,
+} from "../utils/apiProduct";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { FcServices, FcApproval, FcIdea } from "react-icons/fc";
 import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import Loader from "../components/ui/Loader/Loader";
+import ProductCard from "../components/products/ProductCard";
+import RecommendedProductCard from "../components/products/RecommendedProductCard";
 
 const ProductDetails = () => {
   const { productId: contextProductId } = useParams();
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState(null);
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hoverStyle, setHoverStyle] = useState({ transform: "scale(1)" });
+  const [isRecommended, setIsRecommended] = useState(false);
 
   const productId = contextProductId || id;
+
+  useEffect(() => {
+    if (isRecommended) {
+      window.location.reload();
+      window.scrollTo(0, 0);
+      setIsRecommended(false);
+    }
+  }, [isRecommended]);
 
   useEffect(() => {
     if (!productId) return;
@@ -37,6 +53,19 @@ const ProductDetails = () => {
 
     fetchProductDetails(productId);
   }, []);
+
+  useEffect(() => {
+    const fetchRecommendedProducts = async (category) => {
+      const recommendedProducts = await getRecommendedProducts(category);
+      setRecommendedProducts(recommendedProducts);
+    };
+
+    fetchRecommendedProducts(productDetails?.main_category);
+  }, [productDetails]);
+
+  useEffect(() => {
+    console.log("recomendded products", recommendedProducts);
+  }, [recommendedProducts]);
 
   // ✅ Mouse movement effect for zoom
   const handleMouseMove = (e) => {
@@ -188,7 +217,7 @@ const ProductDetails = () => {
             <ul className="list-disc list-inside text-gray-700 space-y-1">
               {productDetails?.product_specification ? (
                 productDetails.product_specification
-                  .split(",\n")
+                  .split(",")
                   .map((spec, index) => <li key={index}>{spec.trim()}</li>)
               ) : (
                 <li>No specifications available</li>
@@ -267,6 +296,23 @@ const ProductDetails = () => {
           />
         </motion.div>
       )}
+
+      {/* recommended products section */}
+      <div className="my-20">
+        <h1 className="text-3xl lg:text-5xl mb-4 font-bold bg-gradient-to-r from-[#e63946] via-[#6a0572] bg-clip-text text-transparent ">
+          Your favorites on the line
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-5 justify-items-center mt-10">
+          {recommendedProducts.slice(0, 3).map((product) => (
+            <RecommendedProductCard
+              key={product.id}
+              setIsRecommended={setIsRecommended}
+              product={product}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

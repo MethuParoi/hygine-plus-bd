@@ -36,18 +36,6 @@ const Navbar = () => {
     );
   }
 
-  // Log updated bathwareCategories and kitchenwareCategories
-  useEffect(() => {
-    console.log("Updated bathware categories:", Array.from(bathwareCategories));
-  }, [bathwareCategories]);
-
-  useEffect(() => {
-    console.log(
-      "Updated kitchenware categories:",
-      Array.from(kitchenwareCategories)
-    );
-  }, [kitchenwareCategories]);
-
   useEffect(() => {
     fetchCategory();
   }, []);
