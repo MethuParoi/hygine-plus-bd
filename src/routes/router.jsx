@@ -9,6 +9,8 @@ import Dashboard from "../pages/Dashboard";
 import ProductDetails from "../pages/ProductDetails";
 import AdminLogin from "../pages/AdminLogin";
 import AdminRoute from "./AdminRoute";
+import About from "../pages/About";
+import Support from "../pages/Support";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
         path: "/product-details/:id",
         element: <ProductDetails />,
       },
+      {
+        path:"/about",
+        element: <About/>
+      },
+      {
+        path:"/support",
+        element:<Support/>
+      }
     ],
   },
 
