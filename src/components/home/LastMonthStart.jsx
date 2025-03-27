@@ -6,8 +6,11 @@ import sink_2 from "../../assets/lms/sink-2.jpg";
 import comode from "../../assets/lms/comode.png";
 import comode_2 from "../../assets/lms/comode-2.jpg";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const LastMonthStart = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="md:mr-10">
       {/* title */}
@@ -19,7 +22,9 @@ const LastMonthStart = () => {
         className="justify-center text-center"
       >
         <div className="flex flex-col items-center my-20">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Last Month&apos;s Stars</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            Last Month&apos;s Stars
+          </h1>
           <p className="text-gray-600">
             Your favorites that made it to the top!
           </p>
@@ -76,7 +81,13 @@ const LastMonthStart = () => {
           {/* small screen*/}
           {/* Button */}
           <div className="md:mr-10">
-            <Button label="See More" type="see-more" handleClick={() => {}} />
+            <Button
+              label="See More"
+              type="see-more"
+              handleClick={() => {
+                navigate("/products/bathware");
+              }}
+            />
           </div>
         </div>
         {/* second column */}
@@ -165,7 +176,13 @@ const LastMonthStart = () => {
           {/* small screen ends*/}
           {/* Button */}
           <div className="md:mr-10">
-            <Button label="See More" type="see-more" handleClick={() => {}} />
+            <Button
+              label="See More"
+              type="see-more"
+              handleClick={() => {
+                navigate("/products/kitchenware");
+              }}
+            />
           </div>
         </div>
         {/* second column */}
@@ -256,7 +273,13 @@ const LastMonthStart = () => {
           {/* small screen*/}
           {/* Button */}
           <div className="md:mr-10">
-            <Button label="See More" type="see-more" handleClick={() => {}} />
+            <Button
+              label="See More"
+              type="see-more"
+              handleClick={() => {
+                navigate("/products/bathware");
+              }}
+            />
           </div>
         </div>
         {/* second column */}

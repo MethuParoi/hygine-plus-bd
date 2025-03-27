@@ -11,6 +11,7 @@ import AdminLogin from "../pages/AdminLogin";
 import AdminRoute from "./AdminRoute";
 import About from "../pages/About";
 import Support from "../pages/Support";
+import NewArrivals from "../pages/NewArrivals";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/new-arrivals",
+        element: <NewArrivals />,
       },
       {
         path: "/products/:main_category",
@@ -34,13 +39,13 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path:"/about",
-        element: <About/>
+        path: "/about",
+        element: <About />,
       },
       {
-        path:"/support",
-        element:<Support/>
-      }
+        path: "/support",
+        element: <Support />,
+      },
     ],
   },
 
