@@ -80,7 +80,7 @@ const Navbar = () => {
             </div> */}
             {/* login */}
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/support")}
               className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300"
             >
               SUPPORT
