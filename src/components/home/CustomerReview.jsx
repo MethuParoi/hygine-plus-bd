@@ -1,32 +1,33 @@
 import { motion } from "framer-motion";
 
 const CustomerReview = () => {
-  const testimonials = [
-    {
-      name: "John Doe",
-      course: "Full-Stack Web Development",
-      feedback: "Academix helped me land my first internship with hands-on projects!",
-      img: "https://images.ctfassets.net/xjankvru4bwy/5PghwxKTVhKOIb32tRJenX/baf356e203661d28e79ad049fffcc9a4/Kashimani_Simasiku-ALA_student_square.jpg"
-    },
-    {
-      name: "Sarah Khan",
-      course: "Data Science & AI",
-      feedback: "The interactive learning style made complex topics easy to grasp.",
-      img: "https://www.suny.edu/media/suny/content-assets/images/militaryvets/female-adult-student-square.jpg",
-    },
-    {
-      name: "Alex Brown",
-      course: "Graphic Design",
-      feedback: "I built a strong portfolio that helped me secure freelance clients!",
-      img: "https://images.ctfassets.net/xjankvru4bwy/6Xy6WuJ9DUvRrYIRtqQIUS/5684ed8b974d7dcc5244eb6c9948e5dd/Abdelkarim_Ben_Fraj-ALA_student_square.jpg",
-    },
-    {
-        name: "John Doe",
-        course: "Full-Stack Web Development",
-        feedback: "Academix helped me land my first internship with hands-on projects!",
-        img: "https://images.ctfassets.net/xjankvru4bwy/5PghwxKTVhKOIb32tRJenX/baf356e203661d28e79ad049fffcc9a4/Kashimani_Simasiku-ALA_student_square.jpg"
-      },
-  ];
+    const testimonials = [
+        {
+          name: "Rakib Hasan",
+          product: "Luxury Rain Shower Set",
+          feedback: "The quality is outstanding! It completely transformed my bathroom experience.",
+          img: "https://www.shutterstock.com/image-photo/portrait-bangladeshi-man-600nw-2057387279.jpg"
+        },
+        {
+            name: "Ayesha Akter",
+            product: "Kitchen Chimney",
+            feedback: "The suction power is amazing! Keeps my kitchen smoke-free and fresh.",
+            img: "https://www.shutterstock.com/image-photo/young-modern-asian-indian-happy-600nw-2296373325.jpg",
+        },
+        {
+          name: "Mehedi Rahman",
+          product: "Smart Sensor Basin Faucet",
+          feedback: "A great addition to my home! The touchless feature is hygienic and convenient.",
+          img: "https://thumbs.dreamstime.com/b/close-up-portrait-smiling-indian-business-man-arms-crossed-isolated-white-51836176.jpg",
+        },
+        {
+          name: "Shamima Parveen",
+          product: "Ceramic One-Piece Toilet",
+          feedback: "Super comfortable and stylish! It perfectly matches my modern bathroom design.",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStLFZ_En08An5iOHyXYz4bmpN05niGADxRPQ&s",
+        },
+      ];
+      
 
   return (
     <section className="relative bg-gray-50  py-16 px-6">
@@ -72,7 +73,7 @@ const CustomerReview = () => {
                     <h3 className="text md:text-xl font-semibold text-gray-900 ">
                       {student.name}
                     </h3>
-                    {/* <p className="text-sm text-gray-500 ">{student.course}</p> */}
+                    <p className="text-sm text-gray-600 font-semibold ">Buy: {student.product}</p>
                     <p className="mt-3 text-gray-700 text-sm md:text italic">
                       {student.feedback}
                     </p>
@@ -85,7 +86,7 @@ const CustomerReview = () => {
                     <h3 className="text md:text-xl font-semibold text-gray-900 ">
                       {student.name}
                     </h3>
-                    {/* <p className="text-sm text-gray-500 ">{student.course}</p> */}
+                    <p className="text-sm text-gray-600 font-semibold ">Buy: {student.product}</p>
                     <p className="mt-3 text-sm md:text  text-gray-700  italic">
                       {student.feedback}
                     </p>
