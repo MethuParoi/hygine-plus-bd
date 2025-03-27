@@ -161,7 +161,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-x-4">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/new-arrivals")}
             className=" text-lg cursor-pointer font-semibold hover:text-gray-300"
           >
             New Arrivals
@@ -248,7 +248,7 @@ const Navbar = () => {
             </li>
             <li className="hover:bg-gray-600">
               <button
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/new-arrivals")}
                 className=" text-lg cursor-pointer font-semibold hover:text-gray-300"
               >
                 New Arrivals
@@ -256,7 +256,7 @@ const Navbar = () => {
             </li>
             <li className="hover:bg-gray-600">
               <button
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/about")}
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300"
               >
                 About Us
