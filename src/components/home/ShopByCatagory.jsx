@@ -22,9 +22,12 @@ const CategorySection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="justify-center text-center"
       >
-        <h1 className="text-5xl font-bold mb-4">Shop By Category</h1>
-        <p className="text-gray-600">
-          At Hygiene Plus, we are committed to enhancing <br />
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+          Shop By Category
+        </h1>
+        <p className="text-gray-600 ">
+          At Hygiene Plus, we are committed to enhancing{" "}
+          <br className="hidden md:block" />
           your lifestyle with superior hygiene solutions.
         </p>
       </motion.div>
@@ -105,33 +108,59 @@ const CategorySection = () => {
           </motion.div>
 
           {/* Faucet Image */}
-          <motion.div
-            initial={{ x: 250, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: "easeOut", delay: 0.6 }}
-            className="relative flex justify-center"
-          >
-            <div
-              onClick={() => {
-                setCategory("bathware");
-                navigate("/products/bathware");
-              }}
-              className="group relative rounded-lg overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+          {window.innerWidth >= 768 && (
+            <motion.div
+              initial={{ x: 250, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, ease: "easeOut", delay: 0.6 }}
+              className="relative flex justify-center"
             >
-              {/* Image */}
-              <img
-                src={faucet}
-                alt="Faucet"
-                className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                <h1 className="text-white text-3xl font-semibold">Faucet</h1>
-                <p className="text-white text-md tracking-[6px]">CATEGORY</p>
+              <div
+                onClick={() => {
+                  setCategory("bathware");
+                  navigate("/products/bathware");
+                }}
+                className="group relative rounded-lg overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+              >
+                {/* Image */}
+                <img
+                  src={faucet}
+                  alt="Faucet"
+                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
+                  <h1 className="text-white text-3xl font-semibold">Faucet</h1>
+                  <p className="text-white text-md tracking-[6px]">CATEGORY</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {window.innerWidth < 768 && (
+            <div className="relative flex justify-center">
+              <div
+                onClick={() => {
+                  setCategory("bathware");
+                  navigate("/products/bathware");
+                }}
+                className="group relative rounded-lg overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+              >
+                {/* Image */}
+                <img
+                  src={faucet}
+                  alt="Faucet"
+                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
+                  <h1 className="text-white text-3xl font-semibold">Faucet</h1>
+                  <p className="text-white text-md tracking-[6px]">CATEGORY</p>
+                </div>
               </div>
             </div>
-          </motion.div>
+          )}
         </motion.div>
       </div>
 
@@ -145,34 +174,60 @@ const CategorySection = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="grid grid-cols-2 gap-x-4 mb-8 lg:mb-0"
         >
-          {/* small card-2 */}
-          <motion.div
-            initial={{ x: -250, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
-            className="relative flex justify-center"
-          >
-            <div
-              onClick={() => {
-                setCategory("bathware");
-                navigate("/products/bathware");
-              }}
-              className="group relative rounded-lg overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+          {/* bassine small card-2 */}
+          {window.innerWidth >= 768 && (
+            <motion.div
+              initial={{ x: -250, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
+              className="relative flex justify-center"
             >
-              {/* Image */}
-              <img
-                src={bassinImg}
-                alt="Basin"
-                className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                <h1 className="text-white text-3xl font-semibold">Basin</h1>
-                <p className="text-white text-md tracking-[6px]">CATEGORY</p>
+              <div
+                onClick={() => {
+                  setCategory("bathware");
+                  navigate("/products/bathware");
+                }}
+                className="group relative rounded-lg overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+              >
+                {/* Image */}
+                <img
+                  src={bassinImg}
+                  alt="Basin"
+                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
+                  <h1 className="text-white text-3xl font-semibold">Basin</h1>
+                  <p className="text-white text-md tracking-[6px]">CATEGORY</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {window.innerWidth < 768 && (
+            <div className="relative flex justify-center">
+              <div
+                onClick={() => {
+                  setCategory("bathware");
+                  navigate("/products/bathware");
+                }}
+                className="group relative rounded-lg overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.3)] cursor-pointer"
+              >
+                {/* Image */}
+                <img
+                  src={bassinImg}
+                  alt="Basin"
+                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
+                  <h1 className="text-white text-3xl font-semibold">Basin</h1>
+                  <p className="text-white text-md tracking-[6px]">CATEGORY</p>
+                </div>
               </div>
             </div>
-          </motion.div>
+          )}
           {/* small card-2 */}
           <motion.div
             initial={{ x: -250, opacity: 0 }}
