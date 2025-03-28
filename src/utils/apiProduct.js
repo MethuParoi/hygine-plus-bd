@@ -25,8 +25,23 @@ export async function getSortedProducts(sort) {
   return data;
 }
 
+export async function getCategorizedProducts(sort) {
+  if (sort === "all" || sort === null) {
+    return getProducts();
+  }
+  const { data, error } = await supabase
+    .from("products_table")
+    .select("*")
+    .eq("main_category", sort);
+  if (error) {
+    console.error(error);
+    throw new Error("An error occurred while fetching productss");
+  }
+  return data;
+}
+
 export async function getRecommendedProducts(sort) {
-  if (sort === "all") {
+  if (sort === "all" || sort === null) {
     return getProducts();
   }
   const { data, error } = await supabase

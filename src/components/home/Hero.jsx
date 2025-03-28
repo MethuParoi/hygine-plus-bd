@@ -59,13 +59,16 @@ const Hero = () => {
             className="md:col-span-2 flex items-center justify-center "
           >
             <h1
-              className={`text-black text-3xl md:text-4xl lg:text-6xl font-extrabold [text-shadow:_0_2px_4px_rgb(75_85_99_/_0.8)] mb-[-10rem] md:mb-36 xl:mr-40 md:transition-opacity md:duration-500 ${
-                isScrolled
-                  ? "md:hidden"
-                  : startFade
-                  ? "md:opacity-20 md:fixed"
-                  : "md:opacity-100 md:pointer-events-auto md:fixed"
-              }  `}
+              className={
+                `text-black text-3xl md:text-4xl lg:text-6xl font-extrabold [text-shadow:_0_2px_4px_rgb(75_85_99_/_0.8)] mb-[-10rem] md:mb-36 xl:mr-40 md:transition-opacity md:duration-500 `
+                //   ${
+                //   isScrolled
+                //     ? "md:hidden"
+                //     : startFade
+                //     ? "md:opacity-20 md:fixed"
+                //     : "md:opacity-100 md:pointer-events-auto md:fixed"
+                // }
+              }
             >
               ENVISION
             </h1>
@@ -79,13 +82,14 @@ const Hero = () => {
             className="flex items-center justify-center"
           >
             <h1
-              className={`text-white text-3xl md:text-4xl lg:text-6xl font-extrabold md:ml-20 mb-[-4rem] md:mb-36 [text-shadow:_0_2px_4px_rgb(75_85_99_/_0.8)]  md:transition-opacity md:duration-500 ${
-                isScrolled
-                  ? "md:hidden"
-                  : startFade
-                  ? "md:opacity-20 md:fixed"
-                  : "md:opacity-100 md:pointer-events-auto md:fixed"
-              }`}
+              className={`text-white text-3xl md:text-4xl lg:text-6xl font-extrabold md:ml-20 mb-[-4rem] md:mb-36 [text-shadow:_0_2px_4px_rgb(75_85_99_/_0.8)]  md:transition-opacity md:duration-500 `}
+
+              //   ${isScrolled
+              //     ? "md:hidden"
+              //     : startFade
+              //     ? "md:opacity-20 md:fixed"
+              //     : "md:opacity-100 md:pointer-events-auto md:fixed"
+              // }
             >
               ELEVATE
             </h1>
@@ -99,13 +103,16 @@ const Hero = () => {
             className="md:col-span-3 flex items-center justify-center"
           >
             <h1
-              className={`text-red-600 text-3xl md:text-4xl lg:text-6xl font-extrabold mt-[-2rem] md:mt-0 mb-36 [text-shadow:_0_2px_4px_rgb(75_85_99_/_0.8)] md:ml-36 md:transition-opacity md:duration-500  ${
-                isScrolled
-                  ? "md:hidden"
-                  : startFade
-                  ? "md:opacity-20 md:fixed"
-                  : "md:opacity-100 md:pointer-events-auto md:fixed"
-              }`}
+              className={
+                `text-red-600 text-3xl md:text-4xl lg:text-6xl font-extrabold mt-[-2rem] md:mt-0 mb-36 [text-shadow:_0_2px_4px_rgb(75_85_99_/_0.8)] md:ml-36 md:transition-opacity md:duration-500`
+                //    ${
+                //   isScrolled
+                //     ? "md:hidden"
+                //     : startFade
+                //     ? "md:opacity-20 md:fixed"
+                //     : "md:opacity-100 md:pointer-events-auto md:fixed"
+                // }
+              }
             >
               EXPERIENCE
             </h1>

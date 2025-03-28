@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import ProductCard from "../components/products/ProductCard";
-import { getProducts, getSortedProducts } from "../utils/apiProduct";
+import {
+  getCategorizedProducts,
+  getProducts,
+  getSortedProducts,
+} from "../utils/apiProduct";
 import { AuthContext } from "../provider/AuthProvider";
 import Loader from "../components/ui/Loader/Loader";
 import { useParams } from "react-router";
@@ -8,34 +12,36 @@ import img from "../assets/hero/hero.jpg";
 import SortProduct from "../components/products/SortProduct";
 
 const Products = () => {
-  const { fetching, setFetching, selectedCategory } = useContext(AuthContext);
+  const { fetching, setFetching, selectedCategory, category } =
+    useContext(AuthContext);
   const [data, setData] = useState([]);
   const [sortedData, setSortedData] = useState([]);
   const [sortOptions, setSortOptions] = useState([]);
   const { main_category } = useParams();
-  // console.log("category", main_category);
 
   //fetch all products
-  const fetchProducts = async () => {
-    try {
-      setFetching(true);
-      const products = await getProducts();
-      setData(Array.isArray(products) ? products : []);
-      setFetching(false);
-    } catch (error) {
-      setFetching(false);
-      console.error("Error fetching products:", error);
-      setData([]);
-    }
-  };
+  // const fetchProducts = async () => {
+  //   try {
+  //     setFetching(true);
+  //     const products = await getProducts();
+  //     setData(Array.isArray(products) ? products : []);
+  //     setFetching(false);
+  //   } catch (error) {
+  //     setFetching(false);
+  //     console.error("Error fetching products:", error);
+  //     setData([]);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    fetchProducts();
-  }, []);
+  // Fetch all products if the page is reloaded
+  // useEffect(() => {
+  //   if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
+  //     fetchProducts();
+  //     window.scrollTo(0, 0);
+  //   }
+  // }, []);
 
   //fetch sorted products
-
   const fetchSortedProducts = async (category) => {
     try {
       // setFetching(true);
@@ -53,6 +59,25 @@ const Products = () => {
     fetchSortedProducts(selectedCategory);
   }, [selectedCategory]);
 
+  //fetch main two category products
+  const fetchCategorizedProducts = async (category) => {
+    try {
+      // setFetching(true);
+      const products = await getCategorizedProducts(category);
+      setData(Array.isArray(products) ? products : []);
+      // setFetching(false);
+    } catch (error) {
+      // setFetching(false);
+      console.error("Error fetching products:", error);
+      setData([]);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchCategorizedProducts(category);
+  }, [category]);
+
   if (fetching) {
     return (
       <div className="min-h-screen ">
@@ -66,7 +91,7 @@ const Products = () => {
       {/* banner */}
       <div className="">
         <img
-          className="w-[100%] h-[20rem] md:h-[40rem] object-fill md:object-fill 2xl:object-cover"
+          className="w-[100%] h-[20rem] md:h-[20rem] object-fill md:object-fill 2xl:object-cover"
           src={img}
           alt=""
         />
