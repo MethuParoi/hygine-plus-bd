@@ -1,15 +1,73 @@
 import Button from "../ui/Button";
-import bassine from "../../assets/lms/bassine.png";
+import bassine from "../../assets/lms/new/bassin.png";
 import bassine_2 from "../../assets/lms/bassine-2.png";
-import sink from "../../assets/lms/sink.png";
+import sink from "../../assets/lms/new/sink.png";
 import sink_2 from "../../assets/lms/sink-2.jpg";
-import comode from "../../assets/lms/comode.png";
+import comode from "../../assets/lms/new/toilet.png";
 import comode_2 from "../../assets/lms/comode-2.jpg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 const LastMonthStart = () => {
+  const [hoverStyleBassine, setHoverStyleBassine] = useState({
+    transform: "scale(1)",
+  });
+  const [hoverStyleSink, setHoverStyleSink] = useState({
+    transform: "scale(1)",
+  });
+  const [hoverStyleCommode, setHoverStyleCommode] = useState({
+    transform: "scale(1)",
+  });
   const navigate = useNavigate();
+
+  // ✅ Mouse movement effect for bassine
+  const handleMouseMove_bassine = (e) => {
+    const { offsetX, offsetY, target } = e.nativeEvent;
+    const { clientWidth, clientHeight } = target;
+    const xPos = (offsetX / clientWidth - 0.5) * 50; // Adjust sensitivity
+    const yPos = (offsetY / clientHeight - 0.5) * 50;
+
+    setHoverStyleBassine({
+      transform: `scale(1.1) translate(${xPos}px, ${yPos}px)`,
+    });
+  };
+
+  const handleMouseLeave_bassine = () => {
+    setHoverStyleBassine({ transform: "scale(1)" });
+  };
+
+  // ✅ Mouse movement effect for sink
+  const handleMouseMove_sink = (e) => {
+    const { offsetX, offsetY, target } = e.nativeEvent;
+    const { clientWidth, clientHeight } = target;
+    const xPos = (offsetX / clientWidth - 0.5) * 50; // Adjust sensitivity
+    const yPos = (offsetY / clientHeight - 0.5) * 50;
+
+    setHoverStyleSink({
+      transform: `scale(1.1) translate(${xPos}px, ${yPos}px)`,
+    });
+  };
+
+  const handleMouseLeave_sink = () => {
+    setHoverStyleSink({ transform: "scale(1)" });
+  };
+
+  // ✅ Mouse movement effect for commode
+  const handleMouseMove_commode = (e) => {
+    const { offsetX, offsetY, target } = e.nativeEvent;
+    const { clientWidth, clientHeight } = target;
+    const xPos = (offsetX / clientWidth - 0.5) * 50; // Adjust sensitivity
+    const yPos = (offsetY / clientHeight - 0.5) * 50;
+
+    setHoverStyleCommode({
+      transform: `scale(1.1) translate(${xPos}px, ${yPos}px)`,
+    });
+  };
+
+  const handleMouseLeave_commode = () => {
+    setHoverStyleCommode({ transform: "scale(1)" });
+  };
 
   return (
     <div className="md:mr-10">
@@ -75,12 +133,12 @@ const LastMonthStart = () => {
             className="flex flex-col items-center md:hidden"
           >
             <div className="z-50">
-              <img className="w-[19rem] mt-10" src={bassine} alt="" />
+              <img className="w-full mt-[-2rem] md:mt-0" src={bassine} alt="" />
             </div>
           </motion.div>
           {/* small screen*/}
           {/* Button */}
-          <div className="md:mr-10">
+          <div className="mt-[-5rem] md:mt-0 md:mr-10">
             <Button
               label="See More"
               type="see-more"
@@ -101,9 +159,12 @@ const LastMonthStart = () => {
           >
             <div className="z-50">
               <img
-                className="w-[95%] lg:ml-[-7rem] xl:ml-[-12rem] mt-20"
+                className="w-full lg:ml-[-7rem] xl:ml-[-13rem] mt-20 cursor-pointer"
                 src={bassine}
-                alt=""
+                alt="bassine"
+                style={hoverStyleBassine} // ✅ Apply dynamic zoom & movement
+                onMouseMove={handleMouseMove_bassine}
+                onMouseLeave={handleMouseLeave_bassine}
               />
             </div>
           </motion.div>
@@ -197,9 +258,12 @@ const LastMonthStart = () => {
           >
             <div className="z-50">
               <img
-                className="w-[95%] lg:ml-[-7rem] xl:ml-[-12rem] mt-20"
+                className="w-[100%] lg:ml-[-7rem] xl:ml-[-15rem] mt-20 cursor-pointer"
                 src={sink}
-                alt=""
+                alt="sink"
+                style={hoverStyleSink} // ✅ Apply dynamic zoom & movement
+                onMouseMove={handleMouseMove_sink}
+                onMouseLeave={handleMouseLeave_sink}
               />
             </div>
           </motion.div>
@@ -252,7 +316,7 @@ const LastMonthStart = () => {
               <h1 className="text-4xl sm:text-5xl xl:text-7xl text-white font-bold md:rotate-270 leading-tight mb-[-10px]">
                 Commode
               </h1>
-              <p className="text-gray-200 lg:text-5xl font-thin md:rotate-270 md:ml-32">
+              <p className="text-gray-200 text-5xl font-thin md:rotate-270 md:ml-32">
                 Non Disturbing
               </p>
             </div>
@@ -267,12 +331,12 @@ const LastMonthStart = () => {
             className="flex flex-col items-center md:hidden"
           >
             <div className="z-50">
-              <img className="w-[14rem] h-[15rem] mt-10" src={comode} alt="" />
+              <img className="w-full h-[20rem] " src={comode} alt="" />
             </div>
           </motion.div>
           {/* small screen*/}
           {/* Button */}
-          <div className="md:mr-10">
+          <div className="mt-[-2rem] sm:mt-0 md:mr-10">
             <Button
               label="See More"
               type="see-more"
@@ -294,9 +358,12 @@ const LastMonthStart = () => {
           >
             <div className="z-50">
               <img
-                className="w-[16rem] lg:w-[30rem] h-[20rem] md:ml-16 lg:ml-[-7rem] xl:ml-[-12rem] mt-20"
+                className="w-full  lg:ml-[-11rem] xl:ml-[-15rem] mt-20 cursor-pointer"
                 src={comode}
-                alt=""
+                alt="commode"
+                style={hoverStyleCommode} // ✅ Apply dynamic zoom & movement
+                onMouseMove={handleMouseMove_commode}
+                onMouseLeave={handleMouseLeave_commode}
               />
             </div>
           </motion.div>

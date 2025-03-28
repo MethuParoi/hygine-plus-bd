@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import flag from "../../assets/navbar/bd-flag.png";
-import logo from "../../assets/logo/logo-white.png";
+import logo from "../../assets/logo/navbar_logo.png";
 import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-black text-gray-50 shadow-sm pt-4 px-4 md:px-12">
+    <div className="bg-black text-gray-50 shadow-sm py-4 px-4 md:px-12">
       {/* upper navbar */}
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-x-2">
@@ -100,7 +100,7 @@ const Navbar = () => {
       </div>
 
       {/* lower navbar */}
-      <div className="border-t border-t-[0.5px] border-gray-50 mt-2 flex justify-between items-center">
+      <div className=" border-t-[0.5px] border-gray-50 mt-2 pt-4 flex justify-between items-center">
         <div className="hidden md:flex items-center gap-x-4 relative">
           <button
             popoverTarget="bathware"
