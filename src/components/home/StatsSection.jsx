@@ -14,7 +14,7 @@ const StatsSection = () => {
         </div>
 
         {/* Divider Line */}
-        <div className="hidden md:block w-1 h-16 bg-gray-900 mx-6"></div>
+        <div className="hidden md:block w-[5px] h-16 bg-gray-900 mx-6"></div>
 
         {/* Team Members */}
         <div className="">
