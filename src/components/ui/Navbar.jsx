@@ -5,40 +5,48 @@ import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { getProducts } from "../../utils/apiProduct";
+import BathwareDropdown from "../dropdown/BathwareDropdown";
 
 const Navbar = () => {
   const { user, logoutUser, selectedCategory, setSelectedCategory } =
     useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [selection, setSelection] = useState({ category: null, item: null });
   const navigate = useNavigate();
-  const [bathwareCategories, setBathwareCategories] = useState(new Set());
-  const [kitchenwareCategories, setKitchenwareCategories] = useState(new Set());
+
+  const handleSelect = (category, item) => {
+    setSelection({ category, item });
+    setOpen(false);
+  };
+
+  // const [bathwareCategories, setBathwareCategories] = useState(new Set());
+  // const [kitchenwareCategories, setKitchenwareCategories] = useState(new Set());
 
   //fetch categories
-  async function fetchCategory() {
-    const products = await getProducts();
-    // Filter and map for bathware categories
-    setBathwareCategories(
-      new Set(
-        products
-          .filter((item) => item.main_category === "bathware")
-          .map((item) => item.product_category)
-      )
-    );
+  // async function fetchCategory() {
+  //   const products = await getProducts();
+  //   // Filter and map for bathware categories
+  //   setBathwareCategories(
+  //     new Set(
+  //       products
+  //         .filter((item) => item.main_category === "bathware")
+  //         .map((item) => item.product_category)
+  //     )
+  //   );
 
-    // Filter and map for kitchenware categories
-    setKitchenwareCategories(
-      new Set(
-        products
-          .filter((item) => item.main_category === "kitchenware")
-          .map((item) => item.product_category)
-      )
-    );
-  }
+  // Filter and map for kitchenware categories
+  //   setKitchenwareCategories(
+  //     new Set(
+  //       products
+  //         .filter((item) => item.main_category === "kitchenware")
+  //         .map((item) => item.product_category)
+  //     )
+  //   );
+  // }
 
-  useEffect(() => {
-    fetchCategory();
-  }, []);
+  // useEffect(() => {
+  //   fetchCategory();
+  // }, []);
 
   const handleLogout = async () => {
     if (user) {
@@ -102,16 +110,33 @@ const Navbar = () => {
       {/* lower navbar */}
       <div className=" border-t-[0.5px] border-gray-50 mt-2 pt-4 flex justify-between items-center">
         <div className="hidden md:flex items-center gap-x-4 relative">
-          <button
+          {/* <button
             popoverTarget="bathware"
             style={{ anchorName: "--anchor-1" }}
             className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
           >
             Bathware
             <IoIosArrowDown className="text-2xl" />
+          </button> */}
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
+          >
+            Bathware
+            <IoIosArrowDown className="text-2xl" />
           </button>
           {/* bathware dropdown */}
-          <ul
+          <BathwareDropdown
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            onSelect={handleSelect}
+          />
+          {selection.item && (
+            <div className="mt-4 text-sm text-gray-600">
+              Selected: {selection.category} &gt; {selection.item}
+            </div>
+          )}
+          {/* <ul
             className="dropdown menu w-52 rounded-box bg-gray-800 shadow-sm text-white"
             popover="auto"
             id="bathware"
@@ -126,7 +151,7 @@ const Navbar = () => {
                 <Link to={"/products/bathware"}>{category}</Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
           <button
             popoverTarget="kitchenware"
             style={{ anchorName: "--anchor-2" }}
@@ -136,7 +161,7 @@ const Navbar = () => {
             <IoIosArrowDown className="text-2xl" />
           </button>
           {/* kitchenware dropdown */}
-          <ul
+          {/* <ul
             className="dropdown menu w-52 rounded-box bg-gray-800 shadow-sm text-white"
             popover="auto"
             id="kitchenware"
@@ -151,7 +176,7 @@ const Navbar = () => {
                 <Link to={"/products/kitchenware"}>{category}</Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
 
         {/* logo */}
@@ -201,7 +226,7 @@ const Navbar = () => {
                 <IoIosArrowDown className="text-2xl" />
               </button>
               {/* bathware dropdown */}
-              <ul
+              {/* <ul
                 className="dropdown menu ml-[-10rem] mt-[-2rem] w-40 rounded-box bg-gray-800 shadow-sm text-white"
                 popover="auto"
                 id="bathware_2"
@@ -216,7 +241,7 @@ const Navbar = () => {
                     <Link to={"/products/bathware"}>{category}</Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </li>
             {/* kitchenware */}
             <li className="hover:bg-gray-600">
@@ -229,7 +254,7 @@ const Navbar = () => {
                 <IoIosArrowDown className="text-2xl" />
               </button>
               {/* kitchenware dropdown */}
-              <ul
+              {/* <ul
                 className="dropdown menu w-40 ml-[-10rem] mt-[-2rem] rounded-box bg-gray-800 shadow-sm text-white"
                 popover="auto"
                 id="kitchenware_2"
@@ -244,7 +269,7 @@ const Navbar = () => {
                     <Link to={"/products/kitchenware"}>{category}</Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </li>
             <li className="hover:bg-gray-600">
               <button
