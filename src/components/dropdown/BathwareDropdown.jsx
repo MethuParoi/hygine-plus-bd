@@ -1,4 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import img from "../../assets/navbar/bathware.jpg";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { AuthContext } from "../../provider/AuthProvider";
+import { useNavigate } from "react-router";
 
 // Example data structure for categories and subcategories
 const menu = [
@@ -95,25 +99,45 @@ const menu = [
   },
 ];
 
-/**
- * BathwareDropdown Component
- * @param {boolean} isOpen - controls visibility
- * @param {function} onClose - callback to close dropdown
- * @param {function} onSelect - callback(category, item) when an item is clicked
- */
 const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
-  // Close on Escape
+  const { selectedCategory, setSelectedCategory } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const dropdownRef = useRef(null);
+  // Close dropdown when clicking outside
   useEffect(() => {
-    const handleKey = (e) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
+    const handleClick = (event) => {
+      // Check if the clicked element is not a button
+      if (
+        (dropdownRef.current && !dropdownRef.current.contains(event.target)) ||
+        (dropdownRef.current && event.target.tagName !== "button")
+      ) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
   }, [onClose]);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       onClose();
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [onClose]);
 
   if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 w-screen h-screen bg-black bg-opacity-50 z-40"
+      className="absolute left-[-3.5rem] top-[2.8rem] w-screen h-screen z-40"
       onClick={onClose}
     >
       <div
@@ -121,64 +145,141 @@ const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Left Panel with two featured blocks */}
-        <div className="w-1/4 flex flex-col">
-          <button
-            className="flex-1 bg-[url('/images/bathware1.jpg')] bg-cover bg-center relative p-4"
-            onClick={() => onSelect("Featured", "At a Glance")}
+        <div className="hidden lg:w-1/4 lg:flex flex-col items-center">
+          {/* featured img 1 */}
+          <div
+            className=" bg-cover bg-center  relative p-4 h-[15rem] w-[18rem] m-4"
+            style={{ backgroundImage: `url(${img})` }}
           >
-            <span className="text-white text-xl font-semibold">Bathware</span>
-            <span className="absolute bottom-4 text-white underline">
-              At a Glance &rarr;
+            <span className="absolute bottom-4 text-gray-900 text-xl font-semibold flex items-center gap-x-2">
+              At a Glance <FaArrowRightLong />
             </span>
-          </button>
-          <button
-            className="flex-1 bg-[url('/images/bathware2.jpg')] bg-cover bg-center relative p-4"
-            onClick={() => onSelect("Featured", "Our New Collections")}
+          </div>
+          {/* featured img 2 */}
+          <div
+            className=" bg-cover bg-center  relative p-4 h-[15rem] w-[18rem] m-4"
+            style={{ backgroundImage: `url(${img})` }}
           >
-            <span className="text-white text-xl font-semibold">
-              Our New Collections
+            <span className="absolute bottom-4 text-gray-900 text-xl font-semibold flex items-center gap-x-2">
+              Explore <FaArrowRightLong />
             </span>
-            <span className="absolute bottom-4 text-white underline">
-              Explore &rarr;
-            </span>
-          </button>
+          </div>
         </div>
 
         {/* Right Panel: grid of categories */}
-        <div className="w-3/4 p-8 overflow-auto">
-          <div className="grid grid-cols-4 grid-rows-3 gap-8">
-            {menu.slice(0, 4).map((cat) => (
-              <div key={cat.title}>
-                <h3 className="font-bold border-l-4 border-black pl-2 mb-2">
-                  {cat.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.items.map((item) => (
-                    <button
-                      key={item}
-                      className="text-gray-700 hover:text-black text-sm"
-                      onClick={() => onSelect(cat.title, item)}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
+        <div className="w-full lg:w-3/4 p-8 overflow-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-0 md:gap-8 justify-items-center lg:justify-items-start">
+            {/* commode and urinal */}
+            <div className="" key={menu[0].title}>
+              <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
+                {menu[0].title}
+              </h3>
+              <div className="flex flex-col items-start gap-2">
+                {menu[0].items.map((item) => (
+                  <button
+                    key={item}
+                    className="text-gray-700 hover:text-black text-sm cursor-pointer"
+                    onClick={() => {
+                      onSelect(menu[1].title, item);
+                      navigate("/products/bathware");
+                      setSelectedCategory(item);
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
               </div>
-            ))}
+            </div>
+            {/* Basin */}
+            <div
+              className="md:ml-[-2rem] mt-[-2.5rem] md:mt-0"
+              key={menu[1].title}
+            >
+              <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
+                {menu[1].title}
+              </h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-2 gap-x-6 ">
+                {menu[1].items.map((item) => (
+                  <button
+                    key={item}
+                    className="text-gray-700 hover:text-black text-sm cursor-pointer text-start w-36"
+                    onClick={() => {
+                      onSelect(menu[1].title, item);
+                      navigate("/products/bathware");
+                      setSelectedCategory(item);
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {/* Faucet */}
+            <div
+              className="md:ml-[2rem] mt-[-1.5rem] md:mt-0"
+              key={menu[2].title}
+            >
+              <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
+                {menu[2].title}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-14 ">
+                {menu[2].items.map((item) => (
+                  <button
+                    key={item}
+                    className="text-gray-700 hover:text-black text-sm cursor-pointer text-start w-36"
+                    onClick={() => {
+                      onSelect(menu[2].title, item);
+                      navigate("/products/bathware");
+                      setSelectedCategory(item);
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {/* Bidet */}
+            <div
+              className="md:ml-[4rem] ml-[-6rem] mt-[2rem] md:mt-0"
+              key={menu[3].title}
+            >
+              <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
+                {menu[3].title}
+              </h3>
+              <div className="flex flex-col items-start gap-2">
+                {menu[3].items.map((item) => (
+                  <button
+                    key={item}
+                    className="text-gray-700 hover:text-black text-sm cursor-pointer"
+                    onClick={() => {
+                      onSelect(menu[3].title, item);
+                      navigate("/products/bathware");
+                      setSelectedCategory(item);
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {/* Accessories spans two columns */}
-            <div className="col-span-2">
-              <h3 className="font-bold border-l-4 border-black pl-2 mb-2">
+            <div className="ml-12 md:ml-0 mt-[2rem] md:mt-0 lg:col-span-4">
+              <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
                 Accessories
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-y-2 gap-x-6">
                 {menu
                   .find((m) => m.title === "Accessories")
                   .items.map((item) => (
                     <button
                       key={item}
-                      className="text-gray-700 hover:text-black text-sm"
-                      onClick={() => onSelect("Accessories", item)}
+                      className="text-gray-700 hover:text-black text-sm cursor-pointer text-start"
+                      onClick={() => {
+                        onSelect("Accessories", item);
+                        navigate("/products/bathware");
+                        setSelectedCategory(item);
+                      }}
                     >
                       {item}
                     </button>
@@ -186,21 +287,50 @@ const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
               </div>
             </div>
 
-            {/* Empty cell placeholder */}
-            <div />
-
             {/* Last row items */}
-            {menu.slice(5).map((cat) => (
-              <div key={cat.title}>
-                <h3 className="font-bold border-l-4 border-black pl-2 mb-2">
+            {/* Shower */}
+            <div
+              className="ml-12 md:ml-0 mt-[2rem] md:mt-0 mr-10"
+              key={menu[5].title}
+            >
+              <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
+                {menu[5].title}
+              </h3>
+              <div className="grid grid-cols-2 gap-y-2 gap-x-6 ">
+                {menu[5].items.map((item) => (
+                  <button
+                    key={item}
+                    className="text-gray-700 hover:text-black text-sm cursor-pointer text-start w-36"
+                    onClick={() => {
+                      onSelect(menu[5].title, item);
+                      navigate("/products/bathware");
+                      setSelectedCategory(item);
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {/* others */}
+            {menu.slice(6).map((cat) => (
+              <div
+                className="ml-12 md:ml-0 mt-[2rem] md:mt-0 mr-10 "
+                key={cat.title}
+              >
+                <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
                   {cat.title}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-col items-start flex-wrap gap-2">
                   {cat.items.map((item) => (
                     <button
                       key={item}
-                      className="text-gray-700 hover:text-black text-sm"
-                      onClick={() => onSelect(cat.title, item)}
+                      className="text-gray-700 hover:text-black text-sm cursor-pointer"
+                      onClick={() => {
+                        onSelect(cat.title, item);
+                        navigate("/products/bathware");
+                        setSelectedCategory(item);
+                      }}
                     >
                       {item}
                     </button>
@@ -216,36 +346,3 @@ const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
 };
 
 export default BathwareDropdown;
-
-// Example usage in a Navbar component
-// import React, { useState } from 'react';
-// import BathwareDropdown from './BathwareDropdown';
-//
-// function Navbar() {
-//   const [open, setOpen] = useState(false);
-//   const [selection, setSelection] = useState({ category: null, item: null });
-//
-//   const handleSelect = (category, item) => {
-//     setSelection({ category, item });
-//     setOpen(false);
-//   };
-//
-//   return (
-//     <nav className="relative">
-//       <button onClick={() => setOpen((o) => !o)} className="px-4 py-2">
-//         Bathware
-//       </button>
-//       <BathwareDropdown
-//         isOpen={open}
-//         onClose={() => setOpen(false)}
-//         onSelect={handleSelect}
-//       />
-//       {selection.item && (
-//         <div className="mt-4 text-sm text-gray-600">
-//           Selected: {selection.category} &gt; {selection.item}
-//         </div>
-//       )}
-//     </nav>
-// }
-//
-// export default Navbar;

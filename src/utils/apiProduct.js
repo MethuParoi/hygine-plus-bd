@@ -11,6 +11,7 @@ export async function getProducts() {
 }
 
 export async function getSortedProducts(sort) {
+  sort = sort.toLowerCase();
   if (sort === "all") {
     return getProducts();
   }

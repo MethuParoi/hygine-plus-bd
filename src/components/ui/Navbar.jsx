@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import flag from "../../assets/navbar/bd-flag.png";
 import logo from "../../assets/logo/navbar_logo.png";
 import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
-import { useContext, useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { getProducts } from "../../utils/apiProduct";
 import BathwareDropdown from "../dropdown/BathwareDropdown";
@@ -18,6 +18,11 @@ const Navbar = () => {
     setSelection({ category, item });
     setOpen(false);
   };
+
+  useEffect(() => {
+    console.log("Selected category:", selection.category);
+    console.log("Selected item:", selection.item);
+  }, [selection]);
 
   // const [bathwareCategories, setBathwareCategories] = useState(new Set());
   // const [kitchenwareCategories, setKitchenwareCategories] = useState(new Set());
@@ -61,12 +66,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-black text-gray-50 shadow-sm py-4 px-4 md:px-12">
+    <div className="bg-black text-gray-50 shadow-sm py-4 px-4 md:px-12 ">
       {/* upper navbar */}
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-x-2">
           <img className="w-8" src={flag} alt="" />
-          <h3 className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300">
+          <h3 className="text-md sm:text-lg cursor-pointer font-normal hover:text-gray-300">
             BANGLADESH
           </h3>
         </div>
@@ -89,7 +94,7 @@ const Navbar = () => {
             {/* login */}
             <button
               onClick={() => navigate("/support")}
-              className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300"
+              className="text-md sm:text-lg cursor-pointer font-normal hover:text-gray-300"
             >
               SUPPORT
             </button>
@@ -99,17 +104,30 @@ const Navbar = () => {
 
             <button
               onClick={() => (user ? handleLogout() : navigate("/login"))}
-              className="text-md sm:text-lg cursor-pointer font-semibold hover:text-gray-300"
+              className="text-md sm:text-lg cursor-pointer font-normal hover:text-gray-300"
             >
               {user ? "LOGOUT" : "LOGIN"}
             </button>
           </div>
         </div>
       </div>
+      {/* middle navbar */}
+      <div className="  border-t-[0.5px] border-gray-50 mt-2 pt-4 md:flex justify-center items-center hidden ">
+        {/* logo */}
+        <div className="cursor-pointer" onClick={() => navigate("/")}>
+          <img className="w-[16rem] lg:w-[25rem]" src={logo} alt="" />
+        </div>
+      </div>
 
       {/* lower navbar */}
-      <div className=" border-t-[0.5px] border-gray-50 mt-2 pt-4 flex justify-between items-center">
-        <div className="hidden md:flex items-center gap-x-4 relative">
+      <div className=" mt-4 flex justify-between md:justify-center items-center gap-x-10 relative">
+        {/* bathware dropdown */}
+        <BathwareDropdown
+          isOpen={open}
+          onClose={() => setOpen(false)}
+          onSelect={handleSelect}
+        />
+        <div className="hidden md:flex items-center gap-x-10 ">
           {/* <button
             popoverTarget="bathware"
             style={{ anchorName: "--anchor-1" }}
@@ -125,33 +143,7 @@ const Navbar = () => {
             Bathware
             <IoIosArrowDown className="text-2xl" />
           </button>
-          {/* bathware dropdown */}
-          <BathwareDropdown
-            isOpen={open}
-            onClose={() => setOpen(false)}
-            onSelect={handleSelect}
-          />
-          {selection.item && (
-            <div className="mt-4 text-sm text-gray-600">
-              Selected: {selection.category} &gt; {selection.item}
-            </div>
-          )}
-          {/* <ul
-            className="dropdown menu w-52 rounded-box bg-gray-800 shadow-sm text-white"
-            popover="auto"
-            id="bathware"
-            style={{ positionAnchor: "--anchor-1" }}
-          >
-            {Array.from(bathwareCategories).map((category, index) => (
-              <li
-                onClick={() => setSelectedCategory(category)}
-                key={index}
-                className="hover:bg-gray-600"
-              >
-                <Link to={"/products/bathware"}>{category}</Link>
-              </li>
-            ))}
-          </ul> */}
+
           <button
             popoverTarget="kitchenware"
             style={{ anchorName: "--anchor-2" }}
@@ -180,11 +172,11 @@ const Navbar = () => {
         </div>
 
         {/* logo */}
-        <div className="cursor-pointer" onClick={() => navigate("/")}>
+        <div className="cursor-pointer md:hidden" onClick={() => navigate("/")}>
           <img className="w-[16rem] lg:w-[25rem]" src={logo} alt="" />
         </div>
 
-        <div className="hidden md:flex items-center gap-x-4">
+        <div className="hidden md:flex items-center gap-x-10">
           <button
             onClick={() => navigate("/new-arrivals")}
             className=" text-lg cursor-pointer font-semibold hover:text-gray-300"
@@ -218,30 +210,19 @@ const Navbar = () => {
             {/* bathware */}
             <li className="hover:bg-gray-600">
               <button
-                popoverTarget="bathware_2"
-                style={{ anchorName: "--anchor-3" }}
+                onClick={() => setOpen((o) => !o)}
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
               >
                 Bathware
                 <IoIosArrowDown className="text-2xl" />
               </button>
               {/* bathware dropdown */}
-              {/* <ul
-                className="dropdown menu ml-[-10rem] mt-[-2rem] w-40 rounded-box bg-gray-800 shadow-sm text-white"
-                popover="auto"
-                id="bathware_2"
-                style={{ positionAnchor: "--anchor-3" }}
-              >
-                {Array.from(bathwareCategories).map((category, index) => (
-                  <li
-                    onClick={() => setSelectedCategory(category)}
-                    key={index}
-                    className="hover:bg-gray-600"
-                  >
-                    <Link to={"/products/bathware"}>{category}</Link>
-                  </li>
-                ))}
-              </ul> */}
+              {/* bathware dropdown */}
+              {/* <BathwareDropdown
+                isOpen={open}
+                onClose={() => setOpen(false)}
+                onSelect={handleSelect}
+              /> */}
             </li>
             {/* kitchenware */}
             <li className="hover:bg-gray-600">
