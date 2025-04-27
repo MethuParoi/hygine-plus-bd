@@ -6,11 +6,13 @@ import { use, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { getProducts } from "../../utils/apiProduct";
 import BathwareDropdown from "../dropdown/BathwareDropdown";
+import KitchenwareDropdown from "../dropdown/KitchenwareDropdown";
 
 const Navbar = () => {
   const { user, logoutUser, selectedCategory, setSelectedCategory } =
     useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const [selection, setSelection] = useState({ category: null, item: null });
   const navigate = useNavigate();
 
@@ -18,11 +20,6 @@ const Navbar = () => {
     setSelection({ category, item });
     setOpen(false);
   };
-
-  useEffect(() => {
-    console.log("Selected category:", selection.category);
-    console.log("Selected item:", selection.item);
-  }, [selection]);
 
   // const [bathwareCategories, setBathwareCategories] = useState(new Set());
   // const [kitchenwareCategories, setKitchenwareCategories] = useState(new Set());
@@ -127,48 +124,35 @@ const Navbar = () => {
           onClose={() => setOpen(false)}
           onSelect={handleSelect}
         />
+        {/* Kitchenware dropdown */}
+        <KitchenwareDropdown
+          isOpen={open2}
+          onClose={() => setOpen2(false)}
+          onSelect={handleSelect}
+          setOpen2={setOpen2}
+        />
         <div className="hidden md:flex items-center gap-x-10 ">
-          {/* <button
-            popoverTarget="bathware"
-            style={{ anchorName: "--anchor-1" }}
-            className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
-          >
-            Bathware
-            <IoIosArrowDown className="text-2xl" />
-          </button> */}
           <button
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => {
+              setOpen((o) => !o);
+              setOpen2(false);
+            }}
             className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
           >
             Bathware
             <IoIosArrowDown className="text-2xl" />
           </button>
-
+          {/* kitchenware dropdown */}
           <button
-            popoverTarget="kitchenware"
-            style={{ anchorName: "--anchor-2" }}
+            onClick={() => {
+              setOpen2((o) => !o);
+              setOpen(false);
+            }}
             className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
           >
             Kitchenware
             <IoIosArrowDown className="text-2xl" />
           </button>
-          {/* kitchenware dropdown */}
-          {/* <ul
-            className="dropdown menu w-52 rounded-box bg-gray-800 shadow-sm text-white"
-            popover="auto"
-            id="kitchenware"
-            style={{ positionAnchor: "--anchor-2" }}
-          >
-            {Array.from(kitchenwareCategories).map((category, index) => (
-              <li
-                onClick={() => setSelectedCategory(category)}
-                key={index}
-                className="hover:bg-gray-600"
-              >
-                <Link to={"/products/kitchenware"}>{category}</Link>
-              </li>
-            ))}
-          </ul> */}
         </div>
 
         {/* logo */}
@@ -210,7 +194,10 @@ const Navbar = () => {
             {/* bathware */}
             <li className="hover:bg-gray-600">
               <button
-                onClick={() => setOpen((o) => !o)}
+                onClick={() => {
+                  setOpen((o) => !o);
+                  setOpen2(false);
+                }}
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
               >
                 Bathware
@@ -227,30 +214,15 @@ const Navbar = () => {
             {/* kitchenware */}
             <li className="hover:bg-gray-600">
               <button
-                popoverTarget="kitchenware_2"
-                style={{ anchorName: "--anchor-4" }}
+                onClick={() => {
+                  setOpen2((o) => !o);
+                  setOpen(false);
+                }}
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
               >
                 Kitchenware
                 <IoIosArrowDown className="text-2xl" />
               </button>
-              {/* kitchenware dropdown */}
-              {/* <ul
-                className="dropdown menu w-40 ml-[-10rem] mt-[-2rem] rounded-box bg-gray-800 shadow-sm text-white"
-                popover="auto"
-                id="kitchenware_2"
-                style={{ positionAnchor: "--anchor-4" }}
-              >
-                {Array.from(kitchenwareCategories).map((category, index) => (
-                  <li
-                    onClick={() => setSelectedCategory(category)}
-                    key={index}
-                    className="hover:bg-gray-600"
-                  >
-                    <Link to={"/products/kitchenware"}>{category}</Link>
-                  </li>
-                ))}
-              </ul> */}
             </li>
             <li className="hover:bg-gray-600">
               <button
