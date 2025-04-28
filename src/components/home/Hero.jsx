@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import bgImage from "../../assets/hero/hero.jpg";
+import bgImage from "../../assets/hero/bg2.jpg";
+import overlayImage from "../../assets/hero/overlay-Pro.png";
 import { motion } from "framer-motion";
 import { ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
 
@@ -32,25 +33,70 @@ const Hero = () => {
 
   return (
     <ParallaxProvider>
-      <div className="h-[85dvh] w-full max-w-full overflow-hidden  relative">
+      <div className="h-[60dvh] md:h-[85dvh] w-full max-w-full overflow-hidden  relative">
         {/* Parallax Background */}
         <ParallaxBanner
           layers={[
             {
               image: bgImage,
-              speed: -20, // Creates a parallax effect
+              speed: -20,
+              style: {
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "repeat",
+              },
             },
           ]}
           className="h-full"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: "contain",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
         />
-        <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-6">
-          {/* first column */}
+
+        {/* <ParallaxBanner
+          layers={[
+            {
+              image: bgImage,
+              speed: -20,
+              style: () => {
+                if (window.innerWidth < 768) {
+                  return {
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  };
+                } else {
+                  return {
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  };
+                }
+              },
+            },
+          ]}
+          className="h-full"
+        /> */}
+
+        <div className="absolute bottom-64 md:bottom-0 left-0 w-full h-full">
+          {/* overlay */}
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className=""
+          >
+            <img className="w-full h-[50rem] z-10" src={overlayImage} alt="" />
+          </motion.div>
+        </div>
+      </div>
+    </ParallaxProvider>
+  );
+};
+
+export default Hero;
+
+{
+  /* <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-6">
+          {/* first column }
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -73,7 +119,7 @@ const Hero = () => {
               ENVISION
             </h1>
           </motion.div>
-          {/* second column */}
+          {/* second column }
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -94,7 +140,7 @@ const Hero = () => {
               ELEVATE
             </h1>
           </motion.div>
-          {/* third column */}
+          {/* third column }
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -117,11 +163,6 @@ const Hero = () => {
               EXPERIENCE
             </h1>
           </motion.div>
-        </div>
-      </div>
-    </ParallaxProvider>
-  );
-};
-
-export default Hero;
+        </div> */
+}
 
