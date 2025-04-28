@@ -217,7 +217,7 @@ function ProductsForm({
                 Description of product*
               </p>
               <textarea
-                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+                className="w-[25rem] h-[4rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 placeholder="Enter product description"
                 id="product_description"
                 defaultValue=""
@@ -238,10 +238,9 @@ function ProductsForm({
               <p className="text-gray-600 font-semibold text-lg">
                 Product specifications (comma seperated ",")*
               </p>
-              <input
-                className="w-[25rem] h-[3.5rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
+              <textarea
+                className="w-[25rem] h-[4rem] rounded-[1rem] border-2 border-gray-400 px-[1rem] mt-[1rem] shadow-md bg-gray-50 text-gray-600"
                 placeholder="Enter product specifications"
-                type="text"
                 id="product_specification"
                 disabled={isWorking}
                 {...register("product_specification", {
