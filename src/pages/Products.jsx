@@ -8,7 +8,8 @@ import {
 import { AuthContext } from "../provider/AuthProvider";
 import Loader from "../components/ui/Loader/Loader";
 import { useParams } from "react-router";
-import img from "../assets/hero/hero.jpg";
+import bathware from "../assets/banner/commode.jpg";
+import kitchenware from "../assets/banner/Kitchen-sink.jpg";
 import SortProduct from "../components/products/SortProduct";
 
 const Products = () => {
@@ -90,11 +91,19 @@ const Products = () => {
     <div className=" min-h-screen mb-20 md:mb-32">
       {/* banner */}
       <div className="">
-        <img
-          className="w-[100%] h-[20rem] md:h-[20rem] object-fill md:object-fill 2xl:object-cover"
-          src={img}
-          alt=""
-        />
+        {main_category === "bathware" ? (
+          <img
+            className="w-[100%] h-[20rem] md:h-[20rem] object-fill md:object-fill 2xl:object-cover"
+            src={bathware}
+            alt=""
+          />
+        ) : (
+          <img
+            className="w-[100%] h-[20rem] md:h-[20rem] object-fill md:object-fill 2xl:object-cover"
+            src={kitchenware}
+            alt=""
+          />
+        )}
       </div>
       {/* product cards */}
       <div className="w-11/12 mx-auto grid grid-cols-1  lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-items-center md:mt-10">

@@ -12,10 +12,10 @@ const KitchenwareDropdownCard = ({
     const navigate = useNavigate();
 
   return (
-    <div className="h-[18rem] w-[15rem] flex flex-col items-start justify-start gap-y-5 border-2 border-gray-200 rounded-lg relative group cursor-pointer px-2 py-4">
+    <div className="h-[18rem] w-[15rem] flex flex-col items-start justify-start gap-y-5 border-2 border-gray-200 rounded-lg relative group cursor-pointer px-2 pt-4 pb-15">
       <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
       <div
-        className=" bg-cover bg-center p-4 h-[8rem] w-[10rem] self-center"
+        className=" bg-cover bg-center p-4 h-[25rem] w-[14rem] self-center"
         style={{ backgroundImage: `url(${img})` }}
       ></div>
       <button

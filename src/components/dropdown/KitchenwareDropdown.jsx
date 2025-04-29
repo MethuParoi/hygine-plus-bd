@@ -1,32 +1,37 @@
 import React, { useContext, useEffect, useRef } from "react";
 import img from "../../assets/navbar/bathware.jpg";
-import img2 from "../../assets/products/freepik__enhance__42153.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router";
 import KitchenwareDropdownCard from "./KitchenwareDropdownCard";
+import kitchenHood from "../../assets/navbar/dropdown/hood.jpg";
+import KitchenSink from "../../assets/navbar/dropdown/kitchen.jpg";
+import KitchenBurners from "../../assets/navbar/dropdown/burner.jpg";
+import MultifunctionalOven from "../../assets/navbar/dropdown/oven.jpg";
+import SinkMixer from "../../assets/navbar/dropdown/faucet.jpg";
 
 // Example data structure for categories and subcategories
 const menu = [
   {
     title: "Kitchen Hood",
-    image: img2,
-  },
-  {
-    title: "Kitchen Burners",
-    image: img2,
+    image: kitchenHood,
   },
   {
     title: "Kitchen Sink",
-    image: img2,
+    image: KitchenSink,
+  },
+  {
+    title: "Kitchen Burners",
+    image: KitchenBurners,
+  },
+
+  {
+    title: "Multifunctional Oven",
+    image: MultifunctionalOven,
   },
   {
     title: "Sink Mixer",
-    image: img2,
-  },
-  {
-    title: "Multifunctional Oven",
-    image: img2,
+    image: SinkMixer,
   },
 ];
 
