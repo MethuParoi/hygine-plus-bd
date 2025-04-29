@@ -50,7 +50,7 @@ const partners = [
 
 const PartnersSection = () => {
     return (
-        <section className="py-16 bg-gray-50  overflow-hidden">
+        <section className="py-10 md:py-16 bg-gray-50  overflow-hidden">
             <div className="max-w-7xl mx-auto text-center mb-8 px-6">
                 <h2 className="text-3xl md:text-5xl font-bold text-gray-800 ">
                     Our Partners & Collaborators
