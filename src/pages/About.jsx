@@ -8,6 +8,7 @@ import icon1 from "../assets/about/Clean.png"
 import icon2 from "../assets/about/gear.png"
 import icon3 from "../assets/about/care.png"
 import vision from "../assets/about/Vission-1.jpg2.jpg"
+import mission from "../assets/about/AB-mission.jpg"
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -250,7 +251,45 @@ const About = () => {
         <div className="">
           <img src={vision} alt="Our vision image" />
         </div>
+        <div className="mt-20">
+          <h2 className="text-4xl font-bold mb-2 text-center">
+            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">OUR MISSION</span>
+          </h2>
+          <p className="text-center ">
+          To develop cutting-edge sanitary products that merge technology, <br />
+design, and sustainability—empowering people to live with dignity, <br />
+confidence, and care.
+          </p>
+        </div>
+        <div className="">
+          <img src={mission} alt="Our vision image" />
+        </div>
       </div>
+      <div className="mt-20 w-11/12 md:w-10/12 mx-auto mb-20">
+          <h2 className="text-4xl font-bold mb-2 text-center">
+            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">BUSINESS TYPE</span>
+          </h2>
+          <p className="text-center "> 
+          At Hygiene Plus, we are recognized for crafting refined bathware and kitchenware solutions
+that seamlessly combine elegance with performance. Our extensive product range is
+thoughtfully designed to enhance the beauty, hygiene, and efficiency of every space — from
+private homes to professional environments.
+          </p>
+          <div className="card card-side bg-base-100 shadow-sm">
+  <figure>
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+      alt="Movie" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">New movie is released!</h2>
+    <p>Click the button to watch on Jetflix app.</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">Watch</button>
+    </div>
+  </div>
+</div>
+        </div>
     </div>
 
   );
