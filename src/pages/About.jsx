@@ -9,6 +9,8 @@ import icon2 from "../assets/about/gear.png"
 import icon3 from "../assets/about/care.png"
 import vision from "../assets/about/Vission-1.jpg2.jpg"
 import mission from "../assets/about/AB-mission.jpg"
+import kitIcon from "../assets/about/icon-01.png"
+import bathIcon from "../assets/about/icon-02.png"
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -256,9 +258,9 @@ const About = () => {
             <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">OUR MISSION</span>
           </h2>
           <p className="text-center ">
-          To develop cutting-edge sanitary products that merge technology, <br />
-design, and sustainability—empowering people to live with dignity, <br />
-confidence, and care.
+            To develop cutting-edge sanitary products that merge technology, <br />
+            design, and sustainability—empowering people to live with dignity, <br />
+            confidence, and care.
           </p>
         </div>
         <div className="">
@@ -266,30 +268,45 @@ confidence, and care.
         </div>
       </div>
       <div className="mt-20 w-11/12 md:w-10/12 mx-auto mb-20">
-          <h2 className="text-4xl font-bold mb-2 text-center">
-            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">BUSINESS TYPE</span>
-          </h2>
-          <p className="text-center "> 
+        <h2 className="text-4xl font-bold mb-2 text-center">
+          <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">BUSINESS TYPE</span>
+        </h2>
+        <p className="text-center ">
           At Hygiene Plus, we are recognized for crafting refined bathware and kitchenware solutions
-that seamlessly combine elegance with performance. Our extensive product range is
-thoughtfully designed to enhance the beauty, hygiene, and efficiency of every space — from
-private homes to professional environments.
-          </p>
-          <div className="card card-side bg-base-100 shadow-sm">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-      alt="Movie" />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">New movie is released!</h2>
-    <p>Click the button to watch on Jetflix app.</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Watch</button>
-    </div>
-  </div>
-</div>
+          that seamlessly combine elegance with performance. Our extensive product range is
+          thoughtfully designed to enhance the beauty, hygiene, and efficiency of every space — from
+          private homes to professional environments.
+        </p>
+        <div className="flex justify-between items-center gap-10 mt-20">
+          <div className="flex-9/12">
+            <h2 className="font-bold text-4xl mb-5 "><span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">KITCHENWARE</span></h2>
+            <p className="text-lg">In today’s evolving kitchens, Hygiene Plus brings forward a collection of
+              products engineered for elegance and efficiency. Whether it’s daily
+              cooking or professional use, our kitchenware line is built to simplify and
+              beautify. Designed for the modern lifestyle, our products integrate
+              thoughtful aesthetics and practical performance to turn every kitchen
+              into a place of smart hygiene and streamlined excellence.</p>
+          </div>
+          <div className="flex-3/12">
+            <img src={kitIcon} className="w-full " alt="" />
+          </div>
         </div>
+        <div className="flex justify-between items-center gap-10 ">
+          <div className="flex-3/12">
+            <img src={bathIcon} className="w-full " alt="" />
+          </div>
+          <div className="flex-9/12">
+            <h2 className="font-bold text-right text-4xl mb-5 "><span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">BATHWARE</span></h2>
+            <p className="text-lg text-right">In the rapidly transforming world of bathroom solutions, Hygiene Plus
+              sets the benchmark for modern sophistication. With a dedication to
+              innovation and comfort, we deliver sanitary products that go beyond
+              basic utility — transforming bathrooms into wellness spaces that
+              reflect luxury, cleanliness, and care. Our designs blend form with
+              function, offering an experience that feels as refined as it is reliable.</p>
+          </div>
+
+        </div>
+      </div>
     </div>
 
   );
