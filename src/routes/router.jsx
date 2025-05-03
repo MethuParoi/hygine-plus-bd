@@ -12,6 +12,7 @@ import AdminRoute from "./AdminRoute";
 import About from "../pages/About";
 import Support from "../pages/Support";
 import NewArrivals from "../pages/NewArrivals";
+import Carrers from "../pages/Carrers";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/new-arrivals",
         element: <NewArrivals />,
+      },
+      {
+        path: "/careers",
+        element: <Carrers />,
       },
       {
         path: "/products/:main_category",
