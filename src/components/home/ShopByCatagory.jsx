@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import commodImg from "../../assets/products/Toilet-Carusel2.jpg";
 import kitchenImg from "../../assets/products/Sink-Carusel3.jpg";
-import bassinImg from "../../assets/products/bassin.jpg";
-import faucet from "../../assets/products/faucet.jpg";
+import bassinImg from "../../assets/shop-by-category/bassin.jpg";
+import faucet from "../../assets/shop-by-category/shower.jpg";
+import sink from "../../assets/shop-by-category/sink.jpg";
+import hood from "../../assets/shop-by-category/hood.jpg";
 
 import { motion } from "framer-motion"; // Import Framer Motion
 import { AuthContext } from "../../provider/AuthProvider";
@@ -84,7 +86,7 @@ const CategorySection = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 3, ease: "easeOut", delay: 0.4 }}
-            className="relative flex justify-center "
+            className="relative flex justify-center"
           >
             <div
               onClick={() => {
@@ -97,7 +99,7 @@ const CategorySection = () => {
               <img
                 src={bassinImg}
                 alt="Basin"
-                className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                className="scale-110 transition-transform duration-500 ease-out group-hover:scale-120 "
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
@@ -107,7 +109,7 @@ const CategorySection = () => {
             </div>
           </motion.div>
 
-          {/* Faucet Image */}
+          {/* Shower Image */}
           {window.innerWidth >= 768 && (
             <motion.div
               initial={{ x: 250, opacity: 0 }}
@@ -127,11 +129,11 @@ const CategorySection = () => {
                 <img
                   src={faucet}
                   alt="Faucet"
-                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                  className="scale-110 transition-transform duration-500 ease-out group-hover:scale-120"
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                  <h1 className="text-white text-3xl font-semibold">Faucet</h1>
+                  <h1 className="text-white text-3xl font-semibold">Shower</h1>
                   <p className="text-white text-md tracking-[6px]">CATEGORY</p>
                 </div>
               </div>
@@ -151,11 +153,11 @@ const CategorySection = () => {
                 <img
                   src={faucet}
                   alt="Faucet"
-                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                  className="scale-110 transition-transform duration-500 ease-out group-hover:scale-120 "
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                  <h1 className="text-white text-3xl font-semibold">Faucet</h1>
+                  <h1 className="text-white text-3xl font-semibold">Shower</h1>
                   <p className="text-white text-md tracking-[6px]">CATEGORY</p>
                 </div>
               </div>
@@ -192,13 +194,13 @@ const CategorySection = () => {
               >
                 {/* Image */}
                 <img
-                  src={bassinImg}
+                  src={hood}
                   alt="Basin"
-                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                  className="scale-110 transition-transform duration-500 ease-out group-hover:scale-120 "
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                  <h1 className="text-white text-3xl font-semibold">Basin</h1>
+                  <h1 className="text-white text-3xl font-semibold">Hood</h1>
                   <p className="text-white text-md tracking-[6px]">CATEGORY</p>
                 </div>
               </div>
@@ -216,13 +218,13 @@ const CategorySection = () => {
               >
                 {/* Image */}
                 <img
-                  src={bassinImg}
-                  alt="Basin"
-                  className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                  src={hood}
+                  alt="Hood"
+                  className="scale-110 transition-transform duration-500 ease-out group-hover:scale-120 "
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                  <h1 className="text-white text-3xl font-semibold">Basin</h1>
+                  <h1 className="text-white text-3xl font-semibold">Hood</h1>
                   <p className="text-white text-md tracking-[6px]">CATEGORY</p>
                 </div>
               </div>
@@ -245,13 +247,13 @@ const CategorySection = () => {
             >
               {/* Image */}
               <img
-                src={faucet}
-                alt="Faucet"
-                className="transition-transform duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                src={sink}
+                alt="sink"
+                className="scale-110 transition-transform duration-500 ease-out group-hover:scale-120 "
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-gray-800 bg-opacity-20 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-40">
-                <h1 className="text-white text-3xl font-semibold">Faucet</h1>
+                <h1 className="text-white text-3xl font-semibold">Sink</h1>
                 <p className="text-white text-md tracking-[6px]">CATEGORY</p>
               </div>
             </div>
