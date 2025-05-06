@@ -4,7 +4,8 @@ import { getProducts, getSortedProducts } from "../utils/apiProduct";
 import { AuthContext } from "../provider/AuthProvider";
 import Loader from "../components/ui/Loader/Loader";
 import { useParams } from "react-router";
-import bgImage from "/images/new-arrival-banner.jpg";
+// import bgImage from "/images/new-arrival-banner.jpg";
+import video from "../assets/Carrers/New Arrival video.mp4"
 const NewArrivals = () => {
   const { fetching, setFetching, selectedCategory } = useContext(AuthContext);
   const [data, setData] = useState([]);
@@ -41,7 +42,7 @@ const NewArrivals = () => {
   return (
     <div className=" min-h-screen mb-20 md:mb-32">
       {/* banner */}
-      <div
+      {/* <div
         className="h-[50dvh] w-full max-w-full flex items-center text-white overflow-hidden "
         style={{
           backgroundImage: `url(${bgImage})`,
@@ -62,7 +63,15 @@ const NewArrivals = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div>
+              <video
+                className="w-full max-h-screen object-cover"
+                src={video} autoPlay
+                loop
+                muted
+                playsInline ></video>
+            </div>
       {/* product cards */}
 
       <div className="w-11/12 mx-auto lg:col-span-2 xl:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 sm:gap-y-8 sm:gap-x-5 justify-items-center mt-10 md:mt-20">

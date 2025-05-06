@@ -170,7 +170,7 @@ const About = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <p className="w-11/12 md:w-10/12 mx-auto text-center text-lg font-semibold px-10 md:px-30 mt-20 mb-10">
+        <p className="w-11/12 md:w-10/12 mx-auto text-left text-lg font-semibold px-10 md:px-30 mt-20 mb-10">
           Hygiene Plus is a next-generation sanitary care brand committed to redefining
           hygiene standards across Bangladesh. With a strong focus on innovation,
           sustainability, and design, we provide advanced sanitary solutions that empower
@@ -228,10 +228,10 @@ const About = () => {
                   <h3 className="text-2xl font-extrabold text-gray-900 mb-3 tracking-wide">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-700 mb-3 font-semibold leading-relaxed">
+                  <p className="text-gray-700 mb-3 font-semibold  leading-relaxed">
                     {feature.description1}
                   </p>
-                  <p className="text-gray-600 font-semibold leading-relaxed">
+                  <p className="text-gray-600 font-semibold text-left leading-relaxed">
                     {feature.description2}
                   </p>
                 </div>
@@ -271,14 +271,14 @@ const About = () => {
         <h2 className="text-4xl font-bold mb-2 text-center">
           <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">BUSINESS TYPE</span>
         </h2>
-        <p className="text-center ">
+        <p className="text-left w-8/12 mx-auto text-lg ">
           At Hygiene Plus, we are recognized for crafting refined bathware and kitchenware solutions
           that seamlessly combine elegance with performance. Our extensive product range is
           thoughtfully designed to enhance the beauty, hygiene, and efficiency of every space — from
           private homes to professional environments.
         </p>
         <div className="flex justify-between items-center gap-10 mt-20">
-          <div className="flex-9/12">
+          <div className="flex-8/12">
             <h2 className="font-bold text-4xl mb-5 "><span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">KITCHENWARE</span></h2>
             <p className="text-lg">In today’s evolving kitchens, Hygiene Plus brings forward a collection of
               products engineered for elegance and efficiency. Whether it’s daily
@@ -287,15 +287,15 @@ const About = () => {
               thoughtful aesthetics and practical performance to turn every kitchen
               into a place of smart hygiene and streamlined excellence.</p>
           </div>
-          <div className="flex-3/12">
+          <div className="flex-4/12">
             <img src={kitIcon} className="w-full " alt="" />
           </div>
         </div>
         <div className="flex justify-between items-center gap-10 ">
-          <div className="flex-3/12">
+          <div className="flex-4/12">
             <img src={bathIcon} className="w-full " alt="" />
           </div>
-          <div className="flex-9/12">
+          <div className="flex-8/12">
             <h2 className="font-bold text-right text-4xl mb-5 "><span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">BATHWARE</span></h2>
             <p className="text-lg text-right">In the rapidly transforming world of bathroom solutions, Hygiene Plus
               sets the benchmark for modern sophistication. With a dedication to
