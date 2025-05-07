@@ -37,7 +37,7 @@ const VideoSection = () => {
   };
 
   return (
-    <div className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden">
+    <div className="relative h-[12rem] md:h-screen w-full flex items-center justify-center text-white overflow-hidden">
       {/* Background Video */}
       <video
         ref={videoRef}
