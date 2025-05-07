@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import img from "../../assets/navbar/bathware.jpg";
+import img2 from "../../assets/navbar/dropdown/NEW-Collecttion.jpg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router";
@@ -158,7 +159,7 @@ const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
           {/* featured img 2 */}
           <div
             className=" bg-cover bg-center  relative p-4 h-[15rem] w-[18rem] m-4"
-            style={{ backgroundImage: `url(${img})` }}
+            style={{ backgroundImage: `url(${img2})` }}
           >
             <span className="absolute bottom-4 text-gray-900 text-xl font-semibold flex items-center gap-x-2">
               Explore <FaArrowRightLong />

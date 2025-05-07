@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import img from "../../assets/navbar/bathware.jpg";
+import img from "../../assets/navbar/dropdown/KITCHENWARE.jpg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router";
@@ -71,11 +71,12 @@ const KitchenwareDropdown = ({ isOpen, onClose, onSelect, setOpen2 }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-5 justify-items-center m-5 ">
           {/* featured img 1 */}
           <div
-            className=" bg-cover bg-center  relative p-4 h-[18rem] w-[15rem]"
-            style={{ backgroundImage: `url(${img})` }}
+            className=" bg-cover bg-center  relative h-[18rem] w-[15rem]"
+            // style={{ backgroundImage: `url(${img})` }}
           >
+            <img className="w-full h-full bg-cover" src={img} alt="" />
             <span
-              className="absolute bottom-4 text-gray-900 text-xl font-semibold flex items-center gap-x-2 cursor-pointer "
+              className="absolute left-4 bottom-4 text-gray-300 text-xl font-semibold flex items-center gap-x-2 cursor-pointer "
               onClick={() => {
                 navigate("/products/kitchenware");
                 setOpen2(false);

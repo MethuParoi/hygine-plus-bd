@@ -3,6 +3,7 @@ import { FaArrowRightLong } from 'react-icons/fa6'
 import { useNavigate } from 'react-router';
 
 
+
 const KitchenwareDropdownCard = ({
   title,
   img,
