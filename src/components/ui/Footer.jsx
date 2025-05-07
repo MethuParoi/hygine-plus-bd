@@ -82,7 +82,7 @@ function Footer() {
       {/* Social Media */}
       <div className="flex items-center gap-x-5 ">
         <a
-          href="https://www.facebook.com/"
+          href="https://www.facebook.com/share/12LUmagY7qA/"
           target="_blank"
           className="link link-hover"
         >
@@ -90,22 +90,18 @@ function Footer() {
             <FaFacebookF className="text-2xl" />
           </div>
         </a>
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          className="link link-hover"
-        >
+        <a href="#" target="_blank" className="link link-hover">
           <div className="flex gap-x-4 font-medium">
             <AiOutlineInstagram className="text-3xl" />
           </div>
         </a>
-        <a href="https://x.com/" target="_blank" className="link link-hover">
+        <a href="#" target="_blank" className="link link-hover">
           <div className="flex gap-x-4 font-medium">
             <BsTwitterX className="text-2xl" />
           </div>
         </a>
         <a
-          href="https://www.linkedin.com/"
+          href="https://www.linkedin.com/company/hygiene-sanitary-ware/"
           target="_blank"
           className="link link-hover"
         >

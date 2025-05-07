@@ -25,7 +25,7 @@ const Hero = () => {
           layers={[
             {
               image: bgImage,
-              speed: -20,
+              speed: isMobile ? -5 : -20,
               style: {
                 backgroundSize: isMobile ? "190%" : "contain",
                 backgroundPosition: "center",

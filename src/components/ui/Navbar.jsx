@@ -167,11 +167,18 @@ const Navbar = () => {
           >
             New Arrivals
           </button>
+
           <button
             onClick={() => navigate("/about")}
             className="text-lg cursor-pointer font-semibold hover:text-gray-300"
           >
             About Us
+          </button>
+          <button
+            onClick={() => navigate("/careers")}
+            className=" text-lg cursor-pointer font-semibold hover:text-gray-300"
+          >
+            Careers
           </button>
         </div>
         {/* small screen */}
@@ -238,6 +245,14 @@ const Navbar = () => {
                 className="text-lg cursor-pointer font-semibold hover:text-gray-300"
               >
                 About Us
+              </button>
+            </li>
+            <li className="hover:bg-gray-600">
+              <button
+                onClick={() => navigate("/careers")}
+                className="text-lg cursor-pointer font-semibold hover:text-gray-300"
+              >
+                Careers
               </button>
             </li>
           </ul>
