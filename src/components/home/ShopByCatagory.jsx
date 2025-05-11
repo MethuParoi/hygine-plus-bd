@@ -5,6 +5,7 @@ import bassinImg from "../../assets/shop-by-category/bassin.jpg";
 import faucet from "../../assets/shop-by-category/shower.jpg";
 import sink from "../../assets/shop-by-category/sink.jpg";
 import hood from "../../assets/shop-by-category/hood.jpg";
+import logo from "../../assets/logo/logo-black.png";
 
 import { motion } from "framer-motion"; // Import Framer Motion
 import { AuthContext } from "../../provider/AuthProvider";
@@ -22,15 +23,26 @@ const CategorySection = () => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="justify-center text-center"
+        className="flex flex-col align-center justify-center text-center pb-10"
       >
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          Shop By Category
+        <img
+          className="w-[16rem] lg:w-[25rem] justify-center mx-auto mb-10"
+          src={logo}
+          alt=""
+        />
+        <h1 className="text-3xl md:text-3xl font-bold mb-4">
+          SHENZHEN 518000 <br /> CHINA
         </h1>
-        <p className="text-gray-600 ">
-          At Hygiene Plus, we are committed to enhancing{" "}
-          <br className="hidden md:block" />
-          your lifestyle with superior hygiene solutions.
+        <p className="text-gray-600 text-justify text-xl md:w-11/12 lg:w-10/12 mx-auto">
+          HYGIENEN PLUS is a premium sanitary bathware and kitchenware brand
+          dedicated to redefining modern living through luxury, innovation, and
+          quality. Designed for those who seek elegance and functionality,
+          HYGIENEN PLUS offers a wide range of high-end products that blend
+          advanced technology with sophisticated design. From stylish faucets to
+          intelligent kitchen solutions, the brand stands as a symbol of
+          comfort, cleanliness, and contemporary lifestyle. With a commitment to
+          excellence, HYGIENEN PLUS continues to set new benchmarks in luxury
+          home essentials.
         </p>
       </motion.div>
 

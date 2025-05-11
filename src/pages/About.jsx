@@ -170,19 +170,24 @@ const About = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <p className="w-11/12 md:w-10/12 mx-auto text-left text-lg font-semibold px-10 md:px-30 mt-20 mb-10">
-          Hygiene Plus is a next-generation sanitary care brand committed to redefining
-          hygiene standards across Bangladesh. With a strong focus on innovation,
-          sustainability, and design, we provide advanced sanitary solutions that empower
-          individuals and communities to lead healthier, cleaner lives. <br /><br />
-          Our journey began with a simple idea: to make hygiene not just a necessity, but a
-          lifestyle. Today, Hygiene Plus stands as a symbol of trust, quality, and progressive
-          thinking in the world of personal care and sanitary essentials.
+        <p className="w-11/12 md:w-10/12 mx-auto text-2xl text-justify px-10 md:px-30 mt-20 mb-10">
+          Hygiene Plus is a next-generation sanitary care brand committed to
+          redefining hygiene standards across Bangladesh. With a strong focus on
+          innovation, sustainability, and design, we provide advanced sanitary
+          solutions that empower individuals and communities to lead healthier,
+          cleaner lives. <br />
+          <br />
+          Our journey began with a simple idea: to make hygiene not just a
+          necessity, but a lifestyle. Today, Hygiene Plus stands as a symbol of
+          trust, quality, and progressive thinking in the world of personal care
+          and sanitary essentials.
         </p>
       </div>
       <div className="w-11/12 md:w-10/12 mx-auto">
         <h2 className="text-4xl font-bold text-center mb-20">
-          <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">HYGIENEPLUS-COREESSENCE</span>
+          <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">
+            HYGIENEPLUS-COREESSENCE
+          </span>
         </h2>
         {/* Feature Cards Section (No Change) */}
         <div className="container mx-auto py-16">
@@ -215,7 +220,11 @@ const About = () => {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeOut", delay: index * 0.2 }}
+                transition={{
+                  duration: 1,
+                  ease: "easeOut",
+                  delay: index * 0.2,
+                }}
                 className="flex flex-col items-center bg-[#f9fbfc] p-8 rounded-xl shadow-md text-center"
               >
                 {/* Icon */}
@@ -244,10 +253,13 @@ const About = () => {
       <div className="w-11/12 md:w-7/12 mx-auto my-20">
         <div className="">
           <h2 className="text-4xl font-bold mb-2 text-center">
-            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">OUR VISION</span>
+            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">
+              OUR VISION
+            </span>
           </h2>
           <p className="text-center ">
-            To lead Bangladesh toward a cleaner, healthier future—one where <br /> hygiene is smart, sustainable, and accessible to all.
+            To lead Bangladesh toward a cleaner, healthier future—one where{" "}
+            <br /> hygiene is smart, sustainable, and accessible to all.
           </p>
         </div>
         <div className="">
@@ -255,11 +267,15 @@ const About = () => {
         </div>
         <div className="mt-20">
           <h2 className="text-4xl font-bold mb-2 text-center">
-            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">OUR MISSION</span>
+            <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">
+              OUR MISSION
+            </span>
           </h2>
           <p className="text-center ">
-            To develop cutting-edge sanitary products that merge technology, <br />
-            design, and sustainability—empowering people to live with dignity, <br />
+            To develop cutting-edge sanitary products that merge technology,{" "}
+            <br />
+            design, and sustainability—empowering people to live with dignity,{" "}
+            <br />
             confidence, and care.
           </p>
         </div>
@@ -269,46 +285,61 @@ const About = () => {
       </div>
       <div className="mt-20 w-11/12 md:w-10/12 mx-auto mb-20">
         <h2 className="text-4xl font-bold mb-2 text-center">
-          <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">BUSINESS TYPE</span>
+          <span className="inline-block bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent">
+            BUSINESS TYPE
+          </span>
         </h2>
         <p className="text-left w-8/12 mx-auto text-lg ">
-          At Hygiene Plus, we are recognized for crafting refined bathware and kitchenware solutions
-          that seamlessly combine elegance with performance. Our extensive product range is
-          thoughtfully designed to enhance the beauty, hygiene, and efficiency of every space — from
+          At Hygiene Plus, we are recognized for crafting refined bathware and
+          kitchenware solutions that seamlessly combine elegance with
+          performance. Our extensive product range is thoughtfully designed to
+          enhance the beauty, hygiene, and efficiency of every space — from
           private homes to professional environments.
         </p>
-        <div className="flex justify-between items-center gap-10 mt-20">
+        <div className="flex justify-between items-center gap-10 mt-20 lg:w-11/12 mx-auto">
           <div className="flex-8/12">
-            <h2 className="font-bold text-4xl mb-5 "><span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">KITCHENWARE</span></h2>
-            <p className="text-lg">In today’s evolving kitchens, Hygiene Plus brings forward a collection of
-              products engineered for elegance and efficiency. Whether it’s daily
-              cooking or professional use, our kitchenware line is built to simplify and
-              beautify. Designed for the modern lifestyle, our products integrate
-              thoughtful aesthetics and practical performance to turn every kitchen
-              into a place of smart hygiene and streamlined excellence.</p>
+            <h2 className="font-bold text-4xl mb-5 ">
+              <span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">
+                KITCHENWARE
+              </span>
+            </h2>
+            <p className="text-lg text-justify">
+              In today’s evolving kitchens, Hygiene Plus brings forward a
+              collection of products engineered for elegance and efficiency.
+              Whether it’s daily cooking or professional use, our kitchenware
+              line is built to simplify and beautify. Designed for the modern
+              lifestyle, our products integrate thoughtful aesthetics and
+              practical performance to turn every kitchen into a place of smart
+              hygiene and streamlined excellence.
+            </p>
           </div>
           <div className="flex-4/12">
             <img src={kitIcon} className="w-full " alt="" />
           </div>
         </div>
-        <div className="flex justify-between items-center gap-10 ">
+        <div className="flex justify-between items-center gap-10 lg:w-11/12 mx-auto">
           <div className="flex-4/12">
             <img src={bathIcon} className="w-full " alt="" />
           </div>
           <div className="flex-8/12">
-            <h2 className="font-bold text-right text-4xl mb-5 "><span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">BATHWARE</span></h2>
-            <p className="text-lg text-right">In the rapidly transforming world of bathroom solutions, Hygiene Plus
-              sets the benchmark for modern sophistication. With a dedication to
-              innovation and comfort, we deliver sanitary products that go beyond
-              basic utility — transforming bathrooms into wellness spaces that
-              reflect luxury, cleanliness, and care. Our designs blend form with
-              function, offering an experience that feels as refined as it is reliable.</p>
+            <h2 className="font-bold text-right text-4xl mb-5 ">
+              <span className="bg-gradient-to-r from-[#e63946] to-[#6a0572] bg-clip-text text-transparent ">
+                BATHWARE
+              </span>
+            </h2>
+            <p className="text-lg text-justify">
+              In the rapidly transforming world of bathroom solutions, Hygiene
+              Plus sets the benchmark for modern sophistication. With a
+              dedication to innovation and comfort, we deliver sanitary products
+              that go beyond basic utility — transforming bathrooms into
+              wellness spaces that reflect luxury, cleanliness, and care. Our
+              designs blend form with function, offering an experience that
+              feels as refined as it is reliable.
+            </p>
           </div>
-
         </div>
       </div>
     </div>
-
   );
 };
 

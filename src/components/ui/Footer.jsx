@@ -71,9 +71,16 @@ function Footer() {
             </a>
             <a>
               <div className="flex justify-start items-start gap-x-2 font-medium w-64 sm:w-84 pl-1">
-                <FaLocationDot className=" text-2xl" />
-                Mazed Sardar Tower-1, 153 Haji Osman Gani Road Alu Bazar, Dhaka,
-                Bangladesh
+                <FaLocationDot className=" w-8 h-8" />
+                Dhaka Office: <br /> Mazed Sardar Tower-1, 153 Haji Osman Gani
+                Road Alu Bazar, Dhaka, Bangladesh
+              </div>
+            </a>
+            <a>
+              <div className="flex justify-start items-start gap-x-2 font-medium w-64 sm:w-84 pl-1">
+                <FaLocationDot className=" w-10 h-10" />
+                China Office: <br /> 3403, Zhongliangyunjing Building, Songbai
+                Road, Matian Street, Guangming, Shenzhen, Guangdong, China
               </div>
             </a>
           </nav>
@@ -113,11 +120,11 @@ function Footer() {
       <div className="mt-4">
         <hr className="w-[80vw] text-red-600 h-[0.25px]border-0" />
         <div className="flex flex-col items-center justify-center gap-x-2 mt-4 mb-8">
-          <p className="text-white text-xl font-semibold text-center">
+          {/* <p className="text-white text-xl font-semibold text-center">
             ACCESSIBILITY NEED HELP? (800) 511-9484
-          </p>
+          </p> */}
           <p className="text-center text-white text-center">
-            Copyright © bdygieneplusbd.com llc
+            Copyright © hygieneplusbd.com ltd.
           </p>
         </div>
       </div>

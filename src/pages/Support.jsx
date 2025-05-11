@@ -1,14 +1,10 @@
-import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
-import {  Target, Mail, Headset, Wrench, PhoneCall } from "lucide-react";
+import { Target, Mail, Headset, Wrench, PhoneCall } from "lucide-react";
 import aboutImg from "../assets/products/Production+Line+Setup.jpg";
 
 const Support = () => {
   return (
     <div className="py-16 bg-gray-100 ">
-      <Helmet>
-        <title>Hygiene | Support</title>
-      </Helmet>
       <div className="max-w-6xl mx-auto px-4">
         {/* About Section */}
         <motion.section
