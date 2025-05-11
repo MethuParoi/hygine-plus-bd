@@ -9,6 +9,7 @@ import KitchenSink from "../../assets/navbar/dropdown/kitchen.jpg";
 import KitchenBurners from "../../assets/navbar/dropdown/burner.jpg";
 import MultifunctionalOven from "../../assets/navbar/dropdown/oven.jpg";
 import SinkMixer from "../../assets/navbar/dropdown/faucet.jpg";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 // Example data structure for categories and subcategories
 const menu = [
@@ -62,6 +63,9 @@ const KitchenwareDropdown = ({ isOpen, onClose, onSelect, setOpen2 }) => {
   return (
     <div
       className="absolute left-[-3.5rem] top-[2.8rem] z-40"
+      onMouseLeave={() => {
+        setOpen2((o) => !o);
+      }}
       onClick={onClose}
     >
       <div
@@ -69,6 +73,16 @@ const KitchenwareDropdown = ({ isOpen, onClose, onSelect, setOpen2 }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-5 justify-items-center m-5 ">
+          {/* close button */}
+          <div className="absolute right-4 top-4 md:hidden">
+            <button
+              onClick={() => {
+                setOpen2((o) => !o);
+              }}
+            >
+              <IoMdCloseCircleOutline className="text-red-500 text-3xl" />
+            </button>
+          </div>
           {/* featured img 1 */}
           <div
             className=" bg-cover bg-center  relative h-[18rem] w-[15rem]"

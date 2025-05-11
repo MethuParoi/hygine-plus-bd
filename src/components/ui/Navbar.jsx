@@ -123,6 +123,7 @@ const Navbar = () => {
           isOpen={open}
           onClose={() => setOpen(false)}
           onSelect={handleSelect}
+          setOpen={setOpen}
         />
         {/* Kitchenware dropdown */}
         <KitchenwareDropdown
@@ -133,7 +134,7 @@ const Navbar = () => {
         />
         <div className="hidden md:flex items-center gap-x-10 ">
           <button
-            onClick={() => {
+            onMouseEnter={() => {
               setOpen((o) => !o);
               setOpen2(false);
             }}
@@ -144,10 +145,14 @@ const Navbar = () => {
           </button>
           {/* kitchenware dropdown */}
           <button
-            onClick={() => {
+            onMouseEnter={() => {
               setOpen2((o) => !o);
               setOpen(false);
             }}
+            // onClick={() => {
+            //   setOpen2((o) => !o);
+            //   setOpen(false);
+            // }}
             className="text-lg cursor-pointer font-semibold hover:text-gray-300 flex items-center gap-x-1"
           >
             Kitchenware

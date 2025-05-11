@@ -4,6 +4,7 @@ import img2 from "../../assets/navbar/dropdown/NEW-Collecttion.jpg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 // Example data structure for categories and subcategories
 const menu = [
@@ -100,7 +101,7 @@ const menu = [
   },
 ];
 
-const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
+const BathwareDropdown = ({ isOpen, onClose, onSelect, setOpen }) => {
   const { selectedCategory, setSelectedCategory } = useContext(AuthContext);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
@@ -138,11 +139,14 @@ const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
 
   return (
     <div
-      className="absolute left-[-3.5rem] top-[2.8rem] w-screen h-screen z-40"
+      className="absolute left-[-3.5rem] top-[2.8rem] w-screen h-screen z-40 md:overflow-y-hidden"
       onClick={onClose}
+      onMouseLeave={() => {
+        setOpen((o) => !o);
+      }}
     >
       <div
-        className="absolute top-0 left-0 w-screen h-[80vh] bg-white z-50 shadow-lg overflow-hidden flex"
+        className="absolute top-0 left-0 w-screen h-[80vh] bg-white z-50 shadow-lg overflow-auto md:overflow-hidden flex"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Left Panel with two featured blocks */}
@@ -168,8 +172,18 @@ const BathwareDropdown = ({ isOpen, onClose, onSelect }) => {
         </div>
 
         {/* Right Panel: grid of categories */}
-        <div className="w-full lg:w-3/4 p-8 overflow-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-0 md:gap-8 justify-items-center lg:justify-items-start">
+        <div className="w-full lg:w-3/4 pt-4 pb-10 px-8 md:overflow-y-hidden">
+          {/* close button */}
+          <div className="absolute right-4 top-4 md:hidden">
+            <button
+              onClick={() => {
+                setOpen((o) => !o);
+              }}
+            >
+              <IoMdCloseCircleOutline className="text-red-500 text-3xl" />
+            </button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-0 md:gap-8 justify-items-center lg:justify-items-start ">
             {/* commode and urinal */}
             <div className="" key={menu[0].title}>
               <h3 className="font-bold border-l-4 border-black pl-2 mb-2 text-black">
