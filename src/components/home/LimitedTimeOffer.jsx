@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Countdown from "react-countdown";
-import bgimage from '../../assets/products/LIMITED-TIMER.jpg'
+import bgimage from "../../assets/products/LIMITED-TIMER.jpg";
 
+const FIFTEEN_DAYS_MS = 15 * 24 * 60 * 60 * 1000;
 const LimitedTimeOffer = () => {
-  //15 days from now
-  // Set the countdown target date
-  const targetDate = new Date("2026-01-30T23:59:59").getTime();
+  // Initialize target date to 15 days from now
+  const [targetDate, setTargetDate] = useState(Date.now() + FIFTEEN_DAYS_MS);
+
+  // Handler when countdown completes
+  const handleComplete = () => {
+    // Reset to 15 days from now
+    setTargetDate(Date.now() + FIFTEEN_DAYS_MS);
+  };
 
   return (
     <div
@@ -33,6 +39,7 @@ const LimitedTimeOffer = () => {
         {/* Countdown Timer */}
         <div className="text-center md:text-right mt-4 md:mt-0">
           <Countdown
+            onComplete={handleComplete}
             date={targetDate}
             renderer={({ days, hours, minutes, seconds }) => (
               <div className="flex space-x-6">
