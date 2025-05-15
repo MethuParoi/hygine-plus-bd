@@ -1,4 +1,4 @@
-# BD Hygiene
+# Hygiene Plus(Bathware & Kitchenware E-commerce)
 
 **Live Demo:** [Hygiene Plus Live Demo](https://hygieneplusbd.com/)
 
