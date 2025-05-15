@@ -1,6 +1,6 @@
 # BD Hygiene
 
-**Live Demo:** [BD Hygiene Live Demo](https://hygieneplusbd.com/)
+**Live Demo:** [Hygiene Plus Live Demo](https://hygieneplusbd.com/)
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 </div>
 
 ## 📝 Project Purpose
-BD Hygiene is an e-commerce platform designed to provide a seamless shopping experience for hygiene-related products. The platform offers a wide range of products, including bathware and kitchenware, with features like limited-time offers, product sorting, and detailed product descriptions. The project aims to deliver a user-friendly interface with real-time updates and secure user authentication.
+Hygiene Plus is an e-commerce platform designed to provide a seamless shopping experience for hygiene-related products. The platform offers a wide range of products, including bathware and kitchenware, with features like limited-time offers, product sorting, and detailed product descriptions. The project aims to deliver a user-friendly interface with real-time updates and secure user authentication.
 
 ## 🚀 List of Technologies used in the project
 
