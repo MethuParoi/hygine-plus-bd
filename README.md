@@ -4,9 +4,9 @@
 
 <div align="center">
 
-![Header]([https://example.com/header-image-1.png](https://lrbogqzvnkxhatqgtwtr.supabase.co/storage/v1/object/public/images//bd-hygiene-1.png))
+![Header]([https://lrbogqzvnkxhatqgtwtr.supabase.co/storage/v1/object/public/images//bd-hygiene-1.png])
 
-![Header]([https://example.com/header-image-2.png](https://lrbogqzvnkxhatqgtwtr.supabase.co/storage/v1/object/public/images//bd-hygiene-2.png))
+![Header]([https://lrbogqzvnkxhatqgtwtr.supabase.co/storage/v1/object/public/images//bd-hygiene-2.png])
 
 </div>
 
